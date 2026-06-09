@@ -11,8 +11,8 @@
            تنسيقات شريط التنقل الرئيسي
         ========================================= */
         body { margin: 0; padding: 0; background-color: #111; }
-        .main-navbar { background: linear-gradient(90deg, #1a252f 0%, #000000 100%); padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex; justify-content: center; gap: 15px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #D9C563; flex-wrap: wrap; }
-        .main-tab-btn { background-color: rgba(255,255,255,0.1); color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; border: 1px solid transparent; font-family: Tahoma, Arial, sans-serif; }
+        .main-navbar { background: linear-gradient(90deg, #1a252f 0%, #000000 100%); padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex; justify-content: center; gap: 10px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #D9C563; flex-wrap: wrap; }
+        .main-tab-btn { background-color: rgba(255,255,255,0.1); color: white; padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; border: 1px solid transparent; font-family: Tahoma, Arial, sans-serif; font-size: 14px; }
         .main-tab-btn:hover { background-color: rgba(255,255,255,0.2); }
         .main-tab-btn.active { background-color: #D9C563; color: #000; border-color: #fff; box-shadow: 0 0 10px rgba(217, 197, 99, 0.5); }
         .main-section { display: none; min-height: 100vh; }
@@ -81,11 +81,11 @@
         #section-admin header { text-align: center; margin-bottom: 30px; }
         #section-admin header h1 { margin: 0; font-size: 32px; font-weight: 800; color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.6); }
         #section-admin header p { margin: 10px 0 0 0; color: #D9C563; font-size: 16px; font-weight: bold; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        #section-admin .nav-container { max-width: 1000px; margin: 0 auto 30px auto; }
+        #section-admin .nav-container { max-width: 1100px; margin: 0 auto 30px auto; }
         #section-admin .nav-title { font-size: 16px; color: white; margin-bottom: 15px; font-weight: bold; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
-        #section-admin .nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+        #section-admin .nav-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         #section-admin .nav-btn { 
-            background-color: rgba(0,0,0,0.6); color: white; padding: 12px 5px; border: 1px solid rgba(255,255,255,0.2); 
+            background-color: rgba(0,0,0,0.6); color: white; padding: 12px 18px; border: 1px solid rgba(255,255,255,0.2); 
             border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.3s ease; text-align: center; backdrop-filter: blur(8px);
         }
         #section-admin .nav-btn:hover { border-color: #D9C563; transform: translateY(-2px); background-color: rgba(0,0,0,0.8); }
@@ -101,7 +101,6 @@
         #section-admin .form-group { margin-bottom: 20px; }
         #section-admin label { display: block; font-weight: bold; margin-bottom: 8px; color: white; font-size: 15px; text-align: right; }
         
-        /* النمط الذهبي للحقول */
         #section-admin input[type="text"], #section-admin input[type="number"], #section-admin input[type="date"], #section-admin input[type="time"], #section-admin select { 
             width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.2); border-radius: 10px; box-sizing: border-box; 
             font-size: 15px; font-weight: bold; background-color: #D9C563; color: black; transition: 0.3s; font-family: Tahoma, Arial, sans-serif;
@@ -110,11 +109,9 @@
         #section-admin input:focus, #section-admin select:focus { outline: 2px solid rgba(255,255,255,0.5); box-shadow: 0 0 10px rgba(217,197,99,0.5); }
         #section-admin select option { background-color: white; color: black; }
 
-        /* تنسيق مربع الصح (Checkbox) لتأخير الترقية */
         #section-admin input[type="checkbox"] { width: 20px; height: 20px; accent-color: #D9C563; cursor: pointer; vertical-align: middle; }
         .checkbox-container { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 10px; border: 1px solid rgba(217,197,99,0.5); margin-top: 10px; }
         
-        /* تعديل أيقونات التقويم والوقت للحقول الذهبية */
         #section-admin input[type="date"]::-webkit-calendar-picker-indicator,
         #section-admin input[type="time"]::-webkit-calendar-picker-indicator { cursor: pointer; filter: invert(0.8); }
 
@@ -127,7 +124,6 @@
         
         #section-admin .section-title { color: #D9C563; font-size: 18px; margin-bottom: 15px; text-align: right; font-weight: bold; border-bottom: 1px dashed rgba(217,197,99,0.4); padding-bottom: 8px; }
         
-        /* الأزرار الذهبية */
         #section-admin .btn-generate { width: 100%; background-color: #D9C563; color: black; padding: 14px; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-family: Tahoma, Arial, sans-serif;}
         #section-admin .btn-generate:hover { transform: scale(1.02); filter: brightness(1.1); }
         
@@ -230,7 +226,6 @@
                 <h2 class="results-title">النتائج</h2>
                 <div id="results"></div>
                 <button class="copy-btn" onclick="copyCompResults()">📋 نسخ النتائج</button>
-                <div class="footer-note" style="margin-top:14px; font-size:13px; color:#e9db90; opacity:.85;">التحقق الزمني يقارن نهاية تقرير المشرف مع بداية تقرير الفني، ويعرض أي خطأ واضح في الفترة الزمنية.</div>
             </div>
         </div>
     </div>
@@ -254,10 +249,12 @@
                 <button class="nav-btn" onclick="showAdminTab('warning_verbal', this)">إنذار شفهي</button>
                 <button class="nav-btn" onclick="showAdminTab('weakness_report', this)">تقرير الضعف</button>
                 <button class="nav-btn" onclick="showAdminTab('supervisors_report', this)">تقرير المشرفين</button>
+                <button class="nav-btn" onclick="showAdminTab('course_completion', this)">إعتماد دورة</button>
+                <button class="nav-btn" onclick="showAdminTab('course_fees', this)">عذر رسوم الدورة</button>
+                <button class="nav-btn" onclick="showAdminTab('course_deposit', this)">إيداع رسوم الدورة</button>
             </div>
         </div>
 
-        <!-- 1. نموذج الإجازة الداخلية -->
         <div id="leave" class="form-container active">
             <h2>إصدار إجازة داخلية</h2>
             <div class="form-group"><label>الموظف المستهدف:</label><select id="leaveUserType"><option value="الفني المحترم">فني</option><option value="المشرف المحترم">مشرف</option></select></div>
@@ -278,7 +275,6 @@
             <div class="result-box" id="leaveResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('leaveOutput', this)">نسخ الكود</button></div><textarea id="leaveOutput" readonly></textarea></div>
         </div>
 
-        <!-- 2. نموذج الإجازة الخارجية -->
         <div id="leave_external" class="form-container">
             <h2>إصدار إجازة خارجية</h2>
             <div class="form-group"><label>معرّف الفني (Discord ID):</label><input type="text" id="extId"></div>
@@ -296,7 +292,6 @@
             <div class="result-box" id="extResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('extOutput', this)">نسخ الكود</button></div><textarea id="extOutput" readonly></textarea></div>
         </div>
 
-        <!-- 3. نموذج الانتداب الخارجي -->
         <div id="delegation" class="form-container">
             <h2>إصدار انتداب خارجي (شرف)</h2>
             <div class="form-group"><label>معرّف الموظف (Discord ID):</label><input type="text" id="delId"></div>
@@ -309,7 +304,6 @@
             <div class="result-box" id="delResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('delOutput', this)">نسخ الكود</button></div><textarea id="delOutput" readonly></textarea></div>
         </div>
 
-        <!-- 4. نموذج إنذار وغرامة -->
         <div id="warning_fine" class="form-container">
             <h2>إصدار إنذار وظيفي وغرامة مالية</h2>
             <div class="form-group">
@@ -319,8 +313,6 @@
                     <option value="ثاني">الإنذار الثاني ( ثاني )</option>
                     <option value="نهائي">الإنذار النهائي ( نهائي )</option>
                 </select>
-                
-                <!-- هذا المربع مخفي افتراضياً، يظهر فقط عند اختيار "إنذار نهائي" -->
                 <div id="delayPromoContainer" class="checkbox-container" style="display: none;">
                     <input type="checkbox" id="fineDelayPromo">
                     <label for="fineDelayPromo" style="margin: 0; color: #D9C563;">تأخير الترقية (أسبوع) ؟</label>
@@ -338,7 +330,6 @@
             <div class="result-box" id="fineResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('fineOutput', this)">نسخ الكود</button></div><textarea id="fineOutput" readonly></textarea></div>
         </div>
 
-        <!-- 5. نموذج إنذار شفهي -->
         <div id="warning_verbal" class="form-container">
             <h2>إصدار إنذار شفهي</h2>
             <div class="form-group"><label>معرّف المخالف (ID):</label><input type="text" id="verbalEmpId"></div>
@@ -348,7 +339,6 @@
             <div class="result-box" id="verbalResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('verbalOutput', this)">نسخ الكود</button></div><textarea id="verbalOutput" readonly></textarea></div>
         </div>
 
-        <!-- 6. تقرير الضعف -->
         <div id="weakness_report" class="form-container">
             <h2>توزيع تقرير الضعف</h2>
             <div class="row">
@@ -389,7 +379,6 @@
             <div class="result-box" id="wrResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('wrOutput', this)">نسخ الكود</button></div><textarea id="wrOutput" readonly></textarea></div>
         </div>
 
-        <!-- 7. تقرير المشرفين -->
         <div id="supervisors_report" class="form-container">
             <h2>تقرير المشرفين</h2>
             <div class="row">
@@ -437,6 +426,135 @@
                 <textarea id="srOutput" readonly></textarea>
             </div>
         </div>
+
+        <div id="course_completion" class="form-container">
+            <h2>إعتماد نتائج دورة وطلب رول</h2>
+            <div class="row">
+                <div class="form-group">
+                    <label>نوع الدورة:</label>
+                    <select id="ccType">
+                        <option value="الاساسية">الأساسية</option>
+                        <option value="الاستثنائية">الاستثنائية</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>اسم الدورة:</label>
+                    <select id="ccName">
+                        <option value="خدمات الطرق">خدمات الطرق</option>
+                        <option value="العمليات">العمليات</option>
+                        <option value="التصنيع">التصنيع</option>
+                        <option value="تعديل تزويد">تعديل تزويد</option>
+                        <option value="الدليل الشامل">الدليل الشامل</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>رقم الدورة:</label><input type="number" id="ccNum" placeholder="مثال: 15"></div>
+            </div>
+            <div class="grid-3-col">
+                <div class="form-group"><label>تم الشرح من قبل (ID):</label><input type="text" id="ccPresenter" placeholder="منشن أو ID"></div>
+                <div class="form-group"><label>تم التصحيح من قبل (ID):</label><input type="text" id="ccCorrector" placeholder="منشن أو ID"></div>
+                <div class="form-group"><label>مراقب الدورة (ID):</label><input type="text" id="ccObserver" placeholder="منشن أو ID"></div>
+            </div>
+            <div class="row">
+                <div class="form-group"><label>المدربين المتفاعلين (ID):</label><input type="text" id="ccActiveTrainers" placeholder="منشنات المدربين"></div>
+                <div class="form-group"><label>باقي المدربين (ID):</label><input type="text" id="ccOtherTrainers" value="لا يوجد"></div>
+            </div>
+            <div class="row">
+                <div class="form-group"><label>رابط طلب الرول (المرجع):</label><input type="text" id="ccRoleLink" value="https://discord.com/channels/1071933157097615480/1152469897000001599/1512170342557286561"></div>
+                <div class="form-group"><label>توقيع واعتماد (ID):</label><input type="text" id="ccApprover" value="1199529688989696051"></div>
+            </div>
+            <button class="btn-generate" onclick="generateCourseCompletion()">توليد الكود</button>
+            <div class="result-box" id="ccResultBox">
+                <div class="result-header">
+                    <div class="result-label">الكود الجاهز:</div>
+                    <button class="copy-btn" onclick="copyAdminText('ccOutput', this)">نسخ الكود</button>
+                </div>
+                <textarea id="ccOutput" readonly></textarea>
+            </div>
+        </div>
+
+        <div id="course_fees" class="form-container">
+            <h2>استلام عذر عدم دفع رسوم الدورة</h2>
+            <div class="row">
+                <div class="form-group"><label>اسم الشخص (ID):</label><input type="text" id="cfUserId" placeholder="مثال: 918672424344633424"></div>
+                <div class="form-group">
+                    <label>اسم الدورة:</label>
+                    <select id="cfCourseName">
+                        <option value="خدمات الطرق اساسي">خدمات الطرق اساسي</option>
+                        <option value="خدمات الطرق استثنائيه">خدمات الطرق استثنائيه</option>
+                        <option value="العمليات">العمليات</option>
+                        <option value="التصنيع">التصنيع</option>
+                        <option value="تعديل تزويد">تعديل تزويد</option>
+                        <option value="الدليل الشامل">الدليل الشامل</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>رقم الدورة:</label><input type="number" id="cfCourseNum" placeholder="مثال: 25"></div>
+            </div>
+            <div class="form-group"><label>سبب عدم التسديد في الوقت المحدد:</label><input type="text" id="cfReason" value="عدم المقدره على التواجد داخل المقاطعه وقت الدورة."></div>
+            <div class="form-group"><label>رابط الفاتورة/المخالفة:</label><input type="text" id="cfInvoiceUrl" placeholder="https://discord.com/..."></div>
+            <div class="row">
+                <div class="form-group"><label>مسؤولين الدورة (ID):</label><input type="text" id="cfManagers" value="<@831347644110077975> - <@1014559920479272980>"></div>
+                <div class="form-group"><label>للإحاطة (ID):</label><input type="text" id="cfNotice" value="<@457775919122087936>"></div>
+            </div>
+            <button class="btn-generate" onclick="generateCourseFees()">توليد الكود</button>
+            <div class="result-box" id="cfResultBox">
+                <div class="result-header">
+                    <div class="result-label">الكود الجاهز:</div>
+                    <button class="copy-btn" onclick="copyAdminText('cfOutput', this)">نسخ الكود</button>
+                </div>
+                <textarea id="cfOutput" readonly></textarea>
+            </div>
+        </div>
+
+        <!-- 10. نموذج إيداع رسوم الدورة (المُعدّل) -->
+        <div id="course_deposit" class="form-container">
+            <h2>إيداع أموال الدورات في الخزنة</h2>
+            <div class="form-group">
+                <label>نوع الإيداع:</label>
+                <select id="depType" onchange="toggleDepositFields()">
+                    <option value="prepay">دفع مسبق لفني</option>
+                    <option value="announced">سبب الإيداع لدورة معلنة</option>
+                    <option value="private">سبب الإيداع لدورة استثنائية (خاصة)</option>
+                </select>
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label>اسم الدورة / الرسوم:</label>
+                    <select id="depCourseName" onchange="toggleDepositFields()">
+                        <option value="خدمات الطرق">خدمات الطرق</option>
+                        <option value="العمليات">العمليات</option>
+                        <option value="التصنيع">التصنيع</option>
+                        <option value="تعديل تزويد">تعديل تزويد</option>
+                        <option value="الدليل الشامل">الدليل الشامل</option>
+                        <option value="رسوم التوظيف">رسوم التوظيف</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>رقم/تسلسل الدورة:</label><input type="number" id="depCourseNum" placeholder="مثال: 00"></div>
+                
+                <div class="form-group" id="depCategoryDiv">
+                    <label>فئة الدورة:</label>
+                    <select id="depCourseCategory">
+                        <option value="الاساسية">الأساسية</option>
+                        <option value="الاستثنائية">الاستثنائية</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" id="depTechDiv">
+                <label>اسم الفني (ID أو منشن):</label>
+                <input type="text" id="depTechName" placeholder="مثال: 918672424344633424">
+            </div>
+
+            <button class="btn-generate" onclick="generateCourseDeposit()">توليد الكود</button>
+            <div class="result-box" id="depResultBox">
+                <div class="result-header">
+                    <div class="result-label">الكود الجاهز:</div>
+                    <button class="copy-btn" onclick="copyAdminText('depOutput', this)">نسخ الكود</button>
+                </div>
+                <textarea id="depOutput" readonly></textarea>
+            </div>
+        </div>
+
         <div class="footer">بوابة الشؤون الإدارية المتكاملة لقطاعات الكراج © 2026</div>
     </div>
 
@@ -444,7 +562,6 @@
          الجافاسكريبت الشامل لكل الأقسام
     ========================================= -->
     <script>
-        // --- دالة التنقل الرئيسية بين المواقع الثلاثة ---
         function switchMainSection(sectionId, btnElement) {
             document.querySelectorAll('.main-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.main-tab-btn').forEach(el => el.classList.remove('active'));
@@ -452,321 +569,126 @@
             btnElement.classList.add('active');
         }
 
-        // =========================================
-        // سكربت القسم الأول: الجرد والترقيات
-        // =========================================
-        function getPromotionLevels() {
-            const level = document.getElementById("levelSelect").value;
-            const map = { "trainee": ["متدرب", "1"], "1": ["1", "2"], "2": ["2", "3"], "3": ["3", "4"], "4": ["4", "5"] };
-            return map[level] || ["?", "?"];
-        }
-        function parseLines() {
-            const text = document.getElementById('inputText').value;
-            const currentLevel = document.getElementById("levelSelect").value;
-            const pointsConfig = { "trainee": 4, "1": 8, "2": 14, "3": 21, "4": 28 };
-            const requiredPoints = pointsConfig[currentLevel] || 0;
-            const seen = new Set();
-            return text.split("\n").map(line => {
-                if (!line.trim() || line.includes("منصب شاغر")) return null;
-                const idMatch = line.match(/<@[^>]+>/);
-                const id = idMatch ? idMatch[0] : null;
-                if (!id || seen.has(id)) return null;
-                seen.add(id);
-                const checks = (line.match(/✅/g) || []).length;
-                let points = 0;
-                const pMatch = line.match(/(?:النقاط\s*[:=]?\s*(\d+))|(?:(\d+)\s*(?:نقطة|نقاط|نقطه))/i);
-                if (pMatch) points = parseInt(pMatch[1] || pMatch[2]);
-                else {
-                    const nums = line.replace(/<@[^>]+>/g, '').match(/\d+/g);
-                    if (nums) points = parseInt(nums[nums.length - 1]);
-                }
-                return { id, checks, points, qualified: (checks >= 2 && points >= requiredPoints) };
-            }).filter(x => x);
-        }
-        function analyzeText(){
-            const data = parseLines();
-            document.getElementById("cleanedText").value = data.map(d => `${d.id} | الصح: ${d.checks} | النقاط: ${d.points}`).join("\n");
-        }
-        function filterQualified(){
-            const data = parseLines().filter(d => d.qualified);
-            document.getElementById("cleanedText").value = data.map(d => `${d.id}`).join("\n");
-            document.getElementById("counter").textContent = `✅ المستحقون: ${data.length}`;
-        }
-        function filterNotQualifiedOnly(){
-            const data = parseLines().filter(d => !d.qualified);
-            document.getElementById("cleanedText").value = data.map(d => `${d.id}`).join("\n");
-        }
-        function filterNotQualified(){
-            let start = parseInt(document.getElementById("startCode").value);
-            if (isNaN(start)) { alert("ضع بداية الكود أولاً"); return; }
-            const data = parseLines().filter(d => !d.qualified);
-            document.getElementById("cleanedText").value = data.map((d, i) => `${d.id} G-${start + i}`).join("\n");
-        }
-        function reassignCodes(){
-            const data = parseLines().filter(d => d.qualified);
-            document.getElementById("cleanedText").value = data.map((d,i) => `${d.id} G-${400+i}`).join("\n");
-        }
-        function generatePromotionForm() {
-            const data = parseLines().filter(d => d.qualified);
-            const levels = getPromotionLevels();
-            if (data.length === 0) {
-                document.getElementById("promotionBox").value = "⚠️ لا يوجد مستحقين حالياً.";
-                return;
-            }
-            const template = `*** ▬▬▬ ﷽ ▬▬▬\n\`\`\`diff\n-الموضوع: ترقيات مستوى (${levels[0]}) .\n\`\`\`\n\n\`\`\`cs\n# بعد الاطلاع على نظام الترقيات واحصائيات السجلات خلال فترة التدريب الصادر من قبل ادارة الكراج الموقره قررنا مايلي:\n\`\`\`\n\`\`\`\nأولا: ترقية التاليه أسمائهم من رتبة مستوى (${levels[0]}) الى رتبة مستوى (${levels[1]}) اعتباراً من صدور هذا القرار\nثانياً: على مدير قسم السجلات اعتماد اكوادهم الجديدة ورفع رتبهم للمستوى المطلوب\nثالثاً: على مسؤول شؤون التدريب الحاقهم بالدورات المستحقة\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\`\`\`\n${data.map(d => d.id).join("\n")}\n\n* مع تمنياتنا لهم بالتوفيق والنجاح  .\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\nامضاء / المهندس\n<@818887908265033728>   \n <@&1187334915189133352> \n\n<@&1092120390324731994>    / للمتابعة.\n<@&1071933353516879902>  /السجلات.\n<@&1149742928953086105> /يرسل الاصل.\n <@&1071933352497664010>  / للاحاطة. ***`;
-            document.getElementById("promotionBox").value = template;
-            document.getElementById("counter").textContent = `📋 تم التوليد لـ ${data.length}`;
-        }
+        function getPromotionLevels() { const level = document.getElementById("levelSelect").value; const map = { "trainee": ["متدرب", "1"], "1": ["1", "2"], "2": ["2", "3"], "3": ["3", "4"], "4": ["4", "5"] }; return map[level] || ["?", "?"]; }
+        function parseLines() { const text = document.getElementById('inputText').value; const currentLevel = document.getElementById("levelSelect").value; const pointsConfig = { "trainee": 4, "1": 8, "2": 14, "3": 21, "4": 28 }; const requiredPoints = pointsConfig[currentLevel] || 0; const seen = new Set(); return text.split("\n").map(line => { if (!line.trim() || line.includes("منصب شاغر")) return null; const idMatch = line.match(/<@[^>]+>/); const id = idMatch ? idMatch[0] : null; if (!id || seen.has(id)) return null; seen.add(id); const checks = (line.match(/✅/g) || []).length; let points = 0; const pMatch = line.match(/(?:النقاط\s*[:=]?\s*(\d+))|(?:(\d+)\s*(?:نقطة|نقاط|نقطه))/i); if (pMatch) points = parseInt(pMatch[1] || pMatch[2]); else { const nums = line.replace(/<@[^>]+>/g, '').match(/\d+/g); if (nums) points = parseInt(nums[nums.length - 1]); } return { id, checks, points, qualified: (checks >= 2 && points >= requiredPoints) }; }).filter(x => x); }
+        function analyzeText(){ const data = parseLines(); document.getElementById("cleanedText").value = data.map(d => `${d.id} | الصح: ${d.checks} | النقاط: ${d.points}`).join("\n"); }
+        function filterQualified(){ const data = parseLines().filter(d => d.qualified); document.getElementById("cleanedText").value = data.map(d => `${d.id}`).join("\n"); document.getElementById("counter").textContent = `✅ المستحقون: ${data.length}`; }
+        function filterNotQualifiedOnly(){ const data = parseLines().filter(d => !d.qualified); document.getElementById("cleanedText").value = data.map(d => `${d.id}`).join("\n"); }
+        function filterNotQualified(){ let start = parseInt(document.getElementById("startCode").value); if (isNaN(start)) { alert("ضع بداية الكود أولاً"); return; } const data = parseLines().filter(d => !d.qualified); document.getElementById("cleanedText").value = data.map((d, i) => `${d.id} G-${start + i}`).join("\n"); }
+        function reassignCodes(){ const data = parseLines().filter(d => d.qualified); document.getElementById("cleanedText").value = data.map((d,i) => `${d.id} G-${400+i}`).join("\n"); }
+        function generatePromotionForm() { const data = parseLines().filter(d => d.qualified); const levels = getPromotionLevels(); if (data.length === 0) { document.getElementById("promotionBox").value = "⚠️ لا يوجد مستحقين حالياً."; return; } const template = `*** ▬▬▬ ﷽ ▬▬▬\n\`\`\`diff\n-الموضوع: ترقيات مستوى (${levels[0]}) .\n\`\`\`\n\n\`\`\`cs\n# بعد الاطلاع على نظام الترقيات واحصائيات السجلات خلال فترة التدريب الصادر من قبل ادارة الكراج الموقره قررنا مايلي:\n\`\`\`\n\`\`\`\nأولا: ترقية التاليه أسمائهم من رتبة مستوى (${levels[0]}) الى رتبة مستوى (${levels[1]}) اعتباراً من صدور هذا القرار\nثانياً: على مدير قسم السجلات اعتماد اكوادهم الجديدة ورفع رتبهم للمستوى المطلوب\nثالثاً: على مسؤول شؤون التدريب الحاقهم بالدورات المستحقة\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\`\`\`\n${data.map(d => d.id).join("\n")}\n\n* مع تمنياتنا لهم بالتوفيق والنجاح  .\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\nامضاء / المهندس\n<@818887908265033728>   \n <@&1187334915189133352> \n\n<@&1092120390324731994>    / للمتابعة.\n<@&1071933353516879902>  /السجلات.\n<@&1149742928953086105> /يرسل الاصل.\n <@&1071933352497664010>  / للاحاطة. ***`; document.getElementById("promotionBox").value = template; document.getElementById("counter").textContent = `📋 تم التوليد لـ ${data.length}`; }
         function copyPromoCleanText(){ navigator.clipboard.writeText(document.getElementById("cleanedText").value); alert("تم النسخ!"); }
         function copyPromotionText(){ navigator.clipboard.writeText(document.getElementById("promotionBox").value); alert("تم نسخ النموذج!"); }
-        function resetPromoFields(){
-            document.getElementById("inputText").value = "";
-            document.getElementById("cleanedText").value = "";
-            document.getElementById("promotionBox").value = "";
-            document.getElementById("counter").textContent = "";
-            document.getElementById("startCode").value = "";
-        }
+        function resetPromoFields(){ document.getElementById("inputText").value = ""; document.getElementById("cleanedText").value = ""; document.getElementById("promotionBox").value = ""; document.getElementById("counter").textContent = ""; document.getElementById("startCode").value = ""; }
 
-        // =========================================
-        // سكربت القسم الثاني: مقارنة التقارير
-        // =========================================
         function unique(arr){ return [...new Set(arr)]; }
-        function findDuplicates(arr){
-            const counts = {};
-            arr.forEach(item => counts[item] = (counts[item] || 0) + 1);
-            return Object.keys(counts).filter(key => counts[key] > 1);
-        }
+        function findDuplicates(arr){ const counts = {}; arr.forEach(item => counts[item] = (counts[item] || 0) + 1); return Object.keys(counts).filter(key => counts[key] > 1); }
         function escapeHtml(str){ return String(str).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;'); }
-        function renderList(items){
-            if(!items.length) return '<div class="empty" style="opacity:.8;">لا يوجد</div>';
-            return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
-        }
-        function normalizeArabicDigits(str){
-            const arabicNums = '٠١٢٣٤٥٦٧٨٩'; const englishNums = '0123456789';
-            return String(str).replace(/[٠-٩]/g, d => englishNums[arabicNums.indexOf(d)]);
-        }
+        function renderList(items){ if(!items.length) return '<div class="empty" style="opacity:.8;">لا يوجد</div>'; return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`; }
+        function normalizeArabicDigits(str){ const arabicNums = '٠١٢٣٤٥٦٧٨٩'; const englishNums = '0123456789'; return String(str).replace(/[٠-٩]/g, d => englishNums[arabicNums.indexOf(d)]); }
         function cleanText(str){ return normalizeArabicDigits(str).replace(/\u200f|\u200e/g, '').replace(/\s+/g, ' ').trim(); }
-        function parseArabicMeridiem(value){
-            value = cleanText(value);
-            if(value.includes('ص')) return 'AM'; if(value.includes('م')) return 'PM';
-            return null;
-        }
-        function parseTimeToMinutes(hour, minute, meridiem){
-            hour = parseInt(hour, 10); minute = parseInt(minute, 10);
-            if(isNaN(hour) || isNaN(minute) || !meridiem) return null;
-            if(hour === 12){ hour = (meridiem === 'AM') ? 0 : 12; } else if(meridiem === 'PM'){ hour += 12; }
-            return hour * 60 + minute;
-        }
-        function minutesToArabicTime(totalMinutes){
-            if(totalMinutes == null || isNaN(totalMinutes)) return 'غير معروف';
-            let hour24 = Math.floor(totalMinutes / 60) % 24; let minute = totalMinutes % 60;
-            let meridiem = hour24 >= 12 ? 'م' : 'ص'; let hour12 = hour24 % 12;
-            if(hour12 === 0) hour12 = 12;
-            return `${hour12}:${String(minute).padStart(2,'0')} ${meridiem}`;
-        }
-        function formatRange(range){
-            if(!range) return 'لم يتم العثور على الوقت';
-            return `${minutesToArabicTime(range.start)} → ${minutesToArabicTime(range.end)}`;
-        }
-        function extractSupervisorTime(text){
-            const t = cleanText(text);
-            const regex = /من\s*الساعة\s*\(?\s*(\d{1,2})\s*:\s*(\d{2})\s*([صم])\s*\)?\s*الى\s*الساعة\s*\(?\s*(\d{1,2})\s*:\s*(\d{2})\s*([صم])\s*\)?/i;
-            const match = t.match(regex);
-            if(!match) return null;
-            return { start: parseTimeToMinutes(match[1], match[2], parseArabicMeridiem(match[3])), end: parseTimeToMinutes(match[4], match[5], parseArabicMeridiem(match[6])), raw: match[0] };
-        }
-        function extractTechnicalTime(text){
-            const t = cleanText(text);
-            const regex = /من\s*الساعه\s*(\d{1,2})\s*:\s*(\d{2})\s*\(?\s*([صم])\s*\)?\s*حتى\s*الساعه\s*(\d{1,2})\s*:\s*(\d{2})\s*\(?\s*([صم])\s*\)?/i;
-            const match = t.match(regex);
-            if(!match) return null;
-            return { start: parseTimeToMinutes(match[1], match[2], parseArabicMeridiem(match[3])), end: parseTimeToMinutes(match[4], match[5], parseArabicMeridiem(match[6])), raw: match[0] };
-        }
-        function validateTimeRange(label, range){
-            if(!range) return { valid:false, message:`لم يتم العثور على وقت ${label}.` };
-            if(range.start == null || range.end == null) return { valid:false, message:`تعذر قراءة وقت ${label} بشكل صحيح.` };
-            if(range.end <= range.start) return { valid:false, message:`وقت ${label} غير صحيح: النهاية ليست بعد البداية.` };
-            return { valid:true, message:`وقت ${label} صحيح مبدئيًا.` };
-        }
-        function checkTimeMatch(supervisorRange, technicalRange){
-            if(!supervisorRange || !technicalRange) return { ok:false, message:'تعذر التحقق من تطابق الوقت لأن أحد التقريرين لا يحتوي على وقت واضح.' };
-            if(supervisorRange.end === technicalRange.start) return { ok:true, message:'الوقت متطابق: نهاية تقرير المشرف تساوي بداية تقرير الفني.' };
-            return { ok:false, message:`الوقت غير متطابق: نهاية تقرير المشرف هي ${minutesToArabicTime(supervisorRange.end)} بينما بداية تقرير الفني هي ${minutesToArabicTime(technicalRange.start)}.` };
-        }
-        function compareReports(){
-            const supText = document.getElementById('supervisorText').value || '';
-            const techText = document.getElementById('technicalText').value || '';
-            const mentionRegex = /<@\d+>/g; const codeRegex = /\bG-\d{3,}\b/g;
-            const supMentions = supText.match(mentionRegex) || []; const techMentions = techText.match(mentionRegex) || [];
-            const uniqueSupMentions = unique(supMentions); const uniqueTechMentions = unique(techMentions);
-            const sharedMentions = uniqueSupMentions.filter(m => uniqueTechMentions.includes(m));
-            const onlySupervisor = uniqueSupMentions.filter(m => !uniqueTechMentions.includes(m));
-            const onlyTechnical = uniqueTechMentions.filter(m => !uniqueSupMentions.includes(m));
-            const supCodes = supText.match(codeRegex) || []; const techCodes = techText.match(codeRegex) || [];
-            const supDuplicates = findDuplicates(supCodes); const techDuplicates = findDuplicates(techCodes);
-            const supervisorTime = extractSupervisorTime(supText); const technicalTime = extractTechnicalTime(techText);
-            const supervisorTimeCheck = validateTimeRange('تقرير المشرف', supervisorTime);
-            const technicalTimeCheck = validateTimeRange('تقرير الفني', technicalTime);
-            const timeMatchCheck = checkTimeMatch(supervisorTime, technicalTime);
-            
-            const codeLikeStyle = "background:rgba(255,255,255,0.06); padding:2px 8px; border-radius:8px; display:inline-block; margin:2px 0;";
-            const resultsHTML = `
-                <div class="result-box time-box" style="display:block; margin-top:0;">
-                    <h3 style="margin: 0 0 10px; font-size: 17px; color: #9ee37d;">⏰ التحقق من الوقت</h3>
-                    <div class="time-info" style="color: #f5e79c;"><strong>وقت تقرير المشرف:</strong> <span style="${codeLikeStyle}">${escapeHtml(formatRange(supervisorTime))}</span></div>
-                    <div class="${supervisorTimeCheck.valid ? 'time-good' : 'time-bad'}" style="margin-top:8px;">${escapeHtml(supervisorTimeCheck.message)}</div>
-                    <div class="time-info" style="margin-top:14px; color: #f5e79c;"><strong>وقت تقرير الفني:</strong> <span style="${codeLikeStyle}">${escapeHtml(formatRange(technicalTime))}</span></div>
-                    <div class="${technicalTimeCheck.valid ? 'time-good' : 'time-bad'}" style="margin-top:8px;">${escapeHtml(technicalTimeCheck.message)}</div>
-                    <div class="${timeMatchCheck.ok ? 'time-good' : 'time-bad'}" style="margin-top:14px;">${escapeHtml(timeMatchCheck.message)}</div>
-                </div>
-                <div class="result-box shared" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #65d46e;">✅ المنشنات المشتركة</h3>${renderList(sharedMentions)}</div>
-                <div class="result-box only-supervisor" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #ff7b7b;">❌ منشنات موجودة في تقرير المشرف فقط</h3>${renderList(onlySupervisor)}</div>
-                <div class="result-box only-technical" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #ffb347;">❌ منشنات موجودة في تقرير الفني فقط</h3>${renderList(onlyTechnical)}</div>
-                <div class="result-box duplicate" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #6db7ff;">🔵 الأكواد المكررة في تقرير المشرف</h3>${renderList(supDuplicates)}</div>
-                <div class="result-box duplicate" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #6db7ff;">🔵 الأكواد المكررة في تقرير الفني</h3>${renderList(techDuplicates)}</div>
-            `;
-            document.getElementById('results').innerHTML = resultsHTML;
-        }
-        function clearCompFields(){
-            document.getElementById('supervisorText').value = '';
-            document.getElementById('technicalText').value = '';
-            document.getElementById('results').innerHTML = '';
-        }
-        function copyCompResults(){
-            const results = document.getElementById('results').innerText.trim();
-            if(!results){ alert('لا توجد نتائج لنسخها.'); return; }
-            navigator.clipboard.writeText(results).then(() => alert('تم نسخ النتائج.')).catch(() => alert('تعذر نسخ النتائج.'));
-        }
+        function parseArabicMeridiem(value){ value = cleanText(value); if(value.includes('ص')) return 'AM'; if(value.includes('م')) return 'PM'; return null; }
+        function parseTimeToMinutes(hour, minute, meridiem){ hour = parseInt(hour, 10); minute = parseInt(minute, 10); if(isNaN(hour) || isNaN(minute) || !meridiem) return null; if(hour === 12){ hour = (meridiem === 'AM') ? 0 : 12; } else if(meridiem === 'PM'){ hour += 12; } return hour * 60 + minute; }
+        function minutesToArabicTime(totalMinutes){ if(totalMinutes == null || isNaN(totalMinutes)) return 'غير معروف'; let hour24 = Math.floor(totalMinutes / 60) % 24; let minute = totalMinutes % 60; let meridiem = hour24 >= 12 ? 'م' : 'ص'; let hour12 = hour24 % 12; if(hour12 === 0) hour12 = 12; return `${hour12}:${String(minute).padStart(2,'0')} ${meridiem}`; }
+        function formatRange(range){ if(!range) return 'لم يتم العثور على الوقت'; return `${minutesToArabicTime(range.start)} → ${minutesToArabicTime(range.end)}`; }
+        function extractSupervisorTime(text){ const t = cleanText(text); const regex = /من\s*الساعة\s*\(?\s*(\d{1,2})\s*:\s*(\d{2})\s*([صم])\s*\)?\s*الى\s*الساعة\s*\(?\s*(\d{1,2})\s*:\s*(\d{2})\s*([صم])\s*\)?/i; const match = t.match(regex); if(!match) return null; return { start: parseTimeToMinutes(match[1], match[2], parseArabicMeridiem(match[3])), end: parseTimeToMinutes(match[4], match[5], parseArabicMeridiem(match[6])), raw: match[0] }; }
+        function extractTechnicalTime(text){ const t = cleanText(text); const regex = /من\s*الساعه\s*(\d{1,2})\s*:\s*(\d{2})\s*\(?\s*([صم])\s*\)?\s*حتى\s*الساعه\s*(\d{1,2})\s*:\s*(\d{2})\s*\(?\s*([صم])\s*\)?/i; const match = t.match(regex); if(!match) return null; return { start: parseTimeToMinutes(match[1], match[2], parseArabicMeridiem(match[3])), end: parseTimeToMinutes(match[4], match[5], parseArabicMeridiem(match[6])), raw: match[0] }; }
+        function validateTimeRange(label, range){ if(!range) return { valid:false, message:`لم يتم العثور على وقت ${label}.` }; if(range.start == null || range.end == null) return { valid:false, message:`تعذر قراءة وقت ${label} بشكل صحيح.` }; if(range.end <= range.start) return { valid:false, message:`وقت ${label} غير صحيح: النهاية ليست بعد البداية.` }; return { valid:true, message:`وقت ${label} صحيح مبدئيًا.` }; }
+        function checkTimeMatch(supervisorRange, technicalRange){ if(!supervisorRange || !technicalRange) return { ok:false, message:'تعذر التحقق من تطابق الوقت لأن أحد التقريرين لا يحتوي على وقت واضح.' }; if(supervisorRange.end === technicalRange.start) return { ok:true, message:'الوقت متطابق: نهاية تقرير المشرف تساوي بداية تقرير الفني.' }; return { ok:false, message:`الوقت غير متطابق: نهاية تقرير المشرف هي ${minutesToArabicTime(supervisorRange.end)} بينما بداية تقرير الفني هي ${minutesToArabicTime(technicalRange.start)}.` }; }
+        function compareReports(){ const supText = document.getElementById('supervisorText').value || ''; const techText = document.getElementById('technicalText').value || ''; const mentionRegex = /<@\d+>/g; const codeRegex = /\bG-\d{3,}\b/g; const supMentions = supText.match(mentionRegex) || []; const techMentions = techText.match(mentionRegex) || []; const uniqueSupMentions = unique(supMentions); const uniqueTechMentions = unique(techMentions); const sharedMentions = uniqueSupMentions.filter(m => uniqueTechMentions.includes(m)); const onlySupervisor = uniqueSupMentions.filter(m => !uniqueTechMentions.includes(m)); const onlyTechnical = uniqueTechMentions.filter(m => !uniqueSupMentions.includes(m)); const supCodes = supText.match(codeRegex) || []; const techCodes = techText.match(codeRegex) || []; const supDuplicates = findDuplicates(supCodes); const techDuplicates = findDuplicates(techCodes); const supervisorTime = extractSupervisorTime(supText); const technicalTime = extractTechnicalTime(techText); const supervisorTimeCheck = validateTimeRange('تقرير المشرف', supervisorTime); const technicalTimeCheck = validateTimeRange('تقرير الفني', technicalTime); const timeMatchCheck = checkTimeMatch(supervisorTime, technicalTime); const codeLikeStyle = "background:rgba(255,255,255,0.06); padding:2px 8px; border-radius:8px; display:inline-block; margin:2px 0;"; const resultsHTML = ` <div class="result-box time-box" style="display:block; margin-top:0;"> <h3 style="margin: 0 0 10px; font-size: 17px; color: #9ee37d;">⏰ التحقق من الوقت</h3> <div class="time-info" style="color: #f5e79c;"><strong>وقت تقرير المشرف:</strong> <span style="${codeLikeStyle}">${escapeHtml(formatRange(supervisorTime))}</span></div> <div class="${supervisorTimeCheck.valid ? 'time-good' : 'time-bad'}" style="margin-top:8px;">${escapeHtml(supervisorTimeCheck.message)}</div> <div class="time-info" style="margin-top:14px; color: #f5e79c;"><strong>وقت تقرير الفني:</strong> <span style="${codeLikeStyle}">${escapeHtml(formatRange(technicalTime))}</span></div> <div class="${technicalTimeCheck.valid ? 'time-good' : 'time-bad'}" style="margin-top:8px;">${escapeHtml(technicalTimeCheck.message)}</div> <div class="${timeMatchCheck.ok ? 'time-good' : 'time-bad'}" style="margin-top:14px;">${escapeHtml(timeMatchCheck.message)}</div> </div> <div class="result-box shared" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #65d46e;">✅ المنشنات المشتركة</h3>${renderList(sharedMentions)}</div> <div class="result-box only-supervisor" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #ff7b7b;">❌ منشنات موجودة في تقرير المشرف فقط</h3>${renderList(onlySupervisor)}</div> <div class="result-box only-technical" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #ffb347;">❌ منشنات موجودة في تقرير الفني فقط</h3>${renderList(onlyTechnical)}</div> <div class="result-box duplicate" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #6db7ff;">🔵 الأكواد المكررة في تقرير المشرف</h3>${renderList(supDuplicates)}</div> <div class="result-box duplicate" style="display:block;"><h3 style="margin: 0 0 10px; font-size: 17px; color: #6db7ff;">🔵 الأكواد المكررة في تقرير الفني</h3>${renderList(techDuplicates)}</div> `; document.getElementById('results').innerHTML = resultsHTML; }
+        function clearCompFields(){ document.getElementById('supervisorText').value = ''; document.getElementById('technicalText').value = ''; document.getElementById('results').innerHTML = ''; }
+        function copyCompResults(){ const results = document.getElementById('results').innerText.trim(); if(!results){ alert('لا توجد نتائج لنسخها.'); return; } navigator.clipboard.writeText(results).then(() => alert('تم نسخ النتائج.')).catch(() => alert('تعذر نسخ النتائج.')); }
 
-        // =========================================
-        // سكربت القسم الثالث: بوابة الشؤون الإدارية
-        // =========================================
+        // --- دوال الشؤون الإدارية ---
+        const formatMention = (val) => {
+            if (val === 'لا يوجد' || val.trim() === '') return val;
+            return val.split(/(\s+|-)/).map(v => {
+                let cleaned = v.trim();
+                if (!cleaned || cleaned === '-') return v;
+                if (cleaned.startsWith('<@') && cleaned.endsWith('>')) return v;
+                if (/^\d+$/.test(cleaned)) return `<@${cleaned}>`;
+                return v;
+            }).join('');
+        };
+
         function showAdminTab(tabId, btnElement) {
             document.querySelectorAll('#section-admin .form-container').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('#section-admin .nav-btn').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             btnElement.classList.add('active');
         }
-        
-        // إظهار وإخفاء خيار "تأخير الترقية" عند اختيار "إنذار نهائي"
         function toggleDelayOption() {
             const degree = document.getElementById('fineDegree').value;
             const delayContainer = document.getElementById('delayPromoContainer');
-            if (degree === 'نهائي') {
-                delayContainer.style.display = 'flex';
-            } else {
-                delayContainer.style.display = 'none';
-                document.getElementById('fineDelayPromo').checked = false; // تصفير الصح إذا رجع لإنذار آخر
-            }
+            if (degree === 'نهائي') { delayContainer.style.display = 'flex'; } else { delayContainer.style.display = 'none'; document.getElementById('fineDelayPromo').checked = false; }
         }
-
-        function formatTime(timeStr) {
-            if (!timeStr) return "00:00 ص/م";
-            let [hours, minutes] = timeStr.split(':');
-            let ampm = hours >= 12 ? 'م' : 'ص';
-            hours = hours % 12;
-            hours = hours ? hours : 12; 
-            return `${hours}:${minutes} ${ampm}`;
-        }
-        function formatDate(dateStr) {
-            if (!dateStr) return "2026/00/00";
-            return dateStr.replace(/-/g, '/');
-        }
-        function getValueOrEmpty(id, fallback = " ") {
-            return document.getElementById(id).value || fallback;
-        }
-        function generateLeave() {
-            const userType = document.getElementById('leaveUserType').value;
-            const id = getValueOrEmpty('leaveId', '1182445629721563177');
-            const duration = getValueOrEmpty('leaveDuration', '0');
-            const balance = getValueOrEmpty('leaveBalance', '0');
-            const startDate = formatDate(document.getElementById('startDate').value);
-            const startTime = formatTime(document.getElementById('startTime').value);
-            const endDate = formatDate(document.getElementById('endDate').value);
-            const endTime = formatTime(document.getElementById('endTime').value);
-            const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** <@${id}> \n\n***\`المــــدة :\`  ${duration} ساعة*** \n***\`الرصيد المتبقي :\`  ${balance} ساعة*** \n\n***من تاريخ ${startDate} | ${startTime} *** \n***الى تاريخ ${endDate} | ${endTime} *** \n\n***\`ملاحظة :\`*** \n***تنتهي اجازتك بنفس التوقيت اللي بترجع فية.*** \n\n***\`تنويهات هامة يجب قرائتها :\`*** \n\n***01/ تبدأ الإجازة الخاصة بك في وقتها المحدد، ويُمنع تغيير الوظيفة قبل المدة المحددة لبدء الإجازة.*** \n\n***02/ يجب العودة من الإجازة قبل انتهاء مدتها وتغيير الوظيفة إلى قطاع الميكانيك. من يخالف ذلك سيُعتبر تهرباً وظيفياً وستتم محاسبته من قِبل إدارة الكراج.*** \n\n***03/ في حال عندك عذر وقدمته بفتح تكت اجازة سيتم فقط تصفير اجازاتك مهما كان السبب وعدم اعطائك تهرب وظيفي.*** \n\n***04/ في حال تم سجنك رقابيا سيتم تطبيق العقوبه عليك حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). *** \n\n***كذلك في حال تعديت نص الاسبوع ( الثلاثاء ) او كان رصيدك اقل من نص اجماليك سيتم تصفيرك الاسبوع الحالي والقادم.*** \n\n***05/يسمح لمنسوبي القطاع تغيير اسمه داخل المقاطعه اثناء الاجازه الداخليه حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). ***\n\n\`\`\`diff\n-يجب مراجعة قوانين الاجازات جهلك بالقوانين لا يعفيك من العقوبه\n\`\`\`\n\n*** <@&1149742928953086105>***`;
-            document.getElementById('leaveOutput').value = template;
-            document.getElementById('leaveResultBox').style.display = 'block';
-        }
-        function generateExternalLeave() {
-            const id = getValueOrEmpty('extId', '1279399564771856404');
-            const duration = getValueOrEmpty('extDuration', '30');
-            const startDate = formatDate(document.getElementById('extStartDate').value);
-            const endDate = formatDate(document.getElementById('extEndDate').value);
-            const url = getValueOrEmpty('extDecisionUrl', 'https://discord.com/...');
-            const notice1 = getValueOrEmpty('extNotice1', '1329539822028849152');
-            const notice2 = getValueOrEmpty('extNotice2', '757230139569471559');
-            const template = `***\`نموذج الاجازة الخارجية \`***\n\n***\`اسم الفني :\`( <@${id}>) ***\n\n***\`مدة الاجازة : \` ( ${duration} ) ***\n\n***\`تاريخ بدء الاجازة \`: (${startDate})***\n\n***\`تاريخ انتهاء الاجازة  :\` (${endDate}) *** \n\n***\`نسخة للقرار :\` ( ${url}) ***\n\n***\`للعلم والاحاطة/\`***\n<@${notice1}> -  - <@${notice2}>`;
-            document.getElementById('extOutput').value = template;
-            document.getElementById('extResultBox').style.display = 'block';
-        }
-        function generateDelegation() {
-            const id = getValueOrEmpty('delId', '478742765602078724');
-            const nameCode = getValueOrEmpty('delNameCode', 'زياد بن عمر [G-000 ]');
-            const sector = getValueOrEmpty('delSector', 'الهلال الاحمر');
-            const days = getValueOrEmpty('delDays', '0');
-            const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`الموضوع : انتداب خارجي \`\`\`\nالسلام عليكم ورحمة الله وبركاته، وبعد:\n \`\`\`cs\n# إشارة إلى طلب الموظف الموضحة بياناته أدناه بشأن الانتداب خارج الكراج، نفيدكم بأنه تمت الموافقة على طلبه وفق التفاصيل التالية:\n\`\`\`\n\n الاسم: <@${id}>\n اسم وكود الموظف : ${nameCode}\n القطاع المنتدب له: ${sector}\n المدة: ${days} أيام\n\nنرجوا من الموظف التقيد بالأنظمة والتعليمات الخاصة بالانتدابات، والتنسيق مع الجهة المعنية قبل المباشرة.\n\n<@&1149742928953086105> ***`;
-            document.getElementById('delOutput').value = template;
-            document.getElementById('delResultBox').style.display = 'block';
-        }
-        function generateWarningFine() {
-            const degree = document.getElementById('fineDegree').value;
-            const amount = getValueOrEmpty('fineAmount', '1.000.000');
-            const empId = getValueOrEmpty('fineEmpId', '1488138386240831661');
-            const reason = getValueOrEmpty('fineReason', 'تسطيح غير واقعي');
-            const url = getValueOrEmpty('fineInvoiceUrl', 'https://discord.com/channels/1071933157097615480/1246713862372196473/1511854893567315968');
-            const approvedBy = getValueOrEmpty('fineApprovedBy', '1282062186579230792');
-            const treasuryId = getValueOrEmpty('fineTreasuryId', '680393068469682256');
+        
+        // إخفاء وإظهار الحقول بناءً على اختيار رسوم التوظيف أو نوع الإيداع
+        function toggleDepositFields() {
+            const depType = document.getElementById('depType').value;
+            const courseName = document.getElementById('depCourseName').value;
+            const techDiv = document.getElementById('depTechDiv');
+            const catDiv = document.getElementById('depCategoryDiv');
             
-            // المنطق الخاص بتأخير الترقية
-            let delayClause = "";
-            if (degree === 'نهائي' && document.getElementById('fineDelayPromo').checked) {
-                delayClause = "\nثالثاً: تأخير ترقية اسبوع ";
+            if (courseName === 'رسوم التوظيف') {
+                techDiv.style.display = 'none';
+                catDiv.style.display = 'none';
+            } else {
+                if (depType === 'announced') {
+                    techDiv.style.display = 'none';
+                    catDiv.style.display = 'block';
+                } else if (depType === 'private') {
+                    catDiv.style.display = 'none';
+                    techDiv.style.display = 'block';
+                } else {
+                    techDiv.style.display = 'block';
+                    catDiv.style.display = 'block';
+                }
+            }
+        }
+        
+        function formatTime(timeStr) { if (!timeStr) return "00:00 ص/م"; let [hours, minutes] = timeStr.split(':'); let ampm = hours >= 12 ? 'م' : 'ص'; hours = hours % 12; hours = hours ? hours : 12; return `${hours}:${minutes} ${ampm}`; }
+        function formatDate(dateStr) { if (!dateStr) return "2026/00/00"; return dateStr.replace(/-/g, '/'); }
+        function getValueOrEmpty(id, fallback = " ") { return document.getElementById(id).value || fallback; }
+
+        function generateLeave() { const userType = document.getElementById('leaveUserType').value; const id = getValueOrEmpty('leaveId', '1182445629721563177'); const duration = getValueOrEmpty('leaveDuration', '0'); const balance = getValueOrEmpty('leaveBalance', '0'); const startDate = formatDate(document.getElementById('startDate').value); const startTime = formatTime(document.getElementById('startTime').value); const endDate = formatDate(document.getElementById('endDate').value); const endTime = formatTime(document.getElementById('endTime').value); const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** <@${id}> \n\n***\`المــــدة :\`  ${duration} ساعة*** \n***\`الرصيد المتبقي :\`  ${balance} ساعة*** \n\n***من تاريخ ${startDate} | ${startTime} *** \n***الى تاريخ ${endDate} | ${endTime} *** \n\n***\`ملاحظة :\`*** \n***تنتهي اجازتك بنفس التوقيت اللي بترجع فية.*** \n\n***\`تنويهات هامة يجب قرائتها :\`*** \n\n***01/ تبدأ الإجازة الخاصة بك في وقتها المحدد، ويُمنع تغيير الوظيفة قبل المدة المحددة لبدء الإجازة.*** \n\n***02/ يجب العودة من الإجازة قبل انتهاء مدتها وتغيير الوظيفة إلى قطاع الميكانيك. من يخالف ذلك سيُعتبر تهرباً وظيفياً وستتم محاسبته من قِبل إدارة الكراج.*** \n\n***03/ في حال عندك عذر وقدمته بفتح تكت اجازة سيتم فقط تصفير اجازاتك مهما كان السبب وعدم اعطائك تهرب وظيفي.*** \n\n***04/ في حال تم سجنك رقابيا سيتم تطبيق العقوبه عليك حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). *** \n\n***كذلك في حال تعديت نص الاسبوع ( الثلاثاء ) او كان رصيدك اقل من نص اجماليك سيتم تصفيرك الاسبوع الحالي والقادم.*** \n\n***05/يسمح لمنسوبي القطاع تغيير اسمه داخل المقاطعه اثناء الاجازه الداخليه حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). ***\n\n\`\`\`diff\n-يجب مراجعة قوانين الاجازات جهلك بالقوانين لا يعفيك من العقوبه\n\`\`\`\n\n*** <@&1149742928953086105>***`; document.getElementById('leaveOutput').value = template; document.getElementById('leaveResultBox').style.display = 'block'; }
+        function generateExternalLeave() { const id = getValueOrEmpty('extId', '1279399564771856404'); const duration = getValueOrEmpty('extDuration', '30'); const startDate = formatDate(document.getElementById('extStartDate').value); const endDate = formatDate(document.getElementById('extEndDate').value); const url = getValueOrEmpty('extDecisionUrl', 'https://discord.com/...'); const notice1 = getValueOrEmpty('extNotice1', '1329539822028849152'); const notice2 = getValueOrEmpty('extNotice2', '757230139569471559'); const template = `***\`نموذج الاجازة الخارجية \`***\n\n***\`اسم الفني :\`( <@${id}>) ***\n\n***\`مدة الاجازة : \` ( ${duration} ) ***\n\n***\`تاريخ بدء الاجازة \`: (${startDate})***\n\n***\`تاريخ انتهاء الاجازة  :\` (${endDate}) *** \n\n***\`نسخة للقرار :\` ( ${url}) ***\n\n***\`للعلم والاحاطة/\`***\n<@${notice1}> -  - <@${notice2}>`; document.getElementById('extOutput').value = template; document.getElementById('extResultBox').style.display = 'block'; }
+        function generateDelegation() { const id = getValueOrEmpty('delId', '478742765602078724'); const nameCode = getValueOrEmpty('delNameCode', 'زياد بن عمر [G-000 ]'); const sector = getValueOrEmpty('delSector', 'الهلال الاحمر'); const days = getValueOrEmpty('delDays', '0'); const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`الموضوع : انتداب خارجي \`\`\`\nالسلام عليكم ورحمة الله وبركاته، وبعد:\n \`\`\`cs\n# إشارة إلى طلب الموظف الموضحة بياناته أدناه بشأن الانتداب خارج الكراج، نفيدكم بأنه تمت الموافقة على طلبه وفق التفاصيل التالية:\n\`\`\`\n\n الاسم: <@${id}>\n اسم وكود الموظف : ${nameCode}\n القطاع المنتدب له: ${sector}\n المدة: ${days} أيام\n\nنرجوا من الموظف التقيد بالأنظمة والتعليمات الخاصة بالانتدابات، والتنسيق مع الجهة المعنية قبل المباشرة.\n\n<@&1149742928953086105> ***`; document.getElementById('delOutput').value = template; document.getElementById('delResultBox').style.display = 'block'; }
+        function generateWarningFine() { const degree = document.getElementById('fineDegree').value; const amount = getValueOrEmpty('fineAmount', '1.000.000'); const empId = getValueOrEmpty('fineEmpId', '1488138386240831661'); const reason = getValueOrEmpty('fineReason', 'تسطيح غير واقعي'); const url = getValueOrEmpty('fineInvoiceUrl', 'https://discord.com/...'); const approvedBy = getValueOrEmpty('fineApprovedBy', '1282062186579230792'); const treasuryId = getValueOrEmpty('fineTreasuryId', '680393068469682256'); let delayClause = ""; if (degree === 'نهائي' && document.getElementById('fineDelayPromo').checked) { delayClause = "\nثالثاً: تأخير ترقية اسبوع "; } const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : انذار وظيفي وغرامه مالية\n\n\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار وظيفي ( ${degree} )\nثانياً: غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج${delayClause}\`\`\`\n\n\n <@${empId}>\n\n\n\`\`\`وذلك بسبب  : ${reason} \`\`\` \n\n\n\`نوع السحب : \`  [فاتورة](${url})\n\n\n\`اعتماد:\` \n<@${approvedBy}>   \n <@&1092120390324731994> \n \n\n\`توقيع مدير الخزينة \`\n<@${treasuryId}> \n<@&1071933343123386429> \n\nيرسل الاصل الى : \n<@&1149742928953086105> ***`; document.getElementById('fineOutput').value = template; document.getElementById('fineResultBox').style.display = 'block'; }
+        function generateWarningVerbal() { const empId = getValueOrEmpty('verbalEmpId', '1468082598315036783'); const reason = getValueOrEmpty('verbalReason', 'قياده متهوره'); const approvedBy = getValueOrEmpty('verbalApprovedBy', '1282062186579230792'); const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع :انذار (شفهي)-\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار (شفهي)\n\`\`\`\n\n\n <@${empId}>\n\n\`\`\`وذلك بسبب :  ${reason} \`\`\` \n\n\n\n\` اعتماد \` <@${approvedBy}> \n \n\n\n\nيرسل الاصل الى : \n<@&1149742928953086105>\n***`; document.getElementById('verbalOutput').value = template; document.getElementById('verbalResultBox').style.display = 'block'; }
+        function generateWeaknessReport() { const num = getValueOrEmpty('wrNum', '00'); const start = formatTime(document.getElementById('wrStartTime').value); const end = formatTime(document.getElementById('wrEndTime').value); const leader = getValueOrEmpty('wrLeader', ' '); const consultant = getValueOrEmpty('wrConsultant', ' '); const chiefEng = getValueOrEmpty('wrChiefEng', ' '); const loc1 = getValueOrEmpty('wrLoc1', ' '); const loc2 = getValueOrEmpty('wrLoc2', ' '); const loc3 = getValueOrEmpty('wrLoc3', ' '); const loc4 = getValueOrEmpty('wrLoc4', ' '); const loc5 = getValueOrEmpty('wrLoc5', ' '); const loc6 = getValueOrEmpty('wrLoc6', ' '); const loc7 = getValueOrEmpty('wrLoc7', ' '); const loc8 = getValueOrEmpty('wrLoc8', ' '); const loc9 = getValueOrEmpty('wrLoc9', ' '); const loc10 = getValueOrEmpty('wrLoc10', ' '); const loc11 = getValueOrEmpty('wrLoc11', ' '); const loc12 = getValueOrEmpty('wrLoc12', ' '); const loc13 = getValueOrEmpty('wrLoc13', ' '); const loc14 = getValueOrEmpty('wrLoc14', ' '); const loc15 = getValueOrEmpty('wrLoc15', ' '); const loc16 = getValueOrEmpty('wrLoc16', ' '); const reporter = getValueOrEmpty('wrReporter', ' '); const link = getValueOrEmpty('wrLink', 'https://discord.com/channels/...'); const template = `تقرير الضعف رقم (${num})\n\n**تم تجهيز تقرير الضعف من الساعة  ( ${start} )  الى الساعة  ( ${end} )  و تم توزيع المشرفين في المناطق التالية** \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**القيادة :** ${leader}\n\n**مستشار القائد :** ${consultant}\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**كبار المهندسين : ( ${chiefEng} )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**منطقة حجز لوس : ( ${loc1} )**\n\n**منطقة شاحنات لوس : ( ${loc2} )**\n\n**منطقة شاحنات الرواعي : ( ${loc3} ) **\n\n**منطقة النفط و المعادن : ( ${loc4} ) **\n\n**جزيرة فرسان : ( ${loc5} )**\n\n**منطقة  شاحنات الساحل الغربي : ( ${loc6} ) **\n\n** منطقة الإسمنت : ( ${loc7} )**\n\n**منطقة الأسماك : ( ${loc8} )**\n\n** القاعدة العسكرية : ( ${loc9} )**\n\n** منطقة شاحنات ساندي : ( ${loc10} ) **\n\n** منطقة مطار ساندي : ( ${loc11} ) **\n\n** منطقة شاحنات الجزيرة : ( ${loc12} ) **\n\n**منطقة منطقة المراعي :  ( ${loc13} )**\n\n**اشراف ميناء لوس الأساسي : ( ${loc14} )**\n\n**اشراف ميناء التوسعات : ( ${loc15} )**\n\n**اشراف ميناء بوليتو : ( ${loc16} )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**مسؤول التقرير : ( ${reporter} )**\n\n**[ إعلان الضعف ](${link})**\n\nللعلم و الإحاطة :  <@&1142626604732915812>  - <@&1149742928953086105>  \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`; document.getElementById('wrOutput').value = template; document.getElementById('wrResultBox').style.display = 'block'; }
+        function generateSupervisorsReport() { const num = getValueOrEmpty('srNum', '0'); const start = formatTime(document.getElementById('srStartTime').value); const end = formatTime(document.getElementById('srEndTime').value); const leader = getValueOrEmpty('srLeader', 'لايوجد'); const consultant = getValueOrEmpty('srConsultant', 'لايوجد'); const genSuper = getValueOrEmpty('srGenSuper', 'لايوجد'); const fieldSuper = getValueOrEmpty('srFieldSuper', 'لايوجد'); const areaSuper = getValueOrEmpty('srAreaSuper', 'لايوجد'); const traineeSuper = getValueOrEmpty('srTraineeSuper', 'لايوجد'); const certified = getValueOrEmpty('srCertified', 'لايوجد'); const storeOpen = getValueOrEmpty('srStoreOpen', 'لايوجد'); const roomFieldSuper = getValueOrEmpty('srRoomFieldSuper', 'لايوجد'); const roomAreaSuper = getValueOrEmpty('srRoomAreaSuper', 'لايوجد'); const roomTraineeSuper = getValueOrEmpty('srRoomTraineeSuper', 'لايوجد'); const ops = getValueOrEmpty('srOps', 'لايوجد'); const viceOps = getValueOrEmpty('srViceOps', 'لايوجد'); const comms = getValueOrEmpty('srComms', 'لايوجد'); const portLS = getValueOrEmpty('srPortLS', 'لايوجد'); const portPaleto = getValueOrEmpty('srPortPaleto', 'لايوجد'); const searchRescue = getValueOrEmpty('srSearchRescue', 'لايوجد'); const linkSuper = getValueOrEmpty('srLinkSuper', 'https://discord.com/...'); const linkOps = getValueOrEmpty('srLinkOps', 'https://discord.com/...'); const template = `**تقرير رقم (${num})**\n\n**تم استلام تقرير المشرفين من الساعة  ( ${start})  الى الساعة  ( ${end})**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**القيادة : (    ${leader}    )**\n\n**مستشار القائد : ( ${consultant}  )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**اشراف عام : (   ${genSuper}  )**\n\n**اشراف ميداني :  (   ${fieldSuper}    ) **\n\n**اشراف المناطق : (   ${areaSuper}     )**\n\n**مشرفين متدربين : ( ${traineeSuper} )**\n\n**لاعب معتمد والسيدات : ( ${certified}  )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**مسؤول افتتاح المتجر : (${storeOpen} )**\n\n**المشرف الميداني بروم الكراج : (${roomFieldSuper} )**\n\n**مشرف المنطقة بروم الكراج :   (   ${roomAreaSuper}     )**\n\n**مشرف المتدرب بروم الكراج :  (${roomTraineeSuper} )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**العمليات: ( ${ops} )**\n\n**نائب العمليات : ( ${viceOps} ) **\n\n**مركز الإتصالات :  ( ${comms} )**\n\n** فني ميناء لوس: (${portLS}  ) **\n\n**فني ميناء بوليتو : ( ${portPaleto} )**\n\n**البحث والانقاذ : ( ${searchRescue} )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n **[تسليم تقرير الاشراف](${linkSuper})**\n**[تقرير العمليات](${linkOps}) **\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`; document.getElementById('srOutput').value = template; document.getElementById('srResultBox').style.display = 'block'; }
+        function generateCourseCompletion() { const type = document.getElementById('ccType').value; const name = document.getElementById('ccName').value; const num = getValueOrEmpty('ccNum', '00'); const presenter = getValueOrEmpty('ccPresenter', '756922960589094913'); const corrector = getValueOrEmpty('ccCorrector', '783375365623906354'); const observer = getValueOrEmpty('ccObserver', '757230139569471559'); const active = getValueOrEmpty('ccActiveTrainers', '<@783375365623906354> <@755393813035483136>'); const other = getValueOrEmpty('ccOtherTrainers', 'لا يوجد'); const roleLink = getValueOrEmpty('ccRoleLink', 'https://discord.com/channels/1071933157097615480/1152469897000001599/1512170342557286561'); const approver = getValueOrEmpty('ccApprover', '1199529688989696051'); const fPresenter = formatMention(presenter); const fCorrector = formatMention(corrector); const fObserver = formatMention(observer); const fActive = formatMention(active); const fApprover = formatMention(approver); const template = `*** نموذج الأنتهاء من الدورة واعتماد النتائج وطلب تسليم رول ***\n\n\`- تم تعبية جداول رسوم الدورات في مجلد الخاص في دورة (${name}) رقم التسلسل (${num}) قبل ارسال هاذا التقرير :\`\n\n*** \` نوع الدورة : \`( ${type} )***\n\n***\` اسم الدورة :\` ( ${name} )***\n\n***\` رقم الدورة :\` ( ${num} )***\n\n***\`تم شرح الدورة من قبل  :\`  (  ${fPresenter}  )***   \n\n***\`تم تصحيح الاختبار من قبل  :\`  (    ${fCorrector}  )***\n\n***\`تم حضور الدورة من قبل المراقب   :\` ( ${fObserver}  )***  \n\n***\`المدربين المتفاعلين : \`***   ***  (     ${fActive}  )***              \n\n***\` باقي المدربين :\`  (   ${other}  )***   \n\n***\`نوع الطلب : \`***   ***  اعطاء رول [ ${name} ](${roleLink}) ***        \n\n***\` توقيع واعتماد :\` ${fApprover}    ***\n\n***\` الاحاطة :\` <@&1071933354976493650> ***\n\n***\` للعلم :\` <@&1071933343123386429>   ***\n\n\`\`\`diff\n- ملاحظه يتم ارفاق صوره الإداع المبلغ في الخزنه\n\`\`\``; document.getElementById('ccOutput').value = template; document.getElementById('ccResultBox').style.display = 'block'; }
+        function generateCourseFees() { const userId = getValueOrEmpty('cfUserId', '918672424344633424'); const courseName = document.getElementById('cfCourseName').value; const courseNum = getValueOrEmpty('cfCourseNum', '25'); const reason = getValueOrEmpty('cfReason', 'عدم المقدره على التواجد داخل المقاطعه وقت الدورة.'); const invoiceUrl = getValueOrEmpty('cfInvoiceUrl', 'https://discord.com/channels/...'); const managers = getValueOrEmpty('cfManagers', '<@831347644110077975> - <@1014559920479272980>'); const notice = getValueOrEmpty('cfNotice', '<@457775919122087936>'); const fUserId = formatMention(userId); const fManagers = formatMention(managers); const fNotice = formatMention(notice); const template = `*** نموذج استلام الرسوم قبل انعقاد الدورة 📄  .\n\n\`اسم الشخص :\` ( ${fUserId} )\n\n\`اسم الدورة : \` ( ${courseName} )\n\n\`رقم الدورة : \` ( ${courseNum} )\n\n\`سبب عدم التسديد في الوقت المحدد :\` ${reason}\n\n\`رابط المخالفة : \`    [فاتورة](${invoiceUrl})\n\n\n\`للعلم – مسؤولين الدورة : \`    (  ${fManagers}       )   \n\n\`للاحاطة : \`${fNotice}\n\n\`مرفق لكم صورة الايداع : \`\n***`; document.getElementById('cfOutput').value = template; document.getElementById('cfResultBox').style.display = 'block'; }
+
+        // --- الدالة المحدثة (إيداع رسوم الدورة / رسوم التوظيف) ---
+        function generateCourseDeposit() {
+            const depType = document.getElementById('depType').value;
+            const courseName = document.getElementById('depCourseName').value;
+            const courseNum = getValueOrEmpty('depCourseNum', '00');
+            const courseCategory = document.getElementById('depCourseCategory').value;
+            const techNameInput = getValueOrEmpty('depTechName', 'اسم الفني');
+            
+            const fTechName = formatMention(techNameInput);
+
+            let template = '';
+            
+            if (courseName === 'رسوم التوظيف') {
+                template = `(رسوم التوظيف) رقم ( ${courseNum} )`;
+            } else {
+                if (depType === 'prepay') {
+                    template = `دورة ${courseName} رقم ( ${courseNum} ) (${courseCategory}) ( ${fTechName} ) (دفع مسبق)`;
+                } else if (depType === 'announced') {
+                    template = `دورة (${courseName}) رقم ( ${courseNum} ) (${courseCategory})`;
+                } else if (depType === 'private') {
+                    template = `دورة ( ${courseName} ) تسلسل رقم (${courseNum}) ( ${fTechName} ) ( دورة استثنائية خاصة )\n\n\`للعلم :\`\n<@&1071933354976493650>`;
+                }
             }
 
-            const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : انذار وظيفي وغرامه مالية\n\n\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار وظيفي ( ${degree} )\nثانياً: غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج${delayClause}\`\`\`\n\n\n <@${empId}>\n\n\n\`\`\`وذلك بسبب  : ${reason} \`\`\` \n\n\n\`نوع السحب : \`  [فاتورة](${url})\n\n\n\`اعتماد:\` \n<@${approvedBy}>   \n <@&1092120390324731994> \n \n\n\`توقيع مدير الخزينة \`\n<@${treasuryId}> \n<@&1071933343123386429> \n\nيرسل الاصل الى : \n<@&1149742928953086105> ***`;
-            document.getElementById('fineOutput').value = template;
-            document.getElementById('fineResultBox').style.display = 'block';
+            document.getElementById('depOutput').value = template;
+            document.getElementById('depResultBox').style.display = 'block';
         }
-        function generateWarningVerbal() {
-            const empId = getValueOrEmpty('verbalEmpId', '1468082598315036783');
-            const reason = getValueOrEmpty('verbalReason', 'قياده متهوره');
-            const approvedBy = getValueOrEmpty('verbalApprovedBy', '1282062186579230792');
-            const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع :انذار (شفهي)-\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار (شفهي)\n\`\`\`\n\n\n <@${empId}>\n\n\`\`\`وذلك بسبب :  ${reason} \`\`\` \n\n\n\n\` اعتماد \` <@${approvedBy}> \n \n\n\n\nيرسل الاصل الى : \n<@&1149742928953086105>\n***`;
-            document.getElementById('verbalOutput').value = template;
-            document.getElementById('verbalResultBox').style.display = 'block';
-        }
-        function generateWeaknessReport() {
-            const num = getValueOrEmpty('wrNum', '00');
-            const start = formatTime(document.getElementById('wrStartTime').value);
-            const end = formatTime(document.getElementById('wrEndTime').value);
-            const leader = getValueOrEmpty('wrLeader', ' '); const consultant = getValueOrEmpty('wrConsultant', ' '); const chiefEng = getValueOrEmpty('wrChiefEng', ' ');
-            const loc1 = getValueOrEmpty('wrLoc1', ' '); const loc2 = getValueOrEmpty('wrLoc2', ' '); const loc3 = getValueOrEmpty('wrLoc3', ' '); const loc4 = getValueOrEmpty('wrLoc4', ' ');
-            const loc5 = getValueOrEmpty('wrLoc5', ' '); const loc6 = getValueOrEmpty('wrLoc6', ' '); const loc7 = getValueOrEmpty('wrLoc7', ' '); const loc8 = getValueOrEmpty('wrLoc8', ' ');
-            const loc9 = getValueOrEmpty('wrLoc9', ' '); const loc10 = getValueOrEmpty('wrLoc10', ' '); const loc11 = getValueOrEmpty('wrLoc11', ' '); const loc12 = getValueOrEmpty('wrLoc12', ' ');
-            const loc13 = getValueOrEmpty('wrLoc13', ' '); const loc14 = getValueOrEmpty('wrLoc14', ' '); const loc15 = getValueOrEmpty('wrLoc15', ' '); const loc16 = getValueOrEmpty('wrLoc16', ' ');
-            const reporter = getValueOrEmpty('wrReporter', ' '); const link = getValueOrEmpty('wrLink', 'https://discord.com/channels/...');
 
-            const template = `تقرير الضعف رقم (${num})\n\n**تم تجهيز تقرير الضعف من الساعة  ( ${start} )  الى الساعة  ( ${end} )  و تم توزيع المشرفين في المناطق التالية** \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**القيادة :** ${leader}\n\n**مستشار القائد :** ${consultant}\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**كبار المهندسين : ( ${chiefEng} )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**منطقة حجز لوس : ( ${loc1} )**\n\n**منطقة شاحنات لوس : ( ${loc2} )**\n\n**منطقة شاحنات الرواعي : ( ${loc3} ) **\n\n**منطقة النفط و المعادن : ( ${loc4} ) **\n\n**جزيرة فرسان : ( ${loc5} )**\n\n**منطقة  شاحنات الساحل الغربي : ( ${loc6} ) **\n\n** منطقة الإسمنت : ( ${loc7} )**\n\n**منطقة الأسماك : ( ${loc8} )**\n\n** القاعدة العسكرية : ( ${loc9} )**\n\n** منطقة شاحنات ساندي : ( ${loc10} ) **\n\n** منطقة مطار ساندي : ( ${loc11} ) **\n\n** منطقة شاحنات الجزيرة : ( ${loc12} ) **\n\n**منطقة منطقة المراعي :  ( ${loc13} )**\n\n**اشراف ميناء لوس الأساسي : ( ${loc14} )**\n\n**اشراف ميناء التوسعات : ( ${loc15} )**\n\n**اشراف ميناء بوليتو : ( ${loc16} )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**مسؤول التقرير : ( ${reporter} )**\n\n**[ إعلان الضعف ](${link})**\n\nللعلم و الإحاطة :  <@&1142626604732915812>  - <@&1149742928953086105>  \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`;
-            document.getElementById('wrOutput').value = template;
-            document.getElementById('wrResultBox').style.display = 'block';
-        }
-        function generateSupervisorsReport() {
-            const num = getValueOrEmpty('srNum', '0');
-            const start = formatTime(document.getElementById('srStartTime').value); const end = formatTime(document.getElementById('srEndTime').value);
-            const leader = getValueOrEmpty('srLeader', 'لايوجد'); const consultant = getValueOrEmpty('srConsultant', 'لايوجد');
-            const genSuper = getValueOrEmpty('srGenSuper', 'لايوجد'); const fieldSuper = getValueOrEmpty('srFieldSuper', 'لايوجد');
-            const areaSuper = getValueOrEmpty('srAreaSuper', 'لايوجد'); const traineeSuper = getValueOrEmpty('srTraineeSuper', 'لايوجد'); const certified = getValueOrEmpty('srCertified', 'لايوجد');
-            const storeOpen = getValueOrEmpty('srStoreOpen', 'لايوجد'); const roomFieldSuper = getValueOrEmpty('srRoomFieldSuper', 'لايوجد');
-            const roomAreaSuper = getValueOrEmpty('srRoomAreaSuper', 'لايوجد'); const roomTraineeSuper = getValueOrEmpty('srRoomTraineeSuper', 'لايوجد');
-            const ops = getValueOrEmpty('srOps', 'لايوجد'); const viceOps = getValueOrEmpty('srViceOps', 'لايوجد'); const comms = getValueOrEmpty('srComms', 'لايوجد');
-            const portLS = getValueOrEmpty('srPortLS', 'لايوجد'); const portPaleto = getValueOrEmpty('srPortPaleto', 'لايوجد'); const searchRescue = getValueOrEmpty('srSearchRescue', 'لايوجد');
-            const linkSuper = getValueOrEmpty('srLinkSuper', 'https://discord.com/...'); const linkOps = getValueOrEmpty('srLinkOps', 'https://discord.com/...');
-
-            const template = `**تقرير رقم (${num})**\n\n**تم استلام تقرير المشرفين من الساعة  ( ${start})  الى الساعة  ( ${end})**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**القيادة : (    ${leader}    )**\n\n**مستشار القائد : ( ${consultant}  )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**اشراف عام : (   ${genSuper}  )**\n\n**اشراف ميداني :  (   ${fieldSuper}    ) **\n\n**اشراف المناطق : (   ${areaSuper}     )**\n\n**مشرفين متدربين : ( ${traineeSuper} )**\n\n**لاعب معتمد والسيدات : ( ${certified}  )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**مسؤول افتتاح المتجر : (${storeOpen} )**\n\n**المشرف الميداني بروم الكراج : (${roomFieldSuper} )**\n\n**مشرف المنطقة بروم الكراج :   (   ${roomAreaSuper}     )**\n\n**مشرف المتدرب بروم الكراج :  (${roomTraineeSuper} )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**العمليات: ( ${ops} )**\n\n**نائب العمليات : ( ${viceOps} ) **\n\n**مركز الإتصالات :  ( ${comms} )**\n\n** فني ميناء لوس: (${portLS}  ) **\n\n**فني ميناء بوليتو : ( ${portPaleto} )**\n\n**البحث والانقاذ : ( ${searchRescue} )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n **[تسليم تقرير الاشراف](${linkSuper})**\n**[تقرير العمليات](${linkOps}) **\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`;
-            document.getElementById('srOutput').value = template;
-            document.getElementById('srResultBox').style.display = 'block';
-        }
         function copyAdminText(elementId, btnElement) {
             const copyText = document.getElementById(elementId);
             copyText.select();
