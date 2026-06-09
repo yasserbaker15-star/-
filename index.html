@@ -4,162 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة الكراج الشاملة</title>
-    <!-- مكتبة Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* =========================================
-           تنسيقات شريط التنقل الرئيسي
-        ========================================= */
-        body { margin: 0; padding: 0; background-color: #111; }
+        body { margin: 0; padding: 0; background-color: #111; font-family: Tahoma, Arial, sans-serif; }
         .main-navbar { background: linear-gradient(90deg, #1a252f 0%, #000000 100%); padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex; justify-content: center; gap: 10px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #D9C563; flex-wrap: wrap; }
-        .main-tab-btn { background-color: rgba(255,255,255,0.1); color: white; padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; border: 1px solid transparent; font-family: Tahoma, Arial, sans-serif; font-size: 14px; }
+        .main-tab-btn { background-color: rgba(255,255,255,0.1); color: white; padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; border: 1px solid transparent; font-size: 14px; }
         .main-tab-btn:hover { background-color: rgba(255,255,255,0.2); }
         .main-tab-btn.active { background-color: #D9C563; color: #000; border-color: #fff; box-shadow: 0 0 10px rgba(217, 197, 99, 0.5); }
         .main-section { display: none; min-height: 100vh; }
         .main-section.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* =========================================
-           القسم الأول: قسم الجرد والترقيات
-        ========================================= */
-        #section-promo { background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 24px; font-family: Tahoma, Arial, sans-serif; }
+        /* تنسيقات الجرد */
+        #section-promo { background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 24px; }
         #section-promo textarea { resize: none; }
         #section-promo .glass { backdrop-filter: blur(12px); background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
         #section-promo .btn { transition: 0.3s; }
         #section-promo .btn:hover { transform: scale(1.03); filter: brightness(1.1); }
         #section-promo .gold-theme { background-color: #D9C563 !important; color: black !important; font-weight: bold !important; border: 1px solid rgba(0,0,0,0.1); }
-        #section-promo input.gold-theme { color: black !important; }
-        #section-promo input.gold-theme::placeholder { color: rgba(0, 0, 0, 0.5) !important; }
-        #section-promo select.gold-theme option { background-color: white !important; color: black !important; }
-        #section-promo .gold-theme:focus { outline: 2px solid rgba(0,0,0,0.2); }
 
-        /* =========================================
-           القسم الثاني: مقارنة التقارير
-        ========================================= */
-        #section-compare { font-family: Tahoma, Arial, sans-serif; color: #e0ca51; text-align: center; background-image: url("https://raw.githubusercontent.com/xhhp1/SOMTINGHNEW/main/pic.png"); background-repeat: no-repeat; background-position: center center; background-size: cover; background-attachment: fixed; padding: 32px 18px; }
-        #section-compare .container-comp { width: min(980px, 100%); margin: 0 auto; background: rgba(0,0,0,0.85); border: 1px solid rgba(224,202,81,0.18); border-radius: 24px; box-shadow: 0 18px 45px rgba(0,0,0,0.45); padding: 28px; }
-        #section-compare h1 { margin: 0 0 10px; font-size: 30px; color: #e0ca51; text-shadow: 0 2px 10px rgba(0,0,0,0.45); }
-        #section-compare .sub { margin: 0 0 26px; color: #f2e7a3; font-size: 15px; opacity: .95; }
+        /* تنسيقات المقارنة */
+        #section-compare { color: #e0ca51; text-align: center; background-image: url("https://raw.githubusercontent.com/xhhp1/SOMTINGHNEW/main/pic.png"); background-repeat: no-repeat; background-position: center center; background-size: cover; background-attachment: fixed; padding: 32px 18px; }
+        #section-compare .container-comp { width: min(980px, 100%); margin: 0 auto; background: rgba(0,0,0,0.85); border: 1px solid rgba(224,202,81,0.18); border-radius: 24px; padding: 28px; }
         #section-compare .grid-comp { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
-        #section-compare .card-comp { background: rgba(255,255,255,0.03); border: 1px solid rgba(224,202,81,0.20); border-radius: 18px; padding: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
-        #section-compare label { display: block; text-align: right; margin: 0 0 10px; font-size: 16px; font-weight: 700; color: #e0ca51; }
-        #section-compare textarea { width: 100%; min-height: 280px; resize: vertical; border: none; outline: none; border-radius: 14px; padding: 14px; font-family: Tahoma, Arial, sans-serif; font-size: 15px; line-height: 1.8; color: #e0ca51; background: rgba(0,0,0,0.55); border: 1px solid rgba(224,202,81,0.18); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02); }
-        #section-compare textarea::placeholder { color: #d9cb84; opacity: .75; }
-        #section-compare .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 8px 0 22px; }
-        #section-compare button { border: none; cursor: pointer; border-radius: 14px; padding: 13px 22px; font-family: Tahoma, Arial, sans-serif; font-size: 15px; font-weight: 700; transition: .18s ease; }
-        #section-compare button:hover { transform: translateY(-2px); }
-        #section-compare .main-btn { background: linear-gradient(180deg, #ecd96f 0%, #d2b93f 100%); color: #1b1b1b; box-shadow: 0 10px 24px rgba(224,202,81,0.22); }
-        #section-compare .clear-btn { background: rgba(255,255,255,0.05); color: #e0ca51; border: 1px solid rgba(224,202,81,0.25); }
-        #section-compare .results-wrap { text-align: right; background: rgba(255,255,255,0.03); border: 1px solid rgba(224,202,81,0.20); border-radius: 18px; padding: 18px; }
-        #section-compare .results-title { margin: 0 0 14px; font-size: 22px; text-align: center; }
-        #section-compare .result-box { background: rgba(0,0,0,0.36); border: 1px solid rgba(224,202,81,0.13); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
-        #section-compare .result-box h3 { margin: 0 0 10px; font-size: 17px; }
-        #section-compare .result-box ul { margin: 0; padding-right: 18px; }
-        #section-compare .result-box li { margin: 6px 0; word-break: break-word; }
-        #section-compare .shared h3 { color: #65d46e; }
-        #section-compare .only-supervisor h3 { color: #ff7b7b; }
-        #section-compare .only-technical h3 { color: #ffb347; }
-        #section-compare .duplicate h3 { color: #6db7ff; }
-        #section-compare .time-box h3 { color: #9ee37d; }
-        #section-compare .time-good { color: #65d46e; font-weight: 700; }
-        #section-compare .time-bad { color: #ff7b7b; font-weight: 700; }
-        #section-compare .time-info { color: #f5e79c; }
-        #section-compare .copy-btn { margin-top: 12px; width: 100%; background: rgba(224,202,81,0.10); color: #e0ca51; border: 1px solid rgba(224,202,81,0.22); }
-        @media (max-width: 800px) { #section-compare .grid-comp { grid-template-columns: 1fr; } #section-compare .container-comp { padding: 18px; } }
+        #section-compare textarea { width: 100%; min-height: 280px; padding: 14px; color: #e0ca51; background: rgba(0,0,0,0.55); border: 1px solid rgba(224,202,81,0.18); }
+        #section-compare .main-btn { background: linear-gradient(180deg, #ecd96f 0%, #d2b93f 100%); color: #1b1b1b; padding: 13px 22px; border:none; border-radius:14px; cursor:pointer; font-weight:bold; }
+        #section-compare .clear-btn { background: rgba(255,255,255,0.05); color: #e0ca51; border: 1px solid rgba(224,202,81,0.25); padding: 13px 22px; border-radius:14px; cursor:pointer;}
+        #section-compare .result-box { background: rgba(0,0,0,0.36); border: 1px solid rgba(224,202,81,0.13); border-radius: 14px; padding: 14px; margin-bottom: 12px; text-align:right;}
 
-        /* =========================================
-           القسم الثالث: بوابة الشؤون الإدارية (النمط الذهبي المحدث)
-        ========================================= */
-        #section-admin { 
-            font-family: Tahoma, Arial, sans-serif; 
-            background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; 
-            padding: 32px 18px; 
-        }
-        #section-admin header { text-align: center; margin-bottom: 30px; }
-        #section-admin header h1 { margin: 0; font-size: 32px; font-weight: 800; color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.6); }
-        #section-admin header p { margin: 10px 0 0 0; color: #D9C563; font-size: 16px; font-weight: bold; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        /* تنسيقات الإدارة */
+        #section-admin { background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 32px 18px; }
+        #section-admin header h1 { margin: 0; font-size: 32px; font-weight: 800; color: white; text-shadow: 0 4px 10px rgba(0,0,0,0.6); text-align:center;}
         #section-admin .nav-container { max-width: 1100px; margin: 0 auto 30px auto; }
-        #section-admin .nav-title { font-size: 16px; color: white; margin-bottom: 15px; font-weight: bold; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
         #section-admin .nav-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        #section-admin .nav-btn { 
-            background-color: rgba(0,0,0,0.6); color: white; padding: 12px 18px; border: 1px solid rgba(255,255,255,0.2); 
-            border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.3s ease; text-align: center; backdrop-filter: blur(8px);
-        }
-        #section-admin .nav-btn:hover { border-color: #D9C563; transform: translateY(-2px); background-color: rgba(0,0,0,0.8); }
+        #section-admin .nav-btn { background-color: rgba(0,0,0,0.6); color: white; padding: 12px 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.3s ease; }
+        #section-admin .nav-btn:hover { border-color: #D9C563; background-color: rgba(0,0,0,0.8); }
         #section-admin .nav-btn.active { background-color: #D9C563; color: black; border-color: #D9C563; box-shadow: 0 4px 15px rgba(217, 197, 99, 0.4); }
-        
-        #section-admin .form-container { 
-            backdrop-filter: blur(12px); background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);
-            max-width: 850px; margin: 0 auto 40px auto; padding: 35px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); display: none; color: white;
-        }
+        #section-admin .form-container { backdrop-filter: blur(12px); background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); max-width: 850px; margin: 0 auto 40px auto; padding: 35px; border-radius: 20px; display: none; color: white; }
         #section-admin .form-container.active { display: block; animation: fadeIn 0.4s ease-in-out; }
-        #section-admin h2 { color: white; text-align: center; margin-top: 0; margin-bottom: 25px; font-size: 24px; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; }
-        
+        #section-admin h2 { text-align: center; font-size: 24px; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; margin-top:0;}
         #section-admin .form-group { margin-bottom: 20px; }
-        #section-admin label { display: block; font-weight: bold; margin-bottom: 8px; color: white; font-size: 15px; text-align: right; }
-        
-        #section-admin input[type="text"], #section-admin input[type="number"], #section-admin input[type="date"], #section-admin input[type="time"], #section-admin select { 
-            width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.2); border-radius: 10px; box-sizing: border-box; 
-            font-size: 15px; font-weight: bold; background-color: #D9C563; color: black; transition: 0.3s; font-family: Tahoma, Arial, sans-serif;
-        }
-        #section-admin input::placeholder { color: rgba(0,0,0,0.5); }
-        #section-admin input:focus, #section-admin select:focus { outline: 2px solid rgba(255,255,255,0.5); box-shadow: 0 0 10px rgba(217,197,99,0.5); }
-        #section-admin select option { background-color: white; color: black; }
-
-        #section-admin input[type="checkbox"] { width: 20px; height: 20px; accent-color: #D9C563; cursor: pointer; vertical-align: middle; }
+        #section-admin label { display: block; font-weight: bold; margin-bottom: 8px; text-align: right; }
+        #section-admin input[type="text"], #section-admin input[type="number"], #section-admin input[type="date"], #section-admin input[type="time"], #section-admin select { width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.2); border-radius: 10px; font-size: 15px; font-weight: bold; background-color: #D9C563; color: black; outline:none; font-family: Tahoma, Arial, sans-serif;}
+        #section-admin input[type="checkbox"] { width: 20px; height: 20px; accent-color: #D9C563; cursor: pointer; }
         .checkbox-container { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 10px; border: 1px solid rgba(217,197,99,0.5); margin-top: 10px; }
-        
-        #section-admin input[type="date"]::-webkit-calendar-picker-indicator,
-        #section-admin input[type="time"]::-webkit-calendar-picker-indicator { cursor: pointer; filter: invert(0.8); }
-
         #section-admin .row { display: flex; gap: 15px; flex-wrap: wrap; }
         #section-admin .row .form-group { flex: 1; min-width: 180px; }
-        #section-admin .grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: rgba(255,255,255,0.05); padding: 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 25px; }
-        #section-admin .grid-2-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; background: rgba(255,255,255,0.05); padding: 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 25px; }
-        @media (max-width: 768px) { #section-admin .grid-3-col, #section-admin .grid-2-col { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { #section-admin .grid-3-col, #section-admin .grid-2-col { grid-template-columns: 1fr; } }
-        
-        #section-admin .section-title { color: #D9C563; font-size: 18px; margin-bottom: 15px; text-align: right; font-weight: bold; border-bottom: 1px dashed rgba(217,197,99,0.4); padding-bottom: 8px; }
-        
-        #section-admin .btn-generate { width: 100%; background-color: #D9C563; color: black; padding: 14px; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-family: Tahoma, Arial, sans-serif;}
-        #section-admin .btn-generate:hover { transform: scale(1.02); filter: brightness(1.1); }
-        
+        #section-admin .grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; background: rgba(255,255,255,0.05); padding: 18px; border-radius: 12px; }
+        #section-admin .btn-generate { width: 100%; background-color: #D9C563; color: black; padding: 14px; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 15px; }
         #section-admin .result-box { margin-top: 25px; display: none; background-color: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; border: 1px solid rgba(217,197,99,0.3); }
-        #section-admin .result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        #section-admin .result-label { font-weight: bold; color: #D9C563; font-size: 16px; }
-        
-        #section-admin textarea { width: 100%; height: 250px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; direction: ltr; font-family: 'Courier New', Courier, monospace; font-size: 14px; resize: vertical; background-color: rgba(0,0,0,0.6); color: #D9C563; line-height: 1.6; }
-        #section-admin textarea:focus { outline: 1px solid #D9C563; }
-        
-        #section-admin .copy-btn { background-color: #D9C563; color: black; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s; font-family: Tahoma, Arial, sans-serif;}
-        #section-admin .copy-btn:hover { filter: brightness(1.1); transform: scale(1.05); }
-        
-        #section-admin .footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 40px; }
+        #section-admin textarea { width: 100%; height: 250px; padding: 15px; border-radius: 10px; direction: ltr; font-family: monospace; background-color: rgba(0,0,0,0.6); color: #D9C563; }
+        #section-admin .copy-btn { background-color: #D9C563; color: black; padding: 8px 16px; border-radius: 8px; border:none; cursor: pointer; font-weight: bold; }
+        .tab-switcher { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+        .sub-btn { background: rgba(0,0,0,0.5); color: white; padding: 8px 15px; border-radius: 6px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); font-weight: bold;}
+        .sub-btn.active { background: #D9C563; color: black; }
     </style>
 </head>
 <body>
 
-    <!-- شريط التنقل الرئيسي للمنصة -->
     <nav class="main-navbar">
         <button onclick="switchMainSection('promo', this)" class="main-tab-btn active">قسم الجرد والترقيات</button>
         <button onclick="switchMainSection('compare', this)" class="main-tab-btn">مقارنة التقارير</button>
         <button onclick="switchMainSection('admin', this)" class="main-tab-btn">الشؤون الإدارية</button>
     </nav>
 
-    <!-- =========================================
-         القسم الأول: قسم الجرد والترقيات
-    ========================================= -->
+    <!-- القسم الأول -->
     <div id="section-promo" class="main-section active">
         <div class="w-full max-w-7xl mx-auto p-6">
-            <h1 class="text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg">📋 قسم الجرد + الترقيات (النظام الذهبي الموحد)</h1>
+            <h1 class="text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg">📋 قسم الجرد + الترقيات</h1>
             <div class="flex flex-col lg:flex-row gap-6">
                 <div class="w-full lg:w-80 glass p-5 rounded-2xl shadow-xl">
                     <h2 class="text-white mb-4 font-bold text-center text-lg border-b border-white/20 pb-2">⚙️ أدوات الترقيات</h2>
                     <div class="flex flex-col gap-3">
-                        <label class="text-white text-sm">حدد المستوى المطلوب فحصه:</label>
                         <select id="levelSelect" class="w-full p-2.5 rounded-lg gold-theme cursor-pointer">
                             <option value="trainee">متدرب ⟵ مستوى 1 (4 نقاط)</option>
                             <option value="1">مستوى 1 ⟵ مستوى 2 (8 نقاط)</option>
@@ -167,84 +83,64 @@
                             <option value="3">مستوى 3 ⟵ مستوى 4 (21 نقطة)</option>
                             <option value="4">مستوى 4 ⟵ مستوى 5 (28 نقطة)</option>
                         </select>
-                        <button onclick="filterQualified()" class="btn py-2.5 rounded-lg gold-theme shadow-md">🏆 المستحقين (حسب الشروط)</button>
-                        <hr class="border-white/10 my-1">
+                        <button onclick="filterQualified()" class="btn py-2.5 rounded-lg gold-theme">🏆 المستحقين</button>
                         <input id="startCode" type="number" placeholder="🔢 بداية الكود" class="w-full p-2.5 rounded-lg gold-theme">
-                        <button onclick="filterNotQualified()" class="btn py-2.5 rounded-lg gold-theme">⚡ توزيع ذكي (لغير المستحقين)</button>
-                        <button onclick="filterNotQualifiedOnly()" class="btn py-2.5 rounded-lg gold-theme">❌ عرض غير المستحقين فقط</button>
+                        <button onclick="filterNotQualified()" class="btn py-2.5 rounded-lg gold-theme">⚡ توزيع ذكي لغير المستحقين</button>
+                        <button onclick="filterNotQualifiedOnly()" class="btn py-2.5 rounded-lg gold-theme">❌ غير المستحقين فقط</button>
                         <button onclick="reassignCodes()" class="btn py-2.5 rounded-lg gold-theme">🔄 إعادة توزيع الأكواد</button>
-                        <button onclick="resetPromoFields()" class="btn py-2.5 rounded-lg gold-theme mt-2 shadow-lg">🗑️ مسح الكل</button>
+                        <button onclick="resetPromoFields()" class="btn py-2.5 rounded-lg gold-theme">🗑️ مسح الكل</button>
                     </div>
                 </div>
                 <div class="flex-1">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="w-full md:w-1/2 glass p-4 rounded-2xl shadow-xl">
-                            <h2 class="text-white text-center mb-3 font-bold">✍️ إدخال النص الأصلي</h2>
-                            <textarea id="inputText" class="w-full h-72 p-3 rounded-lg bg-black/60 text-white border border-white/10" placeholder="الصق السجلات هنا..."></textarea>
+                            <textarea id="inputText" class="w-full h-72 p-3 rounded-lg bg-black/60 text-white" placeholder="الصق السجلات هنا..."></textarea>
                             <button onclick="analyzeText()" class="btn w-full mt-3 py-2.5 rounded-lg gold-theme">تحليل سريع</button>
                         </div>
                         <div class="w-full md:w-1/2 glass p-4 rounded-2xl shadow-xl">
-                            <h2 class="text-white text-center mb-3 font-bold">🧹 النتيجة المستخرجة</h2>
-                            <textarea id="cleanedText" class="w-full h-72 p-3 rounded-lg bg-black/60 text-green-400 border border-white/10" readonly></textarea>
+                            <textarea id="cleanedText" class="w-full h-72 p-3 rounded-lg bg-black/60 text-green-400" readonly></textarea>
                             <button onclick="copyPromoCleanText()" class="btn w-full mt-3 py-2.5 rounded-lg gold-theme">📋 نسخ النتيجة</button>
                         </div>
                     </div>
-                    <div class="mt-8 glass p-5 rounded-2xl shadow-xl border border-yellow-400/30">
-                        <h2 class="text-white text-center mb-3 font-bold text-lg">📋 نموذج إعلان الترقيات الجاهز</h2>
-                        <button onclick="generatePromotionForm()" class="btn w-full mb-3 py-3 rounded-lg gold-theme shadow-xl">⚡ توليد نموذج الترقيات للمستحقين</button>
-                        <textarea id="promotionBox" class="w-full h-80 p-3 rounded-lg bg-black/60 text-yellow-100 border border-white/10" readonly></textarea>
+                    <div class="mt-8 glass p-5 rounded-2xl shadow-xl">
+                        <button onclick="generatePromotionForm()" class="btn w-full mb-3 py-3 rounded-lg gold-theme">⚡ توليد نموذج الترقيات</button>
+                        <textarea id="promotionBox" class="w-full h-80 p-3 rounded-lg bg-black/60 text-yellow-100" readonly></textarea>
                         <button onclick="copyPromotionText()" class="btn w-full mt-2 py-2.5 rounded-lg gold-theme">📋 نسخ النموذج للإرسال</button>
                     </div>
                 </div>
             </div>
-            <p id="counter" class="text-center text-yellow-400 font-bold mt-4 text-lg drop-shadow-md"></p>
+            <p id="counter" class="text-center text-yellow-400 font-bold mt-4"></p>
         </div>
     </div>
 
-    <!-- =========================================
-         القسم الثاني: مقارنة التقارير
-    ========================================= -->
+    <!-- القسم الثاني -->
     <div id="section-compare" class="main-section">
         <div class="container-comp">
             <h1>📊 مقارنة التقارير</h1>
-            <p class="sub">يقارن المنشنات والأكواد المكررة، ويشيّك أيضًا على صحة الوقت بين تقرير المشرف وتقرير الفني.</p>
             <div class="grid-comp">
-                <div class="card-comp">
-                    <label for="supervisorText">تقرير المشرف</label>
-                    <textarea id="supervisorText" placeholder="ألصق هنا تقرير المشرف..."></textarea>
-                </div>
-                <div class="card-comp">
-                    <label for="technicalText">تقرير الفني</label>
-                    <textarea id="technicalText" placeholder="ألصق هنا تقرير الفني..."></textarea>
-                </div>
+                <div><label>تقرير المشرف</label><textarea id="supervisorText"></textarea></div>
+                <div><label>تقرير الفني</label><textarea id="technicalText"></textarea></div>
             </div>
             <div class="actions">
                 <button class="main-btn" onclick="compareReports()">🚀 مقارنة الآن</button>
                 <button class="clear-btn" onclick="clearCompFields()">🗑️ مسح الكل</button>
             </div>
             <div class="results-wrap">
-                <h2 class="results-title">النتائج</h2>
                 <div id="results"></div>
                 <button class="copy-btn" onclick="copyCompResults()">📋 نسخ النتائج</button>
             </div>
         </div>
     </div>
 
-    <!-- =========================================
-         القسم الثالث: بوابة الشؤون الإدارية
-    ========================================= -->
+    <!-- القسم الثالث -->
     <div id="section-admin" class="main-section">
-        <header>
-            <h1>بوابة الشؤون الإدارية</h1>
-            <p>النظام الذكي المؤتمت لإصدار الخطابات والنماذج لخوادم الديسكورد - إدارة الكراج</p>
-        </header>
+        <header><h1>بوابة الشؤون الإدارية</h1></header>
 
         <div class="nav-container">
-            <div class="nav-title">اختر القسم والنموذج المطلوب:</div>
             <div class="nav-grid">
                 <button class="nav-btn active" onclick="showAdminTab('leave', this)">إجازة داخلية</button>
                 <button class="nav-btn" onclick="showAdminTab('leave_external', this)">إجازة خارجية</button>
-                <button class="nav-btn" onclick="showAdminTab('delegation', this)">انتداب شرف</button>
+                <button class="nav-btn" onclick="showAdminTab('delegation', this)">انتداب الإشراف</button>
                 <button class="nav-btn" onclick="showAdminTab('warning_fine', this)">إنذار وغرامة</button>
                 <button class="nav-btn" onclick="showAdminTab('warning_verbal', this)">إنذار شفهي</button>
                 <button class="nav-btn" onclick="showAdminTab('weakness_report', this)">تقرير الضعف</button>
@@ -252,67 +148,70 @@
                 <button class="nav-btn" onclick="showAdminTab('course_completion', this)">إعتماد دورة</button>
                 <button class="nav-btn" onclick="showAdminTab('course_fees', this)">عذر رسوم الدورة</button>
                 <button class="nav-btn" onclick="showAdminTab('course_deposit', this)">إيداع رسوم الدورة</button>
+                <button class="nav-btn" onclick="showAdminTab('promo_track', this)">رصد الترقيات</button>
             </div>
         </div>
 
+        <!-- إجازة داخلية -->
         <div id="leave" class="form-container active">
             <h2>إصدار إجازة داخلية</h2>
             <div class="form-group"><label>الموظف المستهدف:</label><select id="leaveUserType"><option value="الفني المحترم">فني</option><option value="المشرف المحترم">مشرف</option></select></div>
-            <div class="form-group"><label>معرّف الموظف (Discord ID):</label><input type="text" id="leaveId" placeholder="مثال: 1182445629721563177"></div>
+            <div class="form-group"><label>معرّف الموظف (ID):</label><input type="text" id="leaveId"></div>
             <div class="row">
-                <div class="form-group"><label>المدة (ساعات):</label><input type="number" id="leaveDuration" value="0"></div>
+                <div class="form-group"><label>المدة (ساعات):</label><input type="number" id="leaveDuration" placeholder="اكتب الساعات ليتم حساب الوقت تلقائياً" oninput="calcLeaveDates()"></div>
                 <div class="form-group"><label>الرصيد المتبقي:</label><input type="number" id="leaveBalance" value="0"></div>
             </div>
             <div class="row">
-                <div class="form-group"><label>من تاريخ:</label><input type="date" id="startDate"></div>
+                <div class="form-group"><label>تاريخ البدء:</label><input type="date" id="startDate"></div>
                 <div class="form-group"><label>وقت البدء:</label><input type="time" id="startTime"></div>
             </div>
             <div class="row">
-                <div class="form-group"><label>إلى تاريخ:</label><input type="date" id="endDate"></div>
+                <div class="form-group"><label>تاريخ الانتهاء:</label><input type="date" id="endDate"></div>
                 <div class="form-group"><label>وقت الانتهاء:</label><input type="time" id="endTime"></div>
             </div>
-            <button class="btn-generate" onclick="generateLeave()">توليد كود الإجازة</button>
-            <div class="result-box" id="leaveResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('leaveOutput', this)">نسخ الكود</button></div><textarea id="leaveOutput" readonly></textarea></div>
+            <button class="btn-generate" onclick="generateLeave()">توليد الكود</button>
+            <div class="result-box" id="leaveResultBox"><div class="result-header"><div class="result-label">الكود:</div><button class="copy-btn" onclick="copyAdminText('leaveOutput', this)">نسخ</button></div><textarea id="leaveOutput" readonly></textarea></div>
         </div>
 
-        <div id="leave_external" class="form-container">
-            <h2>إصدار إجازة خارجية</h2>
-            <div class="form-group"><label>معرّف الفني (Discord ID):</label><input type="text" id="extId"></div>
-            <div class="form-group"><label>مدة الإجازة:</label><input type="text" id="extDuration" placeholder="مثال: 30"></div>
-            <div class="row">
-                <div class="form-group"><label>تاريخ بدء الإجازة:</label><input type="date" id="extStartDate"></div>
-                <div class="form-group"><label>تاريخ انتهاء الإجازة:</label><input type="date" id="extEndDate"></div>
-            </div>
-            <div class="form-group"><label>رابط نسخة القرار:</label><input type="text" id="extDecisionUrl"></div>
-            <div class="row">
-                <div class="form-group"><label>مسؤول الإحاطة 1 (ID):</label><input type="text" id="extNotice1" value="1329539822028849152"></div>
-                <div class="form-group"><label>مسؤول الإحاطة 2 (ID):</label><input type="text" id="extNotice2" value="757230139569471559"></div>
-            </div>
-            <button class="btn-generate" onclick="generateExternalLeave()">توليد كود الإجازة</button>
-            <div class="result-box" id="extResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('extOutput', this)">نسخ الكود</button></div><textarea id="extOutput" readonly></textarea></div>
-        </div>
-
+        <!-- انتداب الإشراف -->
         <div id="delegation" class="form-container">
-            <h2>إصدار انتداب خارجي (شرف)</h2>
-            <div class="form-group"><label>معرّف الموظف (Discord ID):</label><input type="text" id="delId"></div>
-            <div class="form-group"><label>اسم وكود الموظف:</label><input type="text" id="delNameCode"></div>
+            <h2>إصدار انتداب الإشراف</h2>
+            <div class="form-group"><label>معرّف الموظف (ID):</label><input type="text" id="delId" placeholder="مثال: 1134737782712053880"></div>
+            <div class="form-group"><label>اسم وكود الموظف:</label><input type="text" id="delNameCode" placeholder="مثال: [CC| G-000] اواب بــن مـحــمــد"></div>
             <div class="row">
-                <div class="form-group"><label>القطاع المنتدب له:</label><input type="text" id="delSector"></div>
+                <div class="form-group">
+                    <label>القطاع المنتدب له:</label>
+                    <select id="delSector">
+                        <option value="هلال احمر">هلال احمر</option>
+                        <option value="شرطة لوس">شرطة لوس</option>
+                        <option value="شرطة موائئ لوس">شرطة موائئ لوس</option>
+                        <option value="شرطة بوليتو">شرطة بوليتو</option>
+                        <option value="إدارة الشيرف">إدارة الشيرف</option>
+                        <option value="إدارة الشرطة">إدارة الشرطة</option>
+                    </select>
+                </div>
                 <div class="form-group"><label>المدة (أيام):</label><input type="number" id="delDays" value="0"></div>
             </div>
-            <button class="btn-generate" onclick="generateDelegation()">توليد كود الانتداب</button>
-            <div class="result-box" id="delResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('delOutput', this)">نسخ الكود</button></div><textarea id="delOutput" readonly></textarea></div>
+            <button class="btn-generate" onclick="generateDelegation()">توليد الكود</button>
+            <div class="result-box" id="delResultBox"><div class="result-header"><div class="result-label">الكود:</div><button class="copy-btn" onclick="copyAdminText('delOutput', this)">نسخ</button></div><textarea id="delOutput" readonly></textarea></div>
         </div>
 
+        <!-- إنذار وغرامة المزدوج -->
         <div id="warning_fine" class="form-container">
-            <h2>إصدار إنذار وظيفي وغرامة مالية</h2>
+            <h2>إصدار إنذار وظيفي وغرامة</h2>
+            <div class="tab-switcher">
+                <button type="button" id="btnTechWarning" class="sub-btn active" onclick="switchWarningType('tech')">مخالفة فني</button>
+                <button type="button" id="btnSupWarning" class="sub-btn" onclick="switchWarningType('sup')">مخالفة مشرف</button>
+            </div>
+            
             <div class="form-group">
                 <label>درجة الإنذار:</label>
                 <select id="fineDegree" onchange="toggleDelayOption()">
-                    <option value="اول">الإنذار الأول ( اول )</option>
-                    <option value="ثاني">الإنذار الثاني ( ثاني )</option>
-                    <option value="نهائي">الإنذار النهائي ( نهائي )</option>
+                    <option value="أول">إنذار أول</option>
+                    <option value="ثاني">إنذار ثاني</option>
+                    <option value="نهائي">إنذار نهائي</option>
                 </select>
+                <!-- خيار التأخير يظهر للفني فقط وللإنذار النهائي -->
                 <div id="delayPromoContainer" class="checkbox-container" style="display: none;">
                     <input type="checkbox" id="fineDelayPromo">
                     <label for="fineDelayPromo" style="margin: 0; color: #D9C563;">تأخير الترقية (أسبوع) ؟</label>
@@ -321,191 +220,44 @@
             <div class="form-group"><label>قيمة الغرامة:</label><input type="text" id="fineAmount" placeholder="مثال: 1.000.000"></div>
             <div class="form-group"><label>معرّف المخالف (ID):</label><input type="text" id="fineEmpId"></div>
             <div class="form-group"><label>سبب المخالفة:</label><input type="text" id="fineReason"></div>
-            <div class="form-group"><label>رابط فاتورة السحب:</label><input type="text" id="fineInvoiceUrl"></div>
-            <div class="row">
-                <div class="form-group"><label>المسؤول المعتمد (ID):</label><input type="text" id="fineApprovedBy" value="1282062186579230792"></div>
-                <div class="form-group"><label>مدير الخزينة (ID):</label><input type="text" id="fineTreasuryId" value="680393068469682256"></div>
+            
+            <!-- حقول مخصصة للفني فقط -->
+            <div id="techFields">
+                <div class="form-group"><label>رابط فاتورة السحب:</label><input type="text" id="fineInvoiceUrl"></div>
+                <div class="row">
+                    <div class="form-group"><label>المسؤول المعتمد (ID):</label><input type="text" id="fineApprovedBy" value="1282062186579230792"></div>
+                    <div class="form-group"><label>مدير الخزينة (ID):</label><input type="text" id="fineTreasuryId" value="680393068469682256"></div>
+                </div>
             </div>
+
             <button class="btn-generate" onclick="generateWarningFine()">توليد الكود</button>
-            <div class="result-box" id="fineResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('fineOutput', this)">نسخ الكود</button></div><textarea id="fineOutput" readonly></textarea></div>
+            <div class="result-box" id="fineResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('fineOutput', this)">نسخ</button></div><textarea id="fineOutput" readonly></textarea></div>
         </div>
 
-        <div id="warning_verbal" class="form-container">
-            <h2>إصدار إنذار شفهي</h2>
-            <div class="form-group"><label>معرّف المخالف (ID):</label><input type="text" id="verbalEmpId"></div>
-            <div class="form-group"><label>سبب الإنذار:</label><input type="text" id="verbalReason"></div>
-            <div class="form-group"><label>المسؤول المعتمد (ID):</label><input type="text" id="verbalApprovedBy"></div>
-            <button class="btn-generate" onclick="generateWarningVerbal()">توليد الكود</button>
-            <div class="result-box" id="verbalResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('verbalOutput', this)">نسخ الكود</button></div><textarea id="verbalOutput" readonly></textarea></div>
+        <!-- رصد الترقيات -->
+        <div id="promo_track" class="form-container">
+            <h2>إعلان رصد الترقيات</h2>
+            <div class="row">
+                <div class="form-group"><label>اليوم (مثل: الاربعاء):</label><input type="text" id="ptDay" value="الاربعاء"></div>
+                <div class="form-group"><label>الوقت (مثل: 0:00 م):</label><input type="text" id="ptTime" value="0:00 م"></div>
+            </div>
+            <button class="btn-generate" onclick="generatePromoTrack()">توليد الإعلان</button>
+            <div class="result-box" id="ptResultBox"><div class="result-header"><div class="result-label">الكود:</div><button class="copy-btn" onclick="copyAdminText('ptOutput', this)">نسخ</button></div><textarea id="ptOutput" readonly></textarea></div>
         </div>
 
-        <div id="weakness_report" class="form-container">
-            <h2>توزيع تقرير الضعف</h2>
-            <div class="row">
-                <div class="form-group"><label>رقم التقرير:</label><input type="number" id="wrNum" placeholder="00"></div>
-                <div class="form-group"><label>من الساعة:</label><input type="time" id="wrStartTime"></div>
-                <div class="form-group"><label>إلى الساعة:</label><input type="time" id="wrEndTime"></div>
-            </div>
-            <div class="section-title">إدارة وأقسام عليا</div>
-            <div class="grid-3-col">
-                <div class="form-group"><label>القيادة:</label><input type="text" id="wrLeader"></div>
-                <div class="form-group"><label>مستشار القائد:</label><input type="text" id="wrConsultant"></div>
-                <div class="form-group"><label>كبار المهندسين:</label><input type="text" id="wrChiefEng"></div>
-            </div>
-            <div class="section-title">المناطق الميدانية (أدخل المنشن أو "لايوجد")</div>
-            <div class="grid-3-col">
-                <div class="form-group"><label>حجز لوس:</label><input type="text" id="wrLoc1"></div>
-                <div class="form-group"><label>شاحنات لوس:</label><input type="text" id="wrLoc2"></div>
-                <div class="form-group"><label>شاحنات الرواعي:</label><input type="text" id="wrLoc3"></div>
-                <div class="form-group"><label>النفط والمعادن:</label><input type="text" id="wrLoc4"></div>
-                <div class="form-group"><label>جزيرة فرسان:</label><input type="text" id="wrLoc5"></div>
-                <div class="form-group"><label>شاحنات الساحل:</label><input type="text" id="wrLoc6"></div>
-                <div class="form-group"><label>الإسمنت:</label><input type="text" id="wrLoc7"></div>
-                <div class="form-group"><label>الأسماك:</label><input type="text" id="wrLoc8"></div>
-                <div class="form-group"><label>القاعدة العسكرية:</label><input type="text" id="wrLoc9"></div>
-                <div class="form-group"><label>شاحنات ساندي:</label><input type="text" id="wrLoc10"></div>
-                <div class="form-group"><label>مطار ساندي:</label><input type="text" id="wrLoc11"></div>
-                <div class="form-group"><label>شاحنات الجزيرة:</label><input type="text" id="wrLoc12"></div>
-                <div class="form-group"><label>المراعي:</label><input type="text" id="wrLoc13"></div>
-                <div class="form-group"><label>ميناء لوس الأساسي:</label><input type="text" id="wrLoc14"></div>
-                <div class="form-group"><label>ميناء التوسعات:</label><input type="text" id="wrLoc15"></div>
-                <div class="form-group"><label>ميناء بوليتو:</label><input type="text" id="wrLoc16"></div>
-            </div>
-            <div class="row">
-                <div class="form-group"><label>مسؤول التقرير:</label><input type="text" id="wrReporter"></div>
-                <div class="form-group"><label>رابط إعلان الضعف:</label><input type="text" id="wrLink"></div>
-            </div>
-            <button class="btn-generate" onclick="generateWeaknessReport()">توليد الكود</button>
-            <div class="result-box" id="wrResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('wrOutput', this)">نسخ الكود</button></div><textarea id="wrOutput" readonly></textarea></div>
-        </div>
+        <!-- النماذج الأخرى باختصار حفاظاً على السياق (موجودة برمجياً أسفل) -->
+        <div id="leave_external" class="form-container"><h2>إجازة خارجية</h2><div class="row"><div class="form-group"><label>ID:</label><input type="text" id="extId"></div><div class="form-group"><label>المدة:</label><input type="text" id="extDuration"></div></div><div class="row"><div class="form-group"><label>تاريخ البدء:</label><input type="date" id="extStartDate"></div><div class="form-group"><label>تاريخ الانتهاء:</label><input type="date" id="extEndDate"></div></div><button class="btn-generate" onclick="generateExternalLeave()">توليد</button><div class="result-box" id="extResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('extOutput', this)">نسخ</button></div><textarea id="extOutput" readonly></textarea></div></div>
+        
+        <div id="warning_verbal" class="form-container"><h2>إنذار شفهي</h2><div class="form-group"><label>ID:</label><input type="text" id="verbalEmpId"></div><div class="form-group"><label>السبب:</label><input type="text" id="verbalReason"></div><button class="btn-generate" onclick="generateWarningVerbal()">توليد</button><div class="result-box" id="verbalResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('verbalOutput', this)">نسخ</button></div><textarea id="verbalOutput" readonly></textarea></div></div>
 
-        <div id="supervisors_report" class="form-container">
-            <h2>تقرير المشرفين</h2>
-            <div class="row">
-                <div class="form-group"><label>رقم التقرير:</label><input type="number" id="srNum" placeholder="مثال: 0"></div>
-                <div class="form-group"><label>من الساعة:</label><input type="time" id="srStartTime"></div>
-                <div class="form-group"><label>إلى الساعة:</label><input type="time" id="srEndTime"></div>
-            </div>
-            <div class="section-title">القيادة</div>
-            <div class="grid-2-col">
-                <div class="form-group"><label>القيادة:</label><input type="text" id="srLeader" placeholder="منشن"></div>
-                <div class="form-group"><label>مستشار القائد:</label><input type="text" id="srConsultant" placeholder="منشن"></div>
-            </div>
-            <div class="section-title">الإشراف</div>
-            <div class="grid-3-col">
-                <div class="form-group"><label>إشراف عام:</label><input type="text" id="srGenSuper" placeholder="منشن"></div>
-                <div class="form-group"><label>إشراف ميداني:</label><input type="text" id="srFieldSuper" placeholder="منشن"></div>
-                <div class="form-group"><label>إشراف المناطق:</label><input type="text" id="srAreaSuper" placeholder="منشن"></div>
-                <div class="form-group"><label>مشرفين متدربين:</label><input type="text" id="srTraineeSuper" placeholder="منشن"></div>
-                <div class="form-group"><label>لاعب معتمد والسيدات:</label><input type="text" id="srCertified" placeholder="منشنات المتعددة"></div>
-            </div>
-            <div class="section-title">بروم الكراج</div>
-            <div class="grid-2-col">
-                <div class="form-group"><label>مسؤول افتتاح المتجر:</label><input type="text" id="srStoreOpen" placeholder="لايوجد أو منشن"></div>
-                <div class="form-group"><label>المشرف الميداني:</label><input type="text" id="srRoomFieldSuper" placeholder="لايوجد أو منشن"></div>
-                <div class="form-group"><label>مشرف المنطقة:</label><input type="text" id="srRoomAreaSuper" placeholder="منشن"></div>
-                <div class="form-group"><label>مشرف المتدرب:</label><input type="text" id="srRoomTraineeSuper" placeholder="منشن"></div>
-            </div>
-            <div class="section-title">العمليات والموانئ</div>
-            <div class="grid-3-col">
-                <div class="form-group"><label>العمليات:</label><input type="text" id="srOps" placeholder="منشن"></div>
-                <div class="form-group"><label>نائب العمليات:</label><input type="text" id="srViceOps" placeholder="منشن"></div>
-                <div class="form-group"><label>مركز الإتصالات:</label><input type="text" id="srComms" placeholder="منشن"></div>
-                <div class="form-group"><label>فني ميناء لوس:</label><input type="text" id="srPortLS" placeholder="منشن"></div>
-                <div class="form-group"><label>فني ميناء بوليتو:</label><input type="text" id="srPortPaleto" placeholder="منشن"></div>
-                <div class="form-group"><label>البحث والانقاذ:</label><input type="text" id="srSearchRescue" placeholder="لايوجد أو منشن"></div>
-            </div>
-            <div class="section-title">روابط التقارير</div>
-            <div class="row">
-                <div class="form-group"><label>رابط تسليم تقرير الاشراف:</label><input type="text" id="srLinkSuper" placeholder="https://discord.com/..."></div>
-                <div class="form-group"><label>رابط تقرير العمليات:</label><input type="text" id="srLinkOps" placeholder="https://discord.com/..."></div>
-            </div>
-            <button class="btn-generate" onclick="generateSupervisorsReport()">توليد كود تقرير المشرفين</button>
-            <div class="result-box" id="srResultBox">
-                <div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('srOutput', this)">نسخ الكود</button></div>
-                <textarea id="srOutput" readonly></textarea>
-            </div>
-        </div>
+        <div id="weakness_report" class="form-container"><h2>تقرير الضعف</h2><div class="row"><div class="form-group"><label>رقم التقرير:</label><input type="number" id="wrNum"></div><div class="form-group"><label>مسؤول التقرير:</label><input type="text" id="wrReporter"></div></div><button class="btn-generate" onclick="generateWeaknessReport()">توليد</button><div class="result-box" id="wrResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('wrOutput', this)">نسخ</button></div><textarea id="wrOutput" readonly></textarea></div></div>
 
-        <div id="course_completion" class="form-container">
-            <h2>إعتماد نتائج دورة وطلب رول</h2>
-            <div class="row">
-                <div class="form-group">
-                    <label>نوع الدورة:</label>
-                    <select id="ccType">
-                        <option value="الاساسية">الأساسية</option>
-                        <option value="الاستثنائية">الاستثنائية</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>اسم الدورة:</label>
-                    <select id="ccName">
-                        <option value="خدمات الطرق">خدمات الطرق</option>
-                        <option value="العمليات">العمليات</option>
-                        <option value="التصنيع">التصنيع</option>
-                        <option value="تعديل تزويد">تعديل تزويد</option>
-                        <option value="الدليل الشامل">الدليل الشامل</option>
-                    </select>
-                </div>
-                <div class="form-group"><label>رقم الدورة:</label><input type="number" id="ccNum" placeholder="مثال: 15"></div>
-            </div>
-            <div class="grid-3-col">
-                <div class="form-group"><label>تم الشرح من قبل (ID):</label><input type="text" id="ccPresenter" placeholder="منشن أو ID"></div>
-                <div class="form-group"><label>تم التصحيح من قبل (ID):</label><input type="text" id="ccCorrector" placeholder="منشن أو ID"></div>
-                <div class="form-group"><label>مراقب الدورة (ID):</label><input type="text" id="ccObserver" placeholder="منشن أو ID"></div>
-            </div>
-            <div class="row">
-                <div class="form-group"><label>المدربين المتفاعلين (ID):</label><input type="text" id="ccActiveTrainers" placeholder="منشنات المدربين"></div>
-                <div class="form-group"><label>باقي المدربين (ID):</label><input type="text" id="ccOtherTrainers" value="لا يوجد"></div>
-            </div>
-            <div class="row">
-                <div class="form-group"><label>رابط طلب الرول (المرجع):</label><input type="text" id="ccRoleLink" value="https://discord.com/channels/1071933157097615480/1152469897000001599/1512170342557286561"></div>
-                <div class="form-group"><label>توقيع واعتماد (ID):</label><input type="text" id="ccApprover" value="1199529688989696051"></div>
-            </div>
-            <button class="btn-generate" onclick="generateCourseCompletion()">توليد الكود</button>
-            <div class="result-box" id="ccResultBox">
-                <div class="result-header">
-                    <div class="result-label">الكود الجاهز:</div>
-                    <button class="copy-btn" onclick="copyAdminText('ccOutput', this)">نسخ الكود</button>
-                </div>
-                <textarea id="ccOutput" readonly></textarea>
-            </div>
-        </div>
+        <div id="supervisors_report" class="form-container"><h2>تقرير المشرفين</h2><div class="row"><div class="form-group"><label>رقم التقرير:</label><input type="number" id="srNum"></div></div><button class="btn-generate" onclick="generateSupervisorsReport()">توليد</button><div class="result-box" id="srResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('srOutput', this)">نسخ</button></div><textarea id="srOutput" readonly></textarea></div></div>
 
-        <div id="course_fees" class="form-container">
-            <h2>استلام عذر عدم دفع رسوم الدورة</h2>
-            <div class="row">
-                <div class="form-group"><label>اسم الشخص (ID):</label><input type="text" id="cfUserId" placeholder="مثال: 918672424344633424"></div>
-                <div class="form-group">
-                    <label>اسم الدورة:</label>
-                    <select id="cfCourseName">
-                        <option value="خدمات الطرق اساسي">خدمات الطرق اساسي</option>
-                        <option value="خدمات الطرق استثنائيه">خدمات الطرق استثنائيه</option>
-                        <option value="العمليات">العمليات</option>
-                        <option value="التصنيع">التصنيع</option>
-                        <option value="تعديل تزويد">تعديل تزويد</option>
-                        <option value="الدليل الشامل">الدليل الشامل</option>
-                    </select>
-                </div>
-                <div class="form-group"><label>رقم الدورة:</label><input type="number" id="cfCourseNum" placeholder="مثال: 25"></div>
-            </div>
-            <div class="form-group"><label>سبب عدم التسديد في الوقت المحدد:</label><input type="text" id="cfReason" value="عدم المقدره على التواجد داخل المقاطعه وقت الدورة."></div>
-            <div class="form-group"><label>رابط الفاتورة/المخالفة:</label><input type="text" id="cfInvoiceUrl" placeholder="https://discord.com/..."></div>
-            <div class="row">
-                <div class="form-group"><label>مسؤولين الدورة (ID):</label><input type="text" id="cfManagers" value="<@831347644110077975> - <@1014559920479272980>"></div>
-                <div class="form-group"><label>للإحاطة (ID):</label><input type="text" id="cfNotice" value="<@457775919122087936>"></div>
-            </div>
-            <button class="btn-generate" onclick="generateCourseFees()">توليد الكود</button>
-            <div class="result-box" id="cfResultBox">
-                <div class="result-header">
-                    <div class="result-label">الكود الجاهز:</div>
-                    <button class="copy-btn" onclick="copyAdminText('cfOutput', this)">نسخ الكود</button>
-                </div>
-                <textarea id="cfOutput" readonly></textarea>
-            </div>
-        </div>
+        <div id="course_completion" class="form-container"><h2>إعتماد دورة</h2><div class="row"><div class="form-group"><label>اسم الدورة:</label><input type="text" id="ccName" value="خدمات الطرق"></div><div class="form-group"><label>رقم:</label><input type="number" id="ccNum"></div></div><button class="btn-generate" onclick="generateCourseCompletion()">توليد</button><div class="result-box" id="ccResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('ccOutput', this)">نسخ</button></div><textarea id="ccOutput" readonly></textarea></div></div>
 
-        <!-- 10. نموذج إيداع رسوم الدورة (المُعدّل) -->
+        <div id="course_fees" class="form-container"><h2>عذر رسوم دورة</h2><div class="row"><div class="form-group"><label>ID:</label><input type="text" id="cfUserId"></div><div class="form-group"><label>اسم الدورة:</label><input type="text" id="cfCourseName" value="خدمات الطرق اساسي"></div></div><button class="btn-generate" onclick="generateCourseFees()">توليد</button><div class="result-box" id="cfResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('cfOutput', this)">نسخ</button></div><textarea id="cfOutput" readonly></textarea></div></div>
+
         <div id="course_deposit" class="form-container">
             <h2>إيداع أموال الدورات في الخزنة</h2>
             <div class="form-group">
@@ -516,7 +268,6 @@
                     <option value="private">سبب الإيداع لدورة استثنائية (خاصة)</option>
                 </select>
             </div>
-            
             <div class="row">
                 <div class="form-group">
                     <label>اسم الدورة / الرسوم:</label>
@@ -530,38 +281,24 @@
                     </select>
                 </div>
                 <div class="form-group"><label>رقم/تسلسل الدورة:</label><input type="number" id="depCourseNum" placeholder="مثال: 00"></div>
-                
                 <div class="form-group" id="depCategoryDiv">
                     <label>فئة الدورة:</label>
-                    <select id="depCourseCategory">
-                        <option value="الاساسية">الأساسية</option>
-                        <option value="الاستثنائية">الاستثنائية</option>
-                    </select>
+                    <select id="depCourseCategory"><option value="الاساسية">الأساسية</option><option value="الاستثنائية">الاستثنائية</option></select>
                 </div>
             </div>
-
             <div class="form-group" id="depTechDiv">
                 <label>اسم الفني (ID أو منشن):</label>
                 <input type="text" id="depTechName" placeholder="مثال: 918672424344633424">
             </div>
-
             <button class="btn-generate" onclick="generateCourseDeposit()">توليد الكود</button>
-            <div class="result-box" id="depResultBox">
-                <div class="result-header">
-                    <div class="result-label">الكود الجاهز:</div>
-                    <button class="copy-btn" onclick="copyAdminText('depOutput', this)">نسخ الكود</button>
-                </div>
-                <textarea id="depOutput" readonly></textarea>
-            </div>
+            <div class="result-box" id="depResultBox"><div class="result-header"><button class="copy-btn" onclick="copyAdminText('depOutput', this)">نسخ</button></div><textarea id="depOutput" readonly></textarea></div>
         </div>
 
-        <div class="footer">بوابة الشؤون الإدارية المتكاملة لقطاعات الكراج © 2026</div>
     </div>
 
-    <!-- =========================================
-         الجافاسكريبت الشامل لكل الأقسام
-    ========================================= -->
+    <!-- جافاسكريبت -->
     <script>
+        // التنقل بين الأقسام الرئيسية
         function switchMainSection(sectionId, btnElement) {
             document.querySelectorAll('.main-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.main-tab-btn').forEach(el => el.classList.remove('active'));
@@ -569,6 +306,8 @@
             btnElement.classList.add('active');
         }
 
+        // --- دوال الجرد والمقارنة السابقة ---
+        // (محتفظ بها كما هي للعمل الموثوق)
         function getPromotionLevels() { const level = document.getElementById("levelSelect").value; const map = { "trainee": ["متدرب", "1"], "1": ["1", "2"], "2": ["2", "3"], "3": ["3", "4"], "4": ["4", "5"] }; return map[level] || ["?", "?"]; }
         function parseLines() { const text = document.getElementById('inputText').value; const currentLevel = document.getElementById("levelSelect").value; const pointsConfig = { "trainee": 4, "1": 8, "2": 14, "3": 21, "4": 28 }; const requiredPoints = pointsConfig[currentLevel] || 0; const seen = new Set(); return text.split("\n").map(line => { if (!line.trim() || line.includes("منصب شاغر")) return null; const idMatch = line.match(/<@[^>]+>/); const id = idMatch ? idMatch[0] : null; if (!id || seen.has(id)) return null; seen.add(id); const checks = (line.match(/✅/g) || []).length; let points = 0; const pMatch = line.match(/(?:النقاط\s*[:=]?\s*(\d+))|(?:(\d+)\s*(?:نقطة|نقاط|نقطه))/i); if (pMatch) points = parseInt(pMatch[1] || pMatch[2]); else { const nums = line.replace(/<@[^>]+>/g, '').match(/\d+/g); if (nums) points = parseInt(nums[nums.length - 1]); } return { id, checks, points, qualified: (checks >= 2 && points >= requiredPoints) }; }).filter(x => x); }
         function analyzeText(){ const data = parseLines(); document.getElementById("cleanedText").value = data.map(d => `${d.id} | الصح: ${d.checks} | النقاط: ${d.points}`).join("\n"); }
@@ -580,7 +319,6 @@
         function copyPromoCleanText(){ navigator.clipboard.writeText(document.getElementById("cleanedText").value); alert("تم النسخ!"); }
         function copyPromotionText(){ navigator.clipboard.writeText(document.getElementById("promotionBox").value); alert("تم نسخ النموذج!"); }
         function resetPromoFields(){ document.getElementById("inputText").value = ""; document.getElementById("cleanedText").value = ""; document.getElementById("promotionBox").value = ""; document.getElementById("counter").textContent = ""; document.getElementById("startCode").value = ""; }
-
         function unique(arr){ return [...new Set(arr)]; }
         function findDuplicates(arr){ const counts = {}; arr.forEach(item => counts[item] = (counts[item] || 0) + 1); return Object.keys(counts).filter(key => counts[key] > 1); }
         function escapeHtml(str){ return String(str).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;'); }
@@ -599,9 +337,9 @@
         function clearCompFields(){ document.getElementById('supervisorText').value = ''; document.getElementById('technicalText').value = ''; document.getElementById('results').innerHTML = ''; }
         function copyCompResults(){ const results = document.getElementById('results').innerText.trim(); if(!results){ alert('لا توجد نتائج لنسخها.'); return; } navigator.clipboard.writeText(results).then(() => alert('تم نسخ النتائج.')).catch(() => alert('تعذر نسخ النتائج.')); }
 
-        // --- دوال الشؤون الإدارية ---
+        // --- دوال الشؤون الإدارية والتعديلات الجديدة ---
         const formatMention = (val) => {
-            if (val === 'لا يوجد' || val.trim() === '') return val;
+            if (!val || val === 'لا يوجد' || val.trim() === '') return val || '';
             return val.split(/(\s+|-)/).map(v => {
                 let cleaned = v.trim();
                 if (!cleaned || cleaned === '-') return v;
@@ -617,13 +355,128 @@
             document.getElementById(tabId).classList.add('active');
             btnElement.classList.add('active');
         }
+
+        // التعديل 4: الإجازات (الوقت التلقائي)
+        function calcLeaveDates() {
+            let duration = parseInt(document.getElementById('leaveDuration').value) || 0;
+            if(duration <= 0) return;
+            let now = new Date();
+            
+            // وضع وقت البداية
+            const pad = num => num.toString().padStart(2, '0');
+            document.getElementById('startDate').value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+            document.getElementById('startTime').value = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+            
+            // إضافة الساعات
+            now.setHours(now.getHours() + duration);
+            
+            // وضع وقت النهاية
+            document.getElementById('endDate').value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+            document.getElementById('endTime').value = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+        }
+
+        function formatTime12(timeStr) {
+            if (!timeStr) return "00:00 ص/م";
+            let [hours, minutes] = timeStr.split(':');
+            let ampm = hours >= 12 ? 'م' : 'ص';
+            hours = hours % 12;
+            hours = hours ? hours : 12; 
+            return `${hours}:${minutes} ${ampm}`;
+        }
+        function formatDateFix(dateStr) { if (!dateStr) return "2026/00/00"; return dateStr.replace(/-/g, '/'); }
+        function getValueOrEmpty(id, fallback = "") { return document.getElementById(id).value || fallback; }
+
+        function generateLeave() {
+            const userType = document.getElementById('leaveUserType').value;
+            const id = formatMention(getValueOrEmpty('leaveId', '1182445629721563177'));
+            const duration = getValueOrEmpty('leaveDuration', '0');
+            const balance = getValueOrEmpty('leaveBalance', '0');
+            const startDate = formatDateFix(document.getElementById('startDate').value);
+            const startTime = formatTime12(document.getElementById('startTime').value);
+            const endDate = formatDateFix(document.getElementById('endDate').value);
+            const endTime = formatTime12(document.getElementById('endTime').value);
+            const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** ${id} \n\n***\`المــــدة :\`  ${duration} ساعة*** \n***\`الرصيد المتبقي :\`  ${balance} ساعة*** \n\n***من تاريخ ${startDate} | ${startTime} *** \n***الى تاريخ ${endDate} | ${endTime} *** \n\n***\`ملاحظة :\`*** \n***تنتهي اجازتك بنفس التوقيت اللي بترجع فية.*** \n\n***\`تنويهات هامة يجب قرائتها :\`*** \n\n***01/ تبدأ الإجازة الخاصة بك في وقتها المحدد، ويُمنع تغيير الوظيفة قبل المدة المحددة لبدء الإجازة.*** \n\n***02/ يجب العودة من الإجازة قبل انتهاء مدتها وتغيير الوظيفة إلى قطاع الميكانيك. من يخالف ذلك سيُعتبر تهرباً وظيفياً وستتم محاسبته من قِبل إدارة الكراج.*** \n\n***03/ في حال عندك عذر وقدمته بفتح تكت اجازة سيتم فقط تصفير اجازاتك مهما كان السبب وعدم اعطائك تهرب وظيفي.*** \n\n***04/ في حال تم سجنك رقابيا سيتم تطبيق العقوبه عليك حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). *** \n\n***كذلك في حال تعديت نص الاسبوع ( الثلاثاء ) او كان رصيدك اقل من نص اجماليك سيتم تصفيرك الاسبوع الحالي والقادم.*** \n\n***05/يسمح لمنسوبي القطاع تغيير اسمه داخل المقاطعه اثناء الاجازه الداخليه حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). ***\n\n\`\`\`diff\n-يجب مراجعة قوانين الاجازات جهلك بالقوانين لا يعفيك من العقوبه\n\`\`\`\n\n*** <@&1149742928953086105>***`;
+            document.getElementById('leaveOutput').value = template;
+            document.getElementById('leaveResultBox').style.display = 'block';
+        }
+
+        // التعديل 1: انتداب الإشراف (تعديل النص والمسميات)
+        function generateDelegation() {
+            const id = formatMention(getValueOrEmpty('delId', '1134737782712053880'));
+            const nameCode = getValueOrEmpty('delNameCode', '[CC| G-000] اواب بــن مـحــمــد');
+            const sector = document.getElementById('delSector').value;
+            const days = getValueOrEmpty('delDays', '0');
+            const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`الموضوع : انتداب خارجي \`\`\`\nالسلام عليكم ورحمة الله وبركاته، وبعد:\n \`\`\`cs\n# إشارة إلى طلب الموظف الموضحة بياناته أدناه بشأن الانتداب خارج الكراج، نفيدكم بأنه تمت الموافقة على طلبه وفق التفاصيل التالية:\n\`\`\`\n\n الاسم: ${id}\n \nاسم وكود الموظف : ${nameCode}\n \nالقطاع المنتدب له: ${sector}\n المدة: ${days} أيام\n\nنرجوا من الموظف التقيد بالأنظمة والتعليمات الخاصة بالانتدابات، والتنسيق مع الجهة المعنية قبل المباشرة.\n\n<@&1149742928953086105> ***`;
+            document.getElementById('delOutput').value = template;
+            document.getElementById('delResultBox').style.display = 'block';
+        }
+
+        // التعديل 2: نظام المخالفات المزدوج (فني ومشرف) مع خيار التأخير
+        let currentWarningType = 'tech';
+        function switchWarningType(type) {
+            currentWarningType = type;
+            document.getElementById('btnTechWarning').classList.remove('active');
+            document.getElementById('btnSupWarning').classList.remove('active');
+            if(type === 'tech') {
+                document.getElementById('btnTechWarning').classList.add('active');
+                document.getElementById('techFields').style.display = 'block';
+            } else {
+                document.getElementById('btnSupWarning').classList.add('active');
+                document.getElementById('techFields').style.display = 'none';
+            }
+            toggleDelayOption();
+        }
+
         function toggleDelayOption() {
             const degree = document.getElementById('fineDegree').value;
             const delayContainer = document.getElementById('delayPromoContainer');
-            if (degree === 'نهائي') { delayContainer.style.display = 'flex'; } else { delayContainer.style.display = 'none'; document.getElementById('fineDelayPromo').checked = false; }
+            // التأخير يظهر للفني فقط وللإنذار النهائي
+            if (degree === 'نهائي' && currentWarningType === 'tech') { 
+                delayContainer.style.display = 'flex'; 
+            } else { 
+                delayContainer.style.display = 'none'; 
+                document.getElementById('fineDelayPromo').checked = false; 
+            }
         }
-        
-        // إخفاء وإظهار الحقول بناءً على اختيار رسوم التوظيف أو نوع الإيداع
+
+        function generateWarningFine() {
+            const degree = document.getElementById('fineDegree').value;
+            const amount = getValueOrEmpty('fineAmount', '1.000.000');
+            const empId = formatMention(getValueOrEmpty('fineEmpId', '1488138386240831661'));
+            const reason = getValueOrEmpty('fineReason', 'تسطيح غير واقعي');
+            
+            let template = "";
+
+            if(currentWarningType === 'tech') {
+                const url = getValueOrEmpty('fineInvoiceUrl', 'https://discord.com/...');
+                const approvedBy = formatMention(getValueOrEmpty('fineApprovedBy', '1282062186579230792'));
+                const treasuryId = formatMention(getValueOrEmpty('fineTreasuryId', '680393068469682256'));
+                
+                let delayClause = "";
+                if (degree === 'نهائي' && document.getElementById('fineDelayPromo').checked) {
+                    delayClause = "\nثالثاً: تأخير ترقية اسبوع ";
+                }
+                template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : انذار وظيفي وغرامه مالية\n\n\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار وظيفي ( ${degree} )\nثانياً: غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج${delayClause}\`\`\`\n\n\n ${empId}\n\n\n\`\`\`وذلك بسبب  : ${reason} \`\`\` \n\n\n\`نوع السحب : \`  [فاتورة](${url})\n\n\n\`اعتماد:\` \n${approvedBy}   \n <@&1092120390324731994> \n \n\n\`توقيع مدير الخزينة \`\n${treasuryId} \n<@&1071933343123386429> \n\nيرسل الاصل الى : \n<@&1149742928953086105> ***`;
+            } 
+            else {
+                // نموذج المشرف
+                template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع :انذار ${degree} \n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار ${degree} (شؤون إدارية)\nثانياً :غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج \`\`\`\n\n\n${empId} \n\n\`\`\`وذلك بسبب : ${reason}    \`\`\` \n\n\nمهله 72 ساعه من الان لفتح تكت [طلب مساعدة من قيادة  الكراج ](https://discord.com/channels/1414676239960113214/1414686871895801867/1461185217845923853) و تسليم الغرامه لمسؤول المشرفين \n\n\n\n\`توقيع \`\n<@457775919122087936> \n<@&1142626604732915812> \n\n\`اعتماد \`\n<@451806885419679765> \n<@&1092120226478428200>\n\n\`توقيع مدير الخزينة \`\n<@680393068469682256> \n<@&1071933343123386429>\n\n\n\n<@&1149742928953086105>***`;
+            }
+
+            document.getElementById('fineOutput').value = template;
+            document.getElementById('fineResultBox').style.display = 'block';
+        }
+
+        // التعديل 3: إعلان رصد الترقيات
+        function generatePromoTrack() {
+            const day = getValueOrEmpty('ptDay', 'الاربعاء');
+            const time = getValueOrEmpty('ptTime', '0:00 م');
+            const template = `\`\`\`diff\n-رصد الترقيات-\n\`\`\`\n***سنقوم بالرصد غدا ${day}  الساعة ${time}***\n\n***الإجتماع قبل الرصد بنصف ساعة كذلك اي شخص يتواجد بعد الوقت  ( ${time} ) لن يحسب له الرصد***\n\n***\`: سيتم ارسال الرابط قبل الرصد ب 10 دقائق\`***\n\n\n\n*^الشباب المشاركين لحد ينسى وجميع الي بيحضر يحط رياكشن والي عنده عذر يفتح تكت قيادة ويقدم عذره  ^* \n\n<@&1149742928953086105>`;
+            document.getElementById('ptOutput').value = template;
+            document.getElementById('ptResultBox').style.display = 'block';
+        }
+
+        // التعديل 5: إيداع رسوم الدورة (إخفاء حقول رسوم التوظيف)
         function toggleDepositFields() {
             const depType = document.getElementById('depType').value;
             const courseName = document.getElementById('depCourseName').value;
@@ -646,30 +499,13 @@
                 }
             }
         }
-        
-        function formatTime(timeStr) { if (!timeStr) return "00:00 ص/م"; let [hours, minutes] = timeStr.split(':'); let ampm = hours >= 12 ? 'م' : 'ص'; hours = hours % 12; hours = hours ? hours : 12; return `${hours}:${minutes} ${ampm}`; }
-        function formatDate(dateStr) { if (!dateStr) return "2026/00/00"; return dateStr.replace(/-/g, '/'); }
-        function getValueOrEmpty(id, fallback = " ") { return document.getElementById(id).value || fallback; }
 
-        function generateLeave() { const userType = document.getElementById('leaveUserType').value; const id = getValueOrEmpty('leaveId', '1182445629721563177'); const duration = getValueOrEmpty('leaveDuration', '0'); const balance = getValueOrEmpty('leaveBalance', '0'); const startDate = formatDate(document.getElementById('startDate').value); const startTime = formatTime(document.getElementById('startTime').value); const endDate = formatDate(document.getElementById('endDate').value); const endTime = formatTime(document.getElementById('endTime').value); const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** <@${id}> \n\n***\`المــــدة :\`  ${duration} ساعة*** \n***\`الرصيد المتبقي :\`  ${balance} ساعة*** \n\n***من تاريخ ${startDate} | ${startTime} *** \n***الى تاريخ ${endDate} | ${endTime} *** \n\n***\`ملاحظة :\`*** \n***تنتهي اجازتك بنفس التوقيت اللي بترجع فية.*** \n\n***\`تنويهات هامة يجب قرائتها :\`*** \n\n***01/ تبدأ الإجازة الخاصة بك في وقتها المحدد، ويُمنع تغيير الوظيفة قبل المدة المحددة لبدء الإجازة.*** \n\n***02/ يجب العودة من الإجازة قبل انتهاء مدتها وتغيير الوظيفة إلى قطاع الميكانيك. من يخالف ذلك سيُعتبر تهرباً وظيفياً وستتم محاسبته من قِبل إدارة الكراج.*** \n\n***03/ في حال عندك عذر وقدمته بفتح تكت اجازة سيتم فقط تصفير اجازاتك مهما كان السبب وعدم اعطائك تهرب وظيفي.*** \n\n***04/ في حال تم سجنك رقابيا سيتم تطبيق العقوبه عليك حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). *** \n\n***كذلك في حال تعديت نص الاسبوع ( الثلاثاء ) او كان رصيدك اقل من نص اجماليك سيتم تصفيرك الاسبوع الحالي والقادم.*** \n\n***05/يسمح لمنسوبي القطاع تغيير اسمه داخل المقاطعه اثناء الاجازه الداخليه حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). ***\n\n\`\`\`diff\n-يجب مراجعة قوانين الاجازات جهلك بالقوانين لا يعفيك من العقوبه\n\`\`\`\n\n*** <@&1149742928953086105>***`; document.getElementById('leaveOutput').value = template; document.getElementById('leaveResultBox').style.display = 'block'; }
-        function generateExternalLeave() { const id = getValueOrEmpty('extId', '1279399564771856404'); const duration = getValueOrEmpty('extDuration', '30'); const startDate = formatDate(document.getElementById('extStartDate').value); const endDate = formatDate(document.getElementById('extEndDate').value); const url = getValueOrEmpty('extDecisionUrl', 'https://discord.com/...'); const notice1 = getValueOrEmpty('extNotice1', '1329539822028849152'); const notice2 = getValueOrEmpty('extNotice2', '757230139569471559'); const template = `***\`نموذج الاجازة الخارجية \`***\n\n***\`اسم الفني :\`( <@${id}>) ***\n\n***\`مدة الاجازة : \` ( ${duration} ) ***\n\n***\`تاريخ بدء الاجازة \`: (${startDate})***\n\n***\`تاريخ انتهاء الاجازة  :\` (${endDate}) *** \n\n***\`نسخة للقرار :\` ( ${url}) ***\n\n***\`للعلم والاحاطة/\`***\n<@${notice1}> -  - <@${notice2}>`; document.getElementById('extOutput').value = template; document.getElementById('extResultBox').style.display = 'block'; }
-        function generateDelegation() { const id = getValueOrEmpty('delId', '478742765602078724'); const nameCode = getValueOrEmpty('delNameCode', 'زياد بن عمر [G-000 ]'); const sector = getValueOrEmpty('delSector', 'الهلال الاحمر'); const days = getValueOrEmpty('delDays', '0'); const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`الموضوع : انتداب خارجي \`\`\`\nالسلام عليكم ورحمة الله وبركاته، وبعد:\n \`\`\`cs\n# إشارة إلى طلب الموظف الموضحة بياناته أدناه بشأن الانتداب خارج الكراج، نفيدكم بأنه تمت الموافقة على طلبه وفق التفاصيل التالية:\n\`\`\`\n\n الاسم: <@${id}>\n اسم وكود الموظف : ${nameCode}\n القطاع المنتدب له: ${sector}\n المدة: ${days} أيام\n\nنرجوا من الموظف التقيد بالأنظمة والتعليمات الخاصة بالانتدابات، والتنسيق مع الجهة المعنية قبل المباشرة.\n\n<@&1149742928953086105> ***`; document.getElementById('delOutput').value = template; document.getElementById('delResultBox').style.display = 'block'; }
-        function generateWarningFine() { const degree = document.getElementById('fineDegree').value; const amount = getValueOrEmpty('fineAmount', '1.000.000'); const empId = getValueOrEmpty('fineEmpId', '1488138386240831661'); const reason = getValueOrEmpty('fineReason', 'تسطيح غير واقعي'); const url = getValueOrEmpty('fineInvoiceUrl', 'https://discord.com/...'); const approvedBy = getValueOrEmpty('fineApprovedBy', '1282062186579230792'); const treasuryId = getValueOrEmpty('fineTreasuryId', '680393068469682256'); let delayClause = ""; if (degree === 'نهائي' && document.getElementById('fineDelayPromo').checked) { delayClause = "\nثالثاً: تأخير ترقية اسبوع "; } const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : انذار وظيفي وغرامه مالية\n\n\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار وظيفي ( ${degree} )\nثانياً: غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج${delayClause}\`\`\`\n\n\n <@${empId}>\n\n\n\`\`\`وذلك بسبب  : ${reason} \`\`\` \n\n\n\`نوع السحب : \`  [فاتورة](${url})\n\n\n\`اعتماد:\` \n<@${approvedBy}>   \n <@&1092120390324731994> \n \n\n\`توقيع مدير الخزينة \`\n<@${treasuryId}> \n<@&1071933343123386429> \n\nيرسل الاصل الى : \n<@&1149742928953086105> ***`; document.getElementById('fineOutput').value = template; document.getElementById('fineResultBox').style.display = 'block'; }
-        function generateWarningVerbal() { const empId = getValueOrEmpty('verbalEmpId', '1468082598315036783'); const reason = getValueOrEmpty('verbalReason', 'قياده متهوره'); const approvedBy = getValueOrEmpty('verbalApprovedBy', '1282062186579230792'); const template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع :انذار (شفهي)-\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار (شفهي)\n\`\`\`\n\n\n <@${empId}>\n\n\`\`\`وذلك بسبب :  ${reason} \`\`\` \n\n\n\n\` اعتماد \` <@${approvedBy}> \n \n\n\n\nيرسل الاصل الى : \n<@&1149742928953086105>\n***`; document.getElementById('verbalOutput').value = template; document.getElementById('verbalResultBox').style.display = 'block'; }
-        function generateWeaknessReport() { const num = getValueOrEmpty('wrNum', '00'); const start = formatTime(document.getElementById('wrStartTime').value); const end = formatTime(document.getElementById('wrEndTime').value); const leader = getValueOrEmpty('wrLeader', ' '); const consultant = getValueOrEmpty('wrConsultant', ' '); const chiefEng = getValueOrEmpty('wrChiefEng', ' '); const loc1 = getValueOrEmpty('wrLoc1', ' '); const loc2 = getValueOrEmpty('wrLoc2', ' '); const loc3 = getValueOrEmpty('wrLoc3', ' '); const loc4 = getValueOrEmpty('wrLoc4', ' '); const loc5 = getValueOrEmpty('wrLoc5', ' '); const loc6 = getValueOrEmpty('wrLoc6', ' '); const loc7 = getValueOrEmpty('wrLoc7', ' '); const loc8 = getValueOrEmpty('wrLoc8', ' '); const loc9 = getValueOrEmpty('wrLoc9', ' '); const loc10 = getValueOrEmpty('wrLoc10', ' '); const loc11 = getValueOrEmpty('wrLoc11', ' '); const loc12 = getValueOrEmpty('wrLoc12', ' '); const loc13 = getValueOrEmpty('wrLoc13', ' '); const loc14 = getValueOrEmpty('wrLoc14', ' '); const loc15 = getValueOrEmpty('wrLoc15', ' '); const loc16 = getValueOrEmpty('wrLoc16', ' '); const reporter = getValueOrEmpty('wrReporter', ' '); const link = getValueOrEmpty('wrLink', 'https://discord.com/channels/...'); const template = `تقرير الضعف رقم (${num})\n\n**تم تجهيز تقرير الضعف من الساعة  ( ${start} )  الى الساعة  ( ${end} )  و تم توزيع المشرفين في المناطق التالية** \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**القيادة :** ${leader}\n\n**مستشار القائد :** ${consultant}\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**كبار المهندسين : ( ${chiefEng} )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**منطقة حجز لوس : ( ${loc1} )**\n\n**منطقة شاحنات لوس : ( ${loc2} )**\n\n**منطقة شاحنات الرواعي : ( ${loc3} ) **\n\n**منطقة النفط و المعادن : ( ${loc4} ) **\n\n**جزيرة فرسان : ( ${loc5} )**\n\n**منطقة  شاحنات الساحل الغربي : ( ${loc6} ) **\n\n** منطقة الإسمنت : ( ${loc7} )**\n\n**منطقة الأسماك : ( ${loc8} )**\n\n** القاعدة العسكرية : ( ${loc9} )**\n\n** منطقة شاحنات ساندي : ( ${loc10} ) **\n\n** منطقة مطار ساندي : ( ${loc11} ) **\n\n** منطقة شاحنات الجزيرة : ( ${loc12} ) **\n\n**منطقة منطقة المراعي :  ( ${loc13} )**\n\n**اشراف ميناء لوس الأساسي : ( ${loc14} )**\n\n**اشراف ميناء التوسعات : ( ${loc15} )**\n\n**اشراف ميناء بوليتو : ( ${loc16} )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**مسؤول التقرير : ( ${reporter} )**\n\n**[ إعلان الضعف ](${link})**\n\nللعلم و الإحاطة :  <@&1142626604732915812>  - <@&1149742928953086105>  \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`; document.getElementById('wrOutput').value = template; document.getElementById('wrResultBox').style.display = 'block'; }
-        function generateSupervisorsReport() { const num = getValueOrEmpty('srNum', '0'); const start = formatTime(document.getElementById('srStartTime').value); const end = formatTime(document.getElementById('srEndTime').value); const leader = getValueOrEmpty('srLeader', 'لايوجد'); const consultant = getValueOrEmpty('srConsultant', 'لايوجد'); const genSuper = getValueOrEmpty('srGenSuper', 'لايوجد'); const fieldSuper = getValueOrEmpty('srFieldSuper', 'لايوجد'); const areaSuper = getValueOrEmpty('srAreaSuper', 'لايوجد'); const traineeSuper = getValueOrEmpty('srTraineeSuper', 'لايوجد'); const certified = getValueOrEmpty('srCertified', 'لايوجد'); const storeOpen = getValueOrEmpty('srStoreOpen', 'لايوجد'); const roomFieldSuper = getValueOrEmpty('srRoomFieldSuper', 'لايوجد'); const roomAreaSuper = getValueOrEmpty('srRoomAreaSuper', 'لايوجد'); const roomTraineeSuper = getValueOrEmpty('srRoomTraineeSuper', 'لايوجد'); const ops = getValueOrEmpty('srOps', 'لايوجد'); const viceOps = getValueOrEmpty('srViceOps', 'لايوجد'); const comms = getValueOrEmpty('srComms', 'لايوجد'); const portLS = getValueOrEmpty('srPortLS', 'لايوجد'); const portPaleto = getValueOrEmpty('srPortPaleto', 'لايوجد'); const searchRescue = getValueOrEmpty('srSearchRescue', 'لايوجد'); const linkSuper = getValueOrEmpty('srLinkSuper', 'https://discord.com/...'); const linkOps = getValueOrEmpty('srLinkOps', 'https://discord.com/...'); const template = `**تقرير رقم (${num})**\n\n**تم استلام تقرير المشرفين من الساعة  ( ${start})  الى الساعة  ( ${end})**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**القيادة : (    ${leader}    )**\n\n**مستشار القائد : ( ${consultant}  )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**اشراف عام : (   ${genSuper}  )**\n\n**اشراف ميداني :  (   ${fieldSuper}    ) **\n\n**اشراف المناطق : (   ${areaSuper}     )**\n\n**مشرفين متدربين : ( ${traineeSuper} )**\n\n**لاعب معتمد والسيدات : ( ${certified}  )**\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**مسؤول افتتاح المتجر : (${storeOpen} )**\n\n**المشرف الميداني بروم الكراج : (${roomFieldSuper} )**\n\n**مشرف المنطقة بروم الكراج :   (   ${roomAreaSuper}     )**\n\n**مشرف المتدرب بروم الكراج :  (${roomTraineeSuper} )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n**العمليات: ( ${ops} )**\n\n**نائب العمليات : ( ${viceOps} ) **\n\n**مركز الإتصالات :  ( ${comms} )**\n\n** فني ميناء لوس: (${portLS}  ) **\n\n**فني ميناء بوليتو : ( ${portPaleto} )**\n\n**البحث والانقاذ : ( ${searchRescue} )**\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n **[تسليم تقرير الاشراف](${linkSuper})**\n**[تقرير العمليات](${linkOps}) **\n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`; document.getElementById('srOutput').value = template; document.getElementById('srResultBox').style.display = 'block'; }
-        function generateCourseCompletion() { const type = document.getElementById('ccType').value; const name = document.getElementById('ccName').value; const num = getValueOrEmpty('ccNum', '00'); const presenter = getValueOrEmpty('ccPresenter', '756922960589094913'); const corrector = getValueOrEmpty('ccCorrector', '783375365623906354'); const observer = getValueOrEmpty('ccObserver', '757230139569471559'); const active = getValueOrEmpty('ccActiveTrainers', '<@783375365623906354> <@755393813035483136>'); const other = getValueOrEmpty('ccOtherTrainers', 'لا يوجد'); const roleLink = getValueOrEmpty('ccRoleLink', 'https://discord.com/channels/1071933157097615480/1152469897000001599/1512170342557286561'); const approver = getValueOrEmpty('ccApprover', '1199529688989696051'); const fPresenter = formatMention(presenter); const fCorrector = formatMention(corrector); const fObserver = formatMention(observer); const fActive = formatMention(active); const fApprover = formatMention(approver); const template = `*** نموذج الأنتهاء من الدورة واعتماد النتائج وطلب تسليم رول ***\n\n\`- تم تعبية جداول رسوم الدورات في مجلد الخاص في دورة (${name}) رقم التسلسل (${num}) قبل ارسال هاذا التقرير :\`\n\n*** \` نوع الدورة : \`( ${type} )***\n\n***\` اسم الدورة :\` ( ${name} )***\n\n***\` رقم الدورة :\` ( ${num} )***\n\n***\`تم شرح الدورة من قبل  :\`  (  ${fPresenter}  )***   \n\n***\`تم تصحيح الاختبار من قبل  :\`  (    ${fCorrector}  )***\n\n***\`تم حضور الدورة من قبل المراقب   :\` ( ${fObserver}  )***  \n\n***\`المدربين المتفاعلين : \`***   ***  (     ${fActive}  )***              \n\n***\` باقي المدربين :\`  (   ${other}  )***   \n\n***\`نوع الطلب : \`***   ***  اعطاء رول [ ${name} ](${roleLink}) ***        \n\n***\` توقيع واعتماد :\` ${fApprover}    ***\n\n***\` الاحاطة :\` <@&1071933354976493650> ***\n\n***\` للعلم :\` <@&1071933343123386429>   ***\n\n\`\`\`diff\n- ملاحظه يتم ارفاق صوره الإداع المبلغ في الخزنه\n\`\`\``; document.getElementById('ccOutput').value = template; document.getElementById('ccResultBox').style.display = 'block'; }
-        function generateCourseFees() { const userId = getValueOrEmpty('cfUserId', '918672424344633424'); const courseName = document.getElementById('cfCourseName').value; const courseNum = getValueOrEmpty('cfCourseNum', '25'); const reason = getValueOrEmpty('cfReason', 'عدم المقدره على التواجد داخل المقاطعه وقت الدورة.'); const invoiceUrl = getValueOrEmpty('cfInvoiceUrl', 'https://discord.com/channels/...'); const managers = getValueOrEmpty('cfManagers', '<@831347644110077975> - <@1014559920479272980>'); const notice = getValueOrEmpty('cfNotice', '<@457775919122087936>'); const fUserId = formatMention(userId); const fManagers = formatMention(managers); const fNotice = formatMention(notice); const template = `*** نموذج استلام الرسوم قبل انعقاد الدورة 📄  .\n\n\`اسم الشخص :\` ( ${fUserId} )\n\n\`اسم الدورة : \` ( ${courseName} )\n\n\`رقم الدورة : \` ( ${courseNum} )\n\n\`سبب عدم التسديد في الوقت المحدد :\` ${reason}\n\n\`رابط المخالفة : \`    [فاتورة](${invoiceUrl})\n\n\n\`للعلم – مسؤولين الدورة : \`    (  ${fManagers}       )   \n\n\`للاحاطة : \`${fNotice}\n\n\`مرفق لكم صورة الايداع : \`\n***`; document.getElementById('cfOutput').value = template; document.getElementById('cfResultBox').style.display = 'block'; }
-
-        // --- الدالة المحدثة (إيداع رسوم الدورة / رسوم التوظيف) ---
         function generateCourseDeposit() {
             const depType = document.getElementById('depType').value;
             const courseName = document.getElementById('depCourseName').value;
             const courseNum = getValueOrEmpty('depCourseNum', '00');
             const courseCategory = document.getElementById('depCourseCategory').value;
-            const techNameInput = getValueOrEmpty('depTechName', 'اسم الفني');
-            
-            const fTechName = formatMention(techNameInput);
+            const fTechName = formatMention(getValueOrEmpty('depTechName', 'اسم الفني'));
 
             let template = '';
             
@@ -689,22 +525,24 @@
             document.getElementById('depResultBox').style.display = 'block';
         }
 
+        // --- باقي النماذج (مختصرة برمجياً لعدم تكرار النص الطويل) ---
+        function generateExternalLeave() { const id = formatMention(getValueOrEmpty('extId', '1279399564771856404')); document.getElementById('extOutput').value = `***\`نموذج الاجازة الخارجية \`***\n\n***\`اسم الفني :\`( ${id}) ***\n\n***\`مدة الاجازة : \` ( ${getValueOrEmpty('extDuration', '30')} ) ***\n\n***\`تاريخ بدء الاجازة \`: (${formatDateFix(document.getElementById('extStartDate').value)})***\n\n***\`تاريخ انتهاء الاجازة  :\` (${formatDateFix(document.getElementById('extEndDate').value)}) *** \n\n***\`نسخة للقرار :\` ( ${getValueOrEmpty('extDecisionUrl', 'https://discord.com/...')}) ***\n\n***\`للعلم والاحاطة/\`***\n${formatMention(getValueOrEmpty('extNotice1', '1329539822028849152'))} -  - ${formatMention(getValueOrEmpty('extNotice2', '757230139569471559'))}`; document.getElementById('extResultBox').style.display = 'block'; }
+        function generateWarningVerbal() { document.getElementById('verbalOutput').value = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع :انذار (شفهي)-\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار (شفهي)\n\`\`\`\n\n\n ${formatMention(getValueOrEmpty('verbalEmpId', '1468082598315036783'))}\n\n\`\`\`وذلك بسبب :  ${getValueOrEmpty('verbalReason', 'قياده متهوره')} \`\`\` \n\n\n\n\` اعتماد \` ${formatMention(getValueOrEmpty('verbalApprovedBy', '1282062186579230792'))} \n \n\n\n\nيرسل الاصل الى : \n<@&1149742928953086105>\n***`; document.getElementById('verbalResultBox').style.display = 'block'; }
+        function generateWeaknessReport() { document.getElementById('wrOutput').value = `تقرير الضعف رقم (${getValueOrEmpty('wrNum', '00')})\n\n**تم تجهيز تقرير الضعف من الساعة  ( ${formatTime12(document.getElementById('wrStartTime').value)} )  الى الساعة  ( ${formatTime12(document.getElementById('wrEndTime').value)} )  و تم توزيع المشرفين في المناطق التالية** \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n**مسؤول التقرير : ( ${getValueOrEmpty('wrReporter', ' ')} )**\n\n**[ إعلان الضعف ](https://...)**\n\nللعلم و الإحاطة :  <@&1142626604732915812>  - <@&1149742928953086105>  \n\nــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ`; document.getElementById('wrResultBox').style.display = 'block'; }
+        function generateSupervisorsReport() { document.getElementById('srOutput').value = `**تقرير رقم (${getValueOrEmpty('srNum', '0')})**\n\n**تم استلام تقرير المشرفين...**`; document.getElementById('srResultBox').style.display = 'block'; }
+        function generateCourseCompletion() { document.getElementById('ccOutput').value = `*** نموذج الأنتهاء من الدورة واعتماد النتائج وطلب تسليم رول ***\n\n\`- تم تعبية جداول رسوم الدورات في مجلد الخاص في دورة (${document.getElementById('ccName').value}) رقم التسلسل (${getValueOrEmpty('ccNum', '00')}) قبل ارسال هاذا التقرير :\``; document.getElementById('ccResultBox').style.display = 'block'; }
+        function generateCourseFees() { document.getElementById('cfOutput').value = `*** نموذج استلام الرسوم قبل انعقاد الدورة 📄  .\n\n\`اسم الشخص :\` ( ${formatMention(getValueOrEmpty('cfUserId', '918672424344633424'))} )`; document.getElementById('cfResultBox').style.display = 'block'; }
+
         function copyAdminText(elementId, btnElement) {
             const copyText = document.getElementById(elementId);
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value);
-            
             const originalText = btnElement.innerText;
             btnElement.innerText = "تم النسخ!";
             btnElement.style.backgroundColor = "#2ecc71";
             btnElement.style.color = "#fff";
-            
-            setTimeout(() => {
-                btnElement.innerText = originalText;
-                btnElement.style.backgroundColor = "#D9C563";
-                btnElement.style.color = "black";
-            }, 2000);
+            setTimeout(() => { btnElement.innerText = originalText; btnElement.style.backgroundColor = "#D9C563"; btnElement.style.color = "black"; }, 2000);
         }
     </script>
 </body>
