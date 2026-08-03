@@ -20,18 +20,28 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* =========================================
+           التنسيقات الزجاجية والذهبية المشتركة
+        ========================================= */
+        .glass { backdrop-filter: blur(12px); background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
+        .btn { transition: 0.3s; cursor: pointer; text-align: center; }
+        .btn:hover { transform: scale(1.03); filter: brightness(1.1); }
+        .gold-theme { background-color: #D9C563 !important; color: black !important; font-weight: bold !important; border: 1px solid rgba(0,0,0,0.1); }
+        input.gold-theme, textarea.gold-theme { color: black !important; }
+        input.gold-theme::placeholder, textarea.gold-theme::placeholder { color: rgba(0, 0, 0, 0.6) !important; }
+        select.gold-theme option { background-color: white !important; color: black !important; }
+        .gold-theme:focus { outline: 2px solid rgba(0,0,0,0.3); }
+
+        /* =========================================
            القسم الأول: قسم الجرد والترقيات
         ========================================= */
         #section-promo { background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 24px; }
         #section-promo textarea { resize: none; }
-        #section-promo .glass { backdrop-filter: blur(12px); background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
-        #section-promo .btn { transition: 0.3s; }
-        #section-promo .btn:hover { transform: scale(1.03); filter: brightness(1.1); }
-        #section-promo .gold-theme { background-color: #D9C563 !important; color: black !important; font-weight: bold !important; border: 1px solid rgba(0,0,0,0.1); }
-        #section-promo input.gold-theme { color: black !important; }
-        #section-promo input.gold-theme::placeholder { color: rgba(0, 0, 0, 0.5) !important; }
-        #section-promo select.gold-theme option { background-color: white !important; color: black !important; }
-        #section-promo .gold-theme:focus { outline: 2px solid rgba(0,0,0,0.2); }
+
+        /* =========================================
+           القسم المضاف (فرز الترقيات للإكسل)
+        ========================================= */
+        #section-excel { background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 24px; }
+        #section-excel textarea { resize: none; }
 
         /* =========================================
            القسم الثاني: مقارنة التقارير
@@ -68,7 +78,7 @@
         @media (max-width: 800px) { #section-compare .grid-comp { grid-template-columns: 1fr; } #section-compare .container-comp { padding: 18px; } }
 
         /* =========================================
-           القسم الثالث: بوابة الشؤون الإدارية (النمط الذهبي المحدث)
+           القسم الثالث: بوابة الشؤون الإدارية
         ========================================= */
         #section-admin { background-image: url('https://i.postimg.cc/FF6ydVNz/Chat-GPT-Image-8-abryl-2026-11-35-51-m.png'); background-size: cover; background-position: center; background-attachment: fixed; padding: 32px 18px; }
         #section-admin header { text-align: center; margin-bottom: 30px; }
@@ -119,6 +129,7 @@
     <!-- شريط التنقل الرئيسي للمنصة -->
     <nav class="main-navbar">
         <button onclick="switchMainSection('promo', this)" class="main-tab-btn active">قسم الجرد والترقيات</button>
+        <button onclick="switchMainSection('excel', this)" class="main-tab-btn">فرز الترقيات (الإكسل)</button>
         <button onclick="switchMainSection('compare', this)" class="main-tab-btn">مقارنة التقارير</button>
         <button onclick="switchMainSection('admin', this)" class="main-tab-btn">الشؤون الإدارية</button>
     </nav>
@@ -153,18 +164,18 @@
                 <div class="flex-1">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="w-full md:w-1/2 glass p-4 rounded-2xl shadow-xl">
-                            <h2 class="text-white text-center mb-3 font-bold">✍️ إدخال النص الأصلي</h2>
+                            <h2 class="text-white text-center mb-3 font-bold border-b border-white/20 pb-2">✍️ إدخال النص الأصلي</h2>
                             <textarea id="inputText" class="w-full h-72 p-3 rounded-lg bg-black/60 text-white border border-white/10" placeholder="الصق السجلات هنا..."></textarea>
                             <button onclick="analyzeText()" class="btn w-full mt-3 py-2.5 rounded-lg gold-theme">تحليل سريع</button>
                         </div>
                         <div class="w-full md:w-1/2 glass p-4 rounded-2xl shadow-xl">
-                            <h2 class="text-white text-center mb-3 font-bold">🧹 النتيجة المستخرجة</h2>
+                            <h2 class="text-white text-center mb-3 font-bold border-b border-white/20 pb-2">🧹 النتيجة المستخرجة</h2>
                             <textarea id="cleanedText" class="w-full h-72 p-3 rounded-lg bg-black/60 text-green-400 border border-white/10" readonly></textarea>
                             <button onclick="copyPromoCleanText()" class="btn w-full mt-3 py-2.5 rounded-lg gold-theme">📋 نسخ النتيجة</button>
                         </div>
                     </div>
                     <div class="mt-8 glass p-5 rounded-2xl shadow-xl border border-yellow-400/30">
-                        <h2 class="text-white text-center mb-3 font-bold text-lg">📋 نموذج إعلان الترقيات الجاهز</h2>
+                        <h2 class="text-white text-center mb-3 font-bold text-lg border-b border-white/20 pb-2">📋 نموذج إعلان الترقيات الجاهز</h2>
                         <button onclick="generatePromotionForm()" class="btn w-full mb-3 py-3 rounded-lg gold-theme shadow-xl">⚡ توليد نموذج الترقيات للمستحقين</button>
                         <textarea id="promotionBox" class="w-full h-80 p-3 rounded-lg bg-black/60 text-yellow-100 border border-white/10" readonly></textarea>
                         <button onclick="copyPromotionText()" class="btn w-full mt-2 py-2.5 rounded-lg gold-theme">📋 نسخ النموذج للإرسال</button>
@@ -172,6 +183,79 @@
                 </div>
             </div>
             <p id="counter" class="text-center text-yellow-400 font-bold mt-4 text-lg drop-shadow-md"></p>
+        </div>
+    </div>
+
+    <!-- =========================================
+         القسم الجديد: فرز الترقيات للإكسل (تم توحيد الاستايل)
+    ========================================= -->
+    <div id="section-excel" class="main-section">
+        <div class="w-full max-w-7xl mx-auto p-6">
+            <h1 class="text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg">🧹 نظام فرز الترقيات للإكسل</h1>
+
+            <div class="flex flex-col md:flex-row gap-6 mb-6">
+                <!-- المربع الأول -->
+                <div class="w-full md:w-1/2 glass p-4 rounded-2xl shadow-xl">
+                    <h2 class="text-white text-center mb-3 font-bold border-b border-white/20 pb-2">✍️ 1. النموذج الأول (حالة الصح والخطأ)</h2>
+                    <textarea id="input1" class="w-full h-40 p-3 rounded-lg bg-black/60 text-white border border-white/10" placeholder="الصق النموذج الأول هنا..."></textarea>
+                </div>
+                <!-- المربع الثاني -->
+                <div class="w-full md:w-1/2 glass p-4 rounded-2xl shadow-xl">
+                    <h2 class="text-white text-center mb-3 font-bold border-b border-white/20 pb-2">✍️ 2. النموذج الثاني (الأسماء والبيانات)</h2>
+                    <textarea id="input2" class="w-full h-40 p-3 rounded-lg bg-black/60 text-white border border-white/10" placeholder="الصق النموذج الثاني هنا..."></textarea>
+                </div>
+            </div>
+
+            <button onclick="runProcess()" class="btn w-full mb-6 py-3 rounded-lg gold-theme shadow-xl text-lg">🔄 فرز وتجهيز البيانات للإكسل</button>
+
+            <!-- النتائج -->
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- مستحق الترقية -->
+                <div class="w-full lg:w-1/2 glass p-5 rounded-2xl shadow-xl border border-green-500/30">
+                    <h2 class="text-green-400 text-center mb-4 font-bold text-lg border-b border-white/20 pb-2">✅ مستحق الترقية</h2>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyColumn('promotedTable', 0, this)">📋 الأسماء</button>
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyColumn('promotedTable', 1, this)">📋 الديسكورد</button>
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyColumn('promotedTable', 2, this)">📋 التاريخ</button>
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyTable('promotedTable', this)">📋 الجدول كامل</button>
+                    </div>
+                    <div class="overflow-y-auto max-h-80 rounded-lg border border-white/10 bg-black/60">
+                        <table id="promotedTable" class="w-full text-right border-collapse text-white">
+                            <thead class="bg-black/80 text-[#D9C563] sticky top-0 shadow-md">
+                                <tr>
+                                    <th class="p-3 border border-white/10 w-[35%]">الإسم</th>
+                                    <th class="p-3 border border-white/10 w-[35%]">Discord 💻</th>
+                                    <th class="p-3 border border-white/10 w-[30%]">التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="promotedBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- غير مستحق الترقية -->
+                <div class="w-full lg:w-1/2 glass p-5 rounded-2xl shadow-xl border border-red-500/30">
+                    <h2 class="text-red-400 text-center mb-4 font-bold text-lg border-b border-white/20 pb-2">❌ غير مستحق الترقية</h2>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyColumn('demotedTable', 0, this)">📋 الأسماء</button>
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyColumn('demotedTable', 1, this)">📋 الديسكورد</button>
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyColumn('demotedTable', 2, this)">📋 التاريخ</button>
+                        <button class="btn flex-1 py-2.5 rounded-lg gold-theme text-sm" onclick="copyTable('demotedTable', this)">📋 الجدول كامل</button>
+                    </div>
+                    <div class="overflow-y-auto max-h-80 rounded-lg border border-white/10 bg-black/60">
+                        <table id="demotedTable" class="w-full text-right border-collapse text-white">
+                            <thead class="bg-black/80 text-[#D9C563] sticky top-0 shadow-md">
+                                <tr>
+                                    <th class="p-3 border border-white/10 w-[35%]">الإسم</th>
+                                    <th class="p-3 border border-white/10 w-[35%]">Discord 💻</th>
+                                    <th class="p-3 border border-white/10 w-[30%]">التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="demotedBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -230,7 +314,7 @@
             </div>
         </div>
 
-        <!-- 1. إجازة داخلية -->
+        <!-- 1. إجازة داخلية (النموذج المحدث) -->
         <div id="leave" class="form-container active">
             <h2>إصدار إجازة داخلية</h2>
             <div class="form-group"><label>الموظف المستهدف:</label><select id="leaveUserType"><option value="الفني المحترم">فني</option><option value="المشرف المحترم">مشرف</option></select></div>
@@ -251,7 +335,7 @@
             <div class="result-box" id="leaveResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('leaveOutput', this)">نسخ الكود</button></div><textarea id="leaveOutput" readonly></textarea></div>
         </div>
 
-        <!-- 2. إجازة خارجية -->
+        <!-- باقي أقسام الإدارة (بدون تغيير) -->
         <div id="leave_external" class="form-container">
             <h2>إصدار إجازة خارجية</h2>
             <div class="form-group">
@@ -290,7 +374,6 @@
             <div class="result-box" id="extResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('extOutput', this)">نسخ الكود</button></div><textarea id="extOutput" readonly></textarea></div>
         </div>
 
-        <!-- 3. انتداب الإشراف -->
         <div id="delegation" class="form-container">
             <h2>إصدار انتداب الإشراف</h2>
             <div class="form-group"><label>معرّف الموظف (Discord ID):</label><input type="text" id="delId" placeholder="مثال: 1134737782712053880"></div>
@@ -313,7 +396,6 @@
             <div class="result-box" id="delResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('delOutput', this)">نسخ الكود</button></div><textarea id="delOutput" readonly></textarea></div>
         </div>
 
-        <!-- 4. إنذار وغرامة -->
         <div id="warning_fine" class="form-container">
             <h2>إصدار إنذار وظيفي وغرامة مالية</h2>
             <div class="tab-switcher">
@@ -365,7 +447,6 @@
             <div class="result-box" id="fineResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('fineOutput', this)">نسخ الكود</button></div><textarea id="fineOutput" readonly></textarea></div>
         </div>
 
-        <!-- 5. إنذار شفهي -->
         <div id="warning_verbal" class="form-container">
             <h2>إصدار إنذار شفهي</h2>
             <div class="form-group"><label>معرّف المخالف (ID):</label><input type="text" id="verbalEmpId"></div>
@@ -375,7 +456,6 @@
             <div class="result-box" id="verbalResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('verbalOutput', this)">نسخ الكود</button></div><textarea id="verbalOutput" readonly></textarea></div>
         </div>
 
-        <!-- 6. فصل واستقالة (القسم الذكي المحدث كلياً) -->
         <div id="termination" class="form-container">
             <h2>إصدار قرار فصل أو استقالة</h2>
             <div class="form-group">
@@ -440,7 +520,6 @@
             <div class="result-box" id="termResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('termOutput', this)">نسخ الكود</button></div><textarea id="termOutput" readonly></textarea></div>
         </div>
 
-        <!-- 7. تقرير الضعف -->
         <div id="weakness_report" class="form-container">
             <h2>توزيع تقرير الضعف</h2>
             <div class="row">
@@ -481,7 +560,6 @@
             <div class="result-box" id="wrResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('wrOutput', this)">نسخ الكود</button></div><textarea id="wrOutput" readonly></textarea></div>
         </div>
 
-        <!-- 8. تقرير المشرفين -->
         <div id="supervisors_report" class="form-container">
             <h2>تقرير المشرفين</h2>
             <div class="row">
@@ -527,7 +605,6 @@
             <div class="result-box" id="srResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('srOutput', this)">نسخ الكود</button></div><textarea id="srOutput" readonly></textarea></div>
         </div>
 
-        <!-- 9. إعتماد دورة -->
         <div id="course_completion" class="form-container">
             <h2>إعتماد نتائج دورة وطلب رول</h2>
             <div class="row">
@@ -564,7 +641,6 @@
             <div class="result-box" id="ccResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('ccOutput', this)">نسخ الكود</button></div><textarea id="ccOutput" readonly></textarea></div>
         </div>
 
-        <!-- 10. عذر رسوم الدورة -->
         <div id="course_fees" class="form-container">
             <h2>استلام عذر عدم دفع رسوم الدورة</h2>
             <div class="row">
@@ -592,7 +668,6 @@
             <div class="result-box" id="cfResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('cfOutput', this)">نسخ الكود</button></div><textarea id="cfOutput" readonly></textarea></div>
         </div>
 
-        <!-- 11. إيداع رسوم الدورة -->
         <div id="course_deposit" class="form-container">
             <h2>إيداع أموال الدورات في الخزنة</h2>
             <div class="form-group">
@@ -629,7 +704,6 @@
             <div class="result-box" id="depResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('depOutput', this)">نسخ الكود</button></div><textarea id="depOutput" readonly></textarea></div>
         </div>
 
-        <!-- 12. رصد الترقيات -->
         <div id="promo_track" class="form-container">
             <h2>إعلان رصد الترقيات</h2>
             <div class="row">
@@ -647,6 +721,7 @@
          الجافاسكريبت الشامل للمنصة
     ========================================= -->
     <script>
+        // التنقل بين الأقسام الرئيسية
         function switchMainSection(sectionId, btnElement) {
             document.querySelectorAll('.main-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.main-tab-btn').forEach(el => el.classList.remove('active'));
@@ -699,19 +774,15 @@
             copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value);
             const originalText = btnElement.innerText;
-            btnElement.innerText = "تم النسخ!";
-            btnElement.style.backgroundColor = "#2ecc71";
-            btnElement.style.color = "#fff";
+            btnElement.innerText = "✅ تم النسخ!";
             setTimeout(() => { 
                 btnElement.innerText = originalText; 
-                btnElement.style.backgroundColor = "#D9C563"; 
-                btnElement.style.color = "black"; 
             }, 2000);
         }
 
-        // =========================================
-        // دوال القسم الأول: الترقيات والجرد
-        // =========================================
+        /* =========================================
+           دوال القسم الأول: الترقيات والجرد
+        ========================================= */
         function getPromotionLevels() { 
             const level = document.getElementById("levelSelect").value; 
             const map = { "trainee": ["متدرب", "1"], "1": ["1", "2"], "2": ["2", "3"], "3": ["3", "4"], "4": ["4", "5"] }; 
@@ -775,9 +846,194 @@
         function copyPromotionText(){ navigator.clipboard.writeText(document.getElementById("promotionBox").value); alert("تم نسخ النموذج!"); }
         function resetPromoFields(){ document.getElementById("inputText").value = ""; document.getElementById("cleanedText").value = ""; document.getElementById("promotionBox").value = ""; document.getElementById("counter").textContent = ""; document.getElementById("startCode").value = ""; }
 
-        // =========================================
-        // دوال القسم الثاني: مقارنة التقارير
-        // =========================================
+        /* =========================================
+           دوال القسم الجديد: فرز الترقيات للإكسل
+        ========================================= */
+        function copyColumn(tableId, colIndex, btn) {
+            try {
+                let table = document.getElementById(tableId);
+                let rows = table.querySelectorAll('tbody tr');
+                if(rows.length === 0) { alert("لا توجد بيانات لنسخها!"); return; }
+                let colData = [];
+                rows.forEach(row => {
+                    let cells = row.querySelectorAll('td');
+                    if(cells.length > colIndex) {
+                        let val = cells[colIndex].innerText.trim();
+                        colData.push(val === '' ? '-' : val); 
+                    }
+                });
+                let finalString = colData.join('\n');
+                let tempTextarea = document.createElement('textarea');
+                tempTextarea.value = finalString;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+                
+                let originalText = btn.innerText;
+                btn.innerText = "✅ تم النسخ!";
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
+            } catch(e) { alert("حدث خطأ أثناء النسخ!"); }
+        }
+
+        function copyTable(tableId, btn) {
+            try {
+                let table = document.getElementById(tableId);
+                if(table.querySelectorAll('tbody tr').length === 0) { alert("لا توجد بيانات لنسخها!"); return; }
+                let range = document.createRange();
+                range.selectNode(table);
+                let sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(range);
+                document.execCommand("copy");
+                sel.removeAllRanges();
+                
+                let originalText = btn.innerText;
+                btn.innerText = "✅ تم النسخ!";
+                setTimeout(() => { btn.innerText = originalText; }, 2000);
+            } catch(e) { alert("حدث خطأ أثناء النسخ!"); }
+        }
+
+        function formatSmartDate(dateStr) {
+            if(!dateStr || dateStr === '-' || dateStr === '--') return '-';
+            dateStr = dateStr.replace(/[ر]/g, '').trim();
+            let parts = dateStr.split(/[\-\/]/);
+            if(parts.length === 3) {
+                let p1 = parseInt(parts[0], 10);
+                let p2 = parseInt(parts[1], 10);
+                let p3 = parseInt(parts[2], 10);
+                let day, month, year;
+                
+                if (p1 > 1000) { year = p1; if (p2 > 12) { day = p2; month = p3; } else { month = p2; day = p3; } } 
+                else if (p3 > 1000) { year = p3; if (p1 > 12) { day = p1; month = p2; } else if (p2 > 12) { month = p1; day = p2; } else { day = p1; month = p2; } } 
+                else { return dateStr; }
+                
+                if (month > 12) { let temp = day; day = month; month = temp; }
+                let dd = day < 10 ? '0' + day : day;
+                let mm = month < 10 ? '0' + month : month;
+                return `${year}-${mm}-${dd}`;
+            }
+            return dateStr;
+        }
+
+        function runProcess() {
+            try {
+                let t1 = document.getElementById('input1').value.trim();
+                let t2 = document.getElementById('input2').value.trim();
+                if (t1 === '' || t2 === '') { alert('الرجاء التأكد من تعبئة كلا المربعين بالبيانات!'); return; }
+
+                let m2Map = {};
+                let t2Temp = t2;
+                
+                while (true) {
+                    let idx = t2Temp.indexOf('مستوى');
+                    if (idx === -1) break;
+                    
+                    let rawName = t2Temp.substring(0, idx).trim();
+                    t2Temp = t2Temp.substring(idx);
+                    
+                    let levelMatch = t2Temp.match(/^(مستوى\s*\d+)/);
+                    let level = levelMatch ? levelMatch[1] : "مستوى 2";
+                    t2Temp = t2Temp.substring(level.length).trim();
+                    
+                    let idMatch = t2Temp.match(/^(<@\d+>)/);
+                    let id = null;
+                    if (idMatch) {
+                        id = idMatch[1];
+                        t2Temp = t2Temp.substring(id.length).trim();
+                    } else {
+                        let dashMatch = t2Temp.match(/^-+/);
+                        if (dashMatch) t2Temp = t2Temp.substring(dashMatch[0].length).trim();
+                    }
+                    
+                    let dateMatch = t2Temp.match(/^([0-9\-\/ر]+)/);
+                    let date = null;
+                    if (dateMatch) {
+                        date = dateMatch[1];
+                        t2Temp = t2Temp.substring(date.length).trim();
+                    } else {
+                        let dashMatch = t2Temp.match(/^-+/);
+                        if (dashMatch) t2Temp = t2Temp.substring(dashMatch[0].length).trim();
+                    }
+                    
+                    if (id) {
+                        let cleanName = rawName
+                            .replace(/فارغ💭/g, '')
+                            .replace(/منصب شاغر ⏳/g, '')
+                            .replace(/<@\d+>/g, '')
+                            .replace(/\b\d{17,19}\b/g, '')
+                            .replace(/ر?\d{1,4}[\-\/]\d{1,2}[\-\/]\d{1,4}ر?/g, '')
+                            .replace(/^-+|-+$/g, '')
+                            .trim();
+                            
+                        if (!cleanName) cleanName = "-";
+                        
+                        let cleanDate = null;
+                        if (date && date !== "-" && date !== "--") {
+                            cleanDate = date.replace(/[ر]/g, '').replace(/^-+|-+$/g, '').trim();
+                        }
+                        
+                        m2Map[id] = { name: cleanName, date: cleanDate };
+                    }
+                }
+
+                let promotedTrs = [];
+                let demotedTrs = [];
+                let m1Pieces = t1.split(/(?=<@)/);
+                
+                m1Pieces.forEach(p => {
+                    let idMatch = p.match(/<@\d+>/);
+                    if (!idMatch) return; 
+                    
+                    let id = idMatch[0];
+                    let cleanP = p.replace(/\s+/g, '');
+                    
+                    let status = cleanP.endsWith('❌') ? 'demoted' : 'promoted';
+                    if (cleanP.includes('✅') && !cleanP.endsWith('❌')) status = 'promoted';
+                    
+                    let fallbackDateMatch = p.match(/(\d{1,4}[\-\/]\d{1,2}[\-\/]\d{1,4})/);
+                    let fallbackDate = fallbackDateMatch ? fallbackDateMatch[1] : "-";
+                    
+                    let finalName = "-";
+                    let finalDate = fallbackDate;
+                    
+                    if (m2Map[id]) {
+                        if (m2Map[id].name && m2Map[id].name !== "-") finalName = m2Map[id].name;
+                        if (m2Map[id].date) finalDate = m2Map[id].date;
+                    }
+
+                    finalDate = formatSmartDate(finalDate);
+
+                    if (!finalName || finalName.trim() === '') finalName = "-";
+                    if (!finalDate || finalDate.trim() === '') finalDate = "-";
+                    
+                    let rowHtml = `
+                        <tr class="border-b border-white/10 hover:bg-white/5 transition">
+                            <td class="p-3 border-l border-white/10 text-right font-bold text-white text-sm">${finalName}</td>
+                            <td dir="ltr" class="p-3 border-l border-white/10 text-center font-bold text-[#D9C563] font-mono text-sm">${id}</td>
+                            <td dir="ltr" class="p-3 text-center font-bold text-gray-300 font-mono text-sm">${finalDate}</td>
+                        </tr>
+                    `;
+                    
+                    if (status === 'promoted') {
+                        promotedTrs.push(rowHtml);
+                    } else {
+                        demotedTrs.push(rowHtml);
+                    }
+                });
+
+                document.getElementById('promotedBody').innerHTML = promotedTrs.join('');
+                document.getElementById('demotedBody').innerHTML = demotedTrs.join('');
+
+            } catch (error) {
+                alert('حدث خطأ. تأكد من صحة البيانات المدخلة.');
+                console.error(error);
+            }
+        }
+
+        /* =========================================
+           دوال القسم الثاني: مقارنة التقارير
+        ========================================= */
         function unique(arr){ return [...new Set(arr)]; }
         function findDuplicates(arr){ const counts = {}; arr.forEach(item => counts[item] = (counts[item] || 0) + 1); return Object.keys(counts).filter(key => counts[key] > 1); }
         function escapeHtml(str){ return String(str).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;'); }
@@ -837,10 +1093,9 @@
         function clearCompFields(){ document.getElementById('supervisorText').value = ''; document.getElementById('technicalText').value = ''; document.getElementById('results').innerHTML = ''; }
         function copyCompResults(){ const results = document.getElementById('results').innerText.trim(); if(!results){ alert('لا توجد نتائج لنسخها.'); return; } navigator.clipboard.writeText(results).then(() => alert('تم نسخ النتائج.')).catch(() => alert('تعذر نسخ النتائج.')); }
 
-        // =========================================
-        // دوال القسم الثالث: الشؤون الإدارية
-        // =========================================
-
+        /* =========================================
+           دوال القسم الثالث: الشؤون الإدارية
+        ========================================= */
         function showAdminTab(tabId, btnElement) {
             document.querySelectorAll('#section-admin .form-container').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('#section-admin .nav-btn').forEach(el => el.classList.remove('active'));
@@ -848,7 +1103,7 @@
             btnElement.classList.add('active');
         }
 
-        // 1. الإجازة الداخلية
+        // 1. الإجازة الداخلية المحدثة (مدمجة لفني ومشرف)
         function calcLeaveDates() {
             let duration = parseInt(document.getElementById('leaveDuration').value) || 0;
             if(duration <= 0) return;
@@ -875,7 +1130,8 @@
             const endDate = formatDateFix(document.getElementById('endDate').value);
             const endTime = formatTime12(document.getElementById('endTime').value);
             
-            const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** ${id} \n\n***\`المــــدة :\`  ${duration} ساعة*** \n***\`الرصيد المتبقي :\`  ${remainingBalance} ساعة*** \n\n***من تاريخ ${startDate} | ${startTime} *** \n***الى تاريخ ${endDate} | ${endTime} *** \n\n***\`ملاحظة :\`*** \n***تنتهي اجازتك بنفس التوقيت اللي بترجع فية.*** \n\n***\`تنويهات هامة يجب قرائتها :\`*** \n\n***01/ تبدأ الإجازة الخاصة بك في وقتها المحدد، ويُمنع تغيير الوظيفة قبل المدة المحددة لبدء الإجازة.*** \n\n***02/ يجب العودة من الإجازة قبل انتهاء مدتها وتغيير الوظيفة إلى قطاع الميكانيك. من يخالف ذلك سيُعتبر تهرباً وظيفياً وستتم محاسبته من قِبل إدارة الكراج.*** \n\n***03/ في حال عندك عذر وقدمته بفتح تكت اجازة سيتم فقط تصفير اجازاتك مهما كان السبب وعدم اعطائك تهرب وظيفي.*** \n\n***04/ في حال تم سجنك رقابيا سيتم تطبيق العقوبه عليك حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). *** \n\n***كذلك في حال تعديت نص الاسبوع ( الثلاثاء ) او كان رصيدك اقل من نص اجماليك سيتم تصفيرك الاسبوع الحالي والقادم.*** \n\n***05/يسمح لمنسوبي القطاع تغيير اسمه داخل المقاطعه اثناء الاجازه الداخليه حسب [قوانين الاجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155). ***\n\n\`\`\`diff\n-يجب مراجعة قوانين الاجازات جهلك بالقوانين لا يعفيك من العقوبه\n\`\`\`\n\n*** <@&1149742928953086105>***`;
+            // القالب الجديد والموحد حسب طلبك
+            const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** ${id} \n\n***\`المــــدة :\` ${duration} ساعة*** \n***\`الرصيد المتبقي :\` ${remainingBalance} ساعة*** \n\n***من تاريخ ${startDate} ${startTime}*** \n***الى تاريخ ${endDate} ${endTime} *** \n\n\n***يجب قراءة كامل [قوانين الإجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155) والافادة بالاستلام بوضع رياكشن ***\n\n\`جهلك بالقوانين لا يعفيك من العقوبة\`*** \n<@&1149742928953086105>  ***`;
             
             document.getElementById('leaveOutput').value = template; 
             document.getElementById('leaveResultBox').style.display = 'block';
@@ -978,7 +1234,7 @@
                 const approvedBy = formatMention(getValueOrEmpty('fineApprovedBySup', '1129397195116920863'));
                 const superSign = formatMention(getValueOrEmpty('fineSuperSign', '451806885419679765'));
                 const treasuryId = formatMention(getValueOrEmpty('fineTreasuryIdSup', '680393068469682256'));
-                template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : انذار ${supType} ${titleDeg} و غرامه مالية \n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار ${titleDeg}  (${supType})\nثانياً :غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج \`\`\`\n\n\n${empId}\n\n\`\`\`وذلك بسبب :  ${reason}                                                               \n    \`\`\` \n\n\n\n\`اعتماد : \`\n${approvedBy} \n<@&1142626604732915812> \n\n\`توقيع مسؤول الإشراف : \`\n${superSign} \n<@&1092120226478428200>\n\n\`توقيع مدير الخزينة : \`\n${treasuryId} \n<@&1071933343123386429>\n\n\n\n<@&1149742928953086105>***`;
+                template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : انذار ${supType} ${titleDeg} و غرامه مالية \n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام المخالفات والعقوبات الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: انذار ${titleDeg}  (${supType})\nثانياً :غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج \`\`\`\n\n\n${empId}\n\n\`\`\`وذلك بسبب :  ${reason}                                                       \n    \`\`\` \n\n\n\n\`اعتماد : \`\n${approvedBy} \n<@&1142626604732915812> \n\n\`توقيع مسؤول الإشراف : \`\n${superSign} \n<@&1092120226478428200>\n\n\`توقيع مدير الخزينة : \`\n${treasuryId} \n<@&1071933343123386429>\n\n\n\n<@&1149742928953086105>***`;
             }
             document.getElementById('fineOutput').value = template; document.getElementById('fineResultBox').style.display = 'block';
         }
@@ -992,37 +1248,26 @@
             document.getElementById('verbalOutput').value = template; document.getElementById('verbalResultBox').style.display = 'block';
         }
 
-        // =========================================
-        // 6. فصل واستقالة (القسم الذكي المحدث كلياً)
-        // =========================================
+        // 6. فصل واستقالة
         function toggleTermFields() {
             const type = document.getElementById('termType').value;
             
-            // إخفاء أو إظهار حقول الغرامة
             const noFineTypes = ['tech_resign_234', 'cert_resign_2_9', 'sup_retire'];
-            if (noFineTypes.includes(type)) {
-                document.getElementById('termFineDiv').style.display = 'none';
-            } else {
-                document.getElementById('termFineDiv').style.display = 'flex';
-            }
+            if (noFineTypes.includes(type)) { document.getElementById('termFineDiv').style.display = 'none'; } 
+            else { document.getElementById('termFineDiv').style.display = 'flex'; }
 
-            // حقل المنع النهائي للمشرف
             if(type === 'sup_dismiss') { document.getElementById('termSupBanDiv').style.display = 'flex'; } 
             else { document.getElementById('termSupBanDiv').style.display = 'none'; document.getElementById('termPermBan').checked = false; }
             
-            // حقول التوقيع الخاصة بالمشرف المفصول
             if(type === 'sup_dismiss') { document.getElementById('termSupRoleDiv').style.display = 'block'; } 
             else { document.getElementById('termSupRoleDiv').style.display = 'none'; }
             
-            // حقول التوقيع الخاصة بتقاعد المشرف
             if(type === 'sup_retire') { document.getElementById('termSupRetireDiv').style.display = 'block'; } 
             else { document.getElementById('termSupRetireDiv').style.display = 'none'; }
 
-            // حقول المعتمد الخاصة
             if(type.startsWith('cert_resign')) { document.getElementById('termCertDiv').style.display = 'block'; } 
             else { document.getElementById('termCertDiv').style.display = 'none'; }
             
-            // تغيير مسمى حقل الاعتماد ليتناسب مع النموذج
             if(type === 'sup_retire') {
                  document.getElementById('termApproverLabel').innerText = 'توقيع (ID):';
             } else if(type === 'tech_resign_234') {
@@ -1031,7 +1276,6 @@
                  document.getElementById('termApproverLabel').innerText = 'الاعتماد الرئيسي (ID):';
             }
 
-            // بناء قائمة المستويات الذكية بناءً على الاختيار
             const levelDiv = document.getElementById('termLevelDiv');
             const levelSelect = document.getElementById('termLevelSelect');
             levelSelect.innerHTML = '';
@@ -1044,9 +1288,7 @@
                 levelSelect.innerHTML = '<option value="2">2</option><option value="3">3</option><option value="4">4</option>';
             } else if (type === 'cert_resign_2_9') {
                 levelDiv.style.display = 'block';
-                for(let i=2; i<=9; i++) {
-                    levelSelect.innerHTML += `<option value="${i}">${i}</option>`;
-                }
+                for(let i=2; i<=9; i++) { levelSelect.innerHTML += `<option value="${i}">${i}</option>`; }
             } else if (type === 'sup_retire') {
                 levelDiv.style.display = 'block';
                 levelSelect.innerHTML = '<option value="7">7</option><option value="8">8</option><option value="9">9</option>';
@@ -1060,12 +1302,11 @@
             const id = formatMention(getValueOrEmpty('termEmpId'));
             const nameCode = getValueOrEmpty('termNameCode', '[G-000] اسم الموظف');
             const amount = getValueOrEmpty('termAmount', '1,000,000');
-            let reason = getValueOrEmpty('termReason', 'تهرب وظيفي'); // الافتراضي
+            let reason = getValueOrEmpty('termReason', 'تهرب وظيفي'); 
             const url = getValueOrEmpty('termUrl', 'https://discord.com/...');
             const approver = formatMention(getValueOrEmpty('termApprover', '1139633117875933325'));
             const level = document.getElementById('termLevelSelect').value;
             
-            // حقن الأسباب آلياً للاستقالات والتقاعد
             if (type === 'tech_resign_1') reason = `استقالة برتبة مستوى (${level})`;
             if (type === 'tech_resign_234') reason = `استقالة برتبة مستوى (${level}) بناءاً على طلبه`;
             if (type.startsWith('cert_resign')) reason = `استقالة برتبة مستوى (${level})`;
@@ -1092,9 +1333,9 @@
                 
                 if (type === 'cert_resign_1') {
                     fineClause = `\nثانياً:غرامه مالية قدرها ${amount} تسلم الى خزينة الكراج`;
-                    invoiceClause = `\n\`نوع السحب : \` [فاتوره](${url}) \n\n\`اعتماد:\` ${approver} \n\n\`اعتماد مدير قسم شؤون المعتمدين:\`\n${manager}\n<@&1092120390324731994>  \n\n\`توقيع مدير الخزينة: \`\n<@680393068469682256>\n<@&1071933343123386429>\n\n\`للمتابعة:\`\n( ${followup}   )`;
+                    invoiceClause = `\n\`نوع السحب : \` [فاتوره](${url}) \n\n\`اعتماد:\` ${approver} \n\n\`اعتماد مدير قسم شؤون المعتمدين:\`\n${manager}\n<@&1092120390324731994>  \n\n\`توقيع مدير الخزينة: \`\n<@680393068469682256>\n<@&1071933343123386429>\n\n\`للمتابعة:\`\n( ${followup}    )`;
                 } else {
-                    invoiceClause = `\n\`اعتماد:\` ${approver} \n\n\`اعتماد مدير قسم شؤون المعتمدين:\`\n${manager}\n<@&1092120390324731994>  \n\n\`للمتابعة:\`\n( ${followup}   )`;
+                    invoiceClause = `\n\`اعتماد:\` ${approver} \n\n\`اعتماد مدير قسم شؤون المعتمدين:\`\n${manager}\n<@&1092120390324731994>  \n\n\`للمتابعة:\`\n( ${followup}    )`;
                 }
 
                 template = `*** ▬▬▬ ﷽ ▬▬\n\`\`\`diff\n\n-الموضوع : قرار انهاء خدمات المعتمد\n\`\`\`\n\`\`\`cs\n# بعد الاطلاع على نظام التوظيف والترقيات وانهاء الخدمة الصادر من ادارة الكراج قررنا مايلي \n \nاولاً: تنهى خدمات المعتمد ادناه اعتبارا من تاريخه${fineClause}\n\`\`\`\n\n${id}\n${nameCode}\n\`\`\`وذلك بسبب : ${reason} \`\`\`\n${invoiceClause}\n\nيرسل الاصل الى : \n<@&1149742928953086105> ***`;
@@ -1107,9 +1348,7 @@
             document.getElementById('termResultBox').style.display = 'block';
         }
 
-        // =========================================
         // 7. تقرير الضعف
-        // =========================================
         function generateWeaknessReport() {
             const num = getValueOrEmpty('wrNum', '00');
             const start = formatTime12(document.getElementById('wrStartTime').value); const end = formatTime12(document.getElementById('wrEndTime').value);
@@ -1124,9 +1363,7 @@
             document.getElementById('wrOutput').value = template; document.getElementById('wrResultBox').style.display = 'block';
         }
 
-        // =========================================
         // 8. تقرير المشرفين
-        // =========================================
         function generateSupervisorsReport() {
             const num = getValueOrEmpty('srNum', '0');
             const start = formatTime12(document.getElementById('srStartTime').value); const end = formatTime12(document.getElementById('srEndTime').value);
@@ -1143,9 +1380,7 @@
             document.getElementById('srOutput').value = template; document.getElementById('srResultBox').style.display = 'block';
         }
 
-        // =========================================
         // 9. إعتماد دورة
-        // =========================================
         function generateCourseCompletion() {
             const type = document.getElementById('ccType').value; const name = document.getElementById('ccName').value; const num = getValueOrEmpty('ccNum', '00');
             const fPresenter = formatMention(getValueOrEmpty('ccPresenter', '756922960589094913')); const fCorrector = formatMention(getValueOrEmpty('ccCorrector', '783375365623906354')); const fObserver = formatMention(getValueOrEmpty('ccObserver', '757230139569471559'));
@@ -1156,9 +1391,7 @@
             document.getElementById('ccOutput').value = template; document.getElementById('ccResultBox').style.display = 'block';
         }
 
-        // =========================================
         // 10. عذر رسوم الدورة
-        // =========================================
         function generateCourseFees() {
             const fUserId = formatMention(getValueOrEmpty('cfUserId', '918672424344633424')); const courseName = document.getElementById('cfCourseName').value; const courseNum = getValueOrEmpty('cfCourseNum', '25');
             const reason = getValueOrEmpty('cfReason', 'عدم المقدره على التواجد داخل المقاطعه وقت الدورة.'); const invoiceUrl = getValueOrEmpty('cfInvoiceUrl', 'https://discord.com/channels/...');
@@ -1168,9 +1401,7 @@
             document.getElementById('cfOutput').value = template; document.getElementById('cfResultBox').style.display = 'block';
         }
 
-        // =========================================
         // 11. إيداع رسوم الدورة
-        // =========================================
         function toggleDepositFields() {
             const depType = document.getElementById('depType').value; const courseName = document.getElementById('depCourseName').value;
             const techDiv = document.getElementById('depTechDiv'); const catDiv = document.getElementById('depCategoryDiv');
@@ -1204,9 +1435,7 @@
             document.getElementById('depOutput').value = template; document.getElementById('depResultBox').style.display = 'block';
         }
 
-        // =========================================
         // 12. رصد الترقيات
-        // =========================================
         function generatePromoTrack() {
             const day = getValueOrEmpty('ptDay', 'الاربعاء'); const time = getValueOrEmpty('ptTime', '0:00 م');
             
