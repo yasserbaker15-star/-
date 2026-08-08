@@ -187,7 +187,7 @@
     </div>
 
     <!-- =========================================
-         القسم الجديد: فرز الترقيات للإكسل (تم توحيد الاستايل)
+         القسم الجديد: فرز الترقيات للإكسل
     ========================================= -->
     <div id="section-excel" class="main-section">
         <div class="w-full max-w-7xl mx-auto p-6">
@@ -314,7 +314,7 @@
             </div>
         </div>
 
-        <!-- 1. إجازة داخلية (النموذج المحدث) -->
+        <!-- 1. إجازة داخلية -->
         <div id="leave" class="form-container active">
             <h2>إصدار إجازة داخلية</h2>
             <div class="form-group"><label>الموظف المستهدف:</label><select id="leaveUserType"><option value="الفني المحترم">فني</option><option value="المشرف المحترم">مشرف</option></select></div>
@@ -335,7 +335,6 @@
             <div class="result-box" id="leaveResultBox"><div class="result-header"><div class="result-label">الكود الجاهز:</div><button class="copy-btn" onclick="copyAdminText('leaveOutput', this)">نسخ الكود</button></div><textarea id="leaveOutput" readonly></textarea></div>
         </div>
 
-        <!-- باقي أقسام الإدارة (بدون تغيير) -->
         <div id="leave_external" class="form-container">
             <h2>إصدار إجازة خارجية</h2>
             <div class="form-group">
@@ -765,7 +764,10 @@
             hours = hours % 12; hours = hours ? hours : 12; 
             return `${hours}:${minutes} ${ampm}`;
         }
-        function formatDateFix(dateStr) { if (!dateStr) return "2026/00/00"; return dateStr.replace(/-/g, '/'); }
+        function formatDateFix(dateStr) { 
+            if (!dateStr) return "2026-00-00"; 
+            return dateStr.replace(/\//g, '-'); 
+        }
         function getValueOrEmpty(id, fallback = "") { return document.getElementById(id).value || fallback; }
 
         function copyAdminText(elementId, btnElement) {
@@ -911,6 +913,7 @@
                 if (month > 12) { let temp = day; day = month; month = temp; }
                 let dd = day < 10 ? '0' + day : day;
                 let mm = month < 10 ? '0' + month : month;
+                // إرجاع التاريخ بصيغة YYYY-MM-DD
                 return `${year}-${mm}-${dd}`;
             }
             return dateStr;
@@ -921,6 +924,13 @@
                 let t1 = document.getElementById('input1').value.trim();
                 let t2 = document.getElementById('input2').value.trim();
                 if (t1 === '' || t2 === '') { alert('الرجاء التأكد من تعبئة كلا المربعين بالبيانات!'); return; }
+
+                // تحديد تاريخ اليوم بصيغة YYYY-MM-DD
+                const d = new Date();
+                const yyyy = d.getFullYear();
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const dd = String(d.getDate()).padStart(2, '0');
+                const todayDateStr = `${yyyy}-${mm}-${dd}`;
 
                 let m2Map = {};
                 let t2Temp = t2;
@@ -1002,10 +1012,15 @@
                         if (m2Map[id].date) finalDate = m2Map[id].date;
                     }
 
-                    finalDate = formatSmartDate(finalDate);
-
                     if (!finalName || finalName.trim() === '') finalName = "-";
-                    if (!finalDate || finalDate.trim() === '') finalDate = "-";
+
+                    // تعديل التاريخ ليكون تاريخ اليوم للمستحقين بالصيغة YYYY-MM-DD
+                    if (status === 'promoted') {
+                        finalDate = todayDateStr;
+                    } else {
+                        finalDate = formatSmartDate(finalDate);
+                        if (!finalDate || finalDate.trim() === '') finalDate = "-";
+                    }
                     
                     let rowHtml = `
                         <tr class="border-b border-white/10 hover:bg-white/5 transition">
@@ -1103,7 +1118,7 @@
             btnElement.classList.add('active');
         }
 
-        // 1. الإجازة الداخلية المحدثة (مدمجة لفني ومشرف)
+        // 1. الإجازة الداخلية المحدثة 
         function calcLeaveDates() {
             let duration = parseInt(document.getElementById('leaveDuration').value) || 0;
             if(duration <= 0) return;
@@ -1130,7 +1145,7 @@
             const endDate = formatDateFix(document.getElementById('endDate').value);
             const endTime = formatTime12(document.getElementById('endTime').value);
             
-            // القالب الجديد والموحد حسب طلبك
+            // القالب الجديد والموحد
             const template = `***\` إجازة داخلية \`*** \n\n***\`${userType} :\`*** ${id} \n\n***\`المــــدة :\` ${duration} ساعة*** \n***\`الرصيد المتبقي :\` ${remainingBalance} ساعة*** \n\n***من تاريخ ${startDate} ${startTime}*** \n***الى تاريخ ${endDate} ${endTime} *** \n\n\n***يجب قراءة كامل [قوانين الإجازات](https://discord.com/channels/1071933157097615480/1071934713524133918/1500101205320536155) والافادة بالاستلام بوضع رياكشن ***\n\n\`جهلك بالقوانين لا يعفيك من العقوبة\`*** \n<@&1149742928953086105>  ***`;
             
             document.getElementById('leaveOutput').value = template; 
